@@ -2,7 +2,7 @@ import "./Home.css"
 
 function Home() {
   return (
-    <div>welcome</div>
+    <div>e-commerce</div>
   )
 }
 
