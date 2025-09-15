@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar/Navbar.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import { Outlet } from 'react-router-dom';
+import Newsletter from './../components/Newsletter/Newsletter';
 
 const MainLayout = () => {
   return (
@@ -9,6 +10,7 @@ const MainLayout = () => {
       <main>
         <Outlet /> 
       </main>
+      <Newsletter />
       <Footer />
     </>
   );
