@@ -1,0 +1,83 @@
+.dueto{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    background-color: #49BFAA;
+}
+.duetotext{
+    font-size: 12px;
+    padding-top: 8px;
+}
+ul{
+    list-style: none;
+    
+}
+ul a{
+    text-decoration: none;
+    color: #3E445A;
+}
+.line-vertical{
+    width: .5px;
+    height: 7px;
+    background-color: black;
+}
+.number{
+    color: #49BFAA;
+}
+.select{
+    border: none;
+}
+.user{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: .5px solid ;
+    border-radius: 50%;
+}
+.cart{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color:#F2E5E4;
+    border-radius: 50%;
+}
+.cart i{
+    color: red;
+}
+.cart span{
+    color: white;
+    margin-bottom: 2px;
+}
+
+.navbar2{
+    width: 75%;
+    margin: auto;
+}
+.TotalProducts{
+position: relative;
+}
+.allcategories{
+    width: 200px;
+    height: 50px;
+    background-color: #49BFAA;
+    color: white;
+    border-radius: 25px;
+    line-height: 40px  ;
+    font-size: 15px;
+}
+.allcategories i{
+    padding-top: 12px;
+}
+.total50{
+    background-color:#F3F4F7 ;
+    position: absolute;
+    z-index: 1;
+    transform: translate(20%,-50%);
+    border-radius: 10px;
+    font-size: 10px;
+    width: 120px;
+    text-align: center;
+}
+.navul{
+    width: 70%;
+}
