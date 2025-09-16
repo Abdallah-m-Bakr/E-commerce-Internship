@@ -42,10 +42,11 @@ footer a:hover {
   color: #000;
 }
 .icon-social-media{
-    font-size: 24px;
-    width: 48px;
+    font-size: 28px;
+    /* width: 45px; */
+    /* height: 45px; */
     color: #26A69A;
     border: 1px solid #333;
     border-radius: 50%;
-    padding: 10px;
+    /* padding: 10px; */
 }
