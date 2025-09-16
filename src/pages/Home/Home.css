@@ -87,3 +87,32 @@
     align-items: center;
     font-weight: bold;
 }
+.offer-card .top-card .offer{
+    border-radius: var(--border);
+    background-color: var(--hover-color);
+    color: #fff;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.offer-card .body-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-decoration: line-through; */
+}
+.offer-card .body-card .bar{
+    width: 90%;
+    background-color: rgb(194, 194, 194);
+    height: 10px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+.offer-card .body-card .bar div{
+    width: 90%;
+    background-color: var(--active-color);
+    height: 100%;
+    border-radius: 15px;
+}

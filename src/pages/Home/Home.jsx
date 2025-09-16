@@ -29,21 +29,121 @@ function Home() {
             <p>ut placerat, magna quis porttitor vulputate, magna nunc ante.</p>
           </span>
           <div className="counter">
-            <div className="days bg-danger text-light">71</div><span>:</span>
-            <div className="hours bg-danger text-light">14</div><span>:</span>
-            <div className="min bg-danger text-light">43</div><span>:</span>
+            <div className="days bg-danger text-light">71</div><b>:</b>
+            <div className="hours bg-danger text-light">14</div><b>:</b>
+            <div className="min bg-danger text-light">43</div><b>:</b>
             <div className="sec bg-danger text-light">16</div>
           </div>
         </div>
-        <div className="offer-cards">
-          <div className="offer-card">
-            <div className="top-card">
-              {/* <img src="/public/images/img1.jpg" alt="" /> */}
-              <div className="offer">25%</div>
+        <div className="offer-cards border border-danger border-2 rounded d-flex row row-cols-md-5 row-cols-12">
+          <div className="offer-card col border border-1">
+            <div className="top-card position-relative">
+              <img src="/images/img1.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
             </div>
-            <div className="body-card">
+            <div className="body-card p-3">
               <h5 className="title">title</h5>
-              <div className="rite"></div>
+              <div className="rate">
+                <div></div>
+                <span>1 review</span>
+              </div>
+              <div className="offer-price d-flex gap-2">
+                <div className="before-offer text-decoration-line-through">$9.99</div>
+                <div className="after-offer">$7.50</div>
+              </div>
+              <div className="bar">
+                <div className=""></div>
+                <hr />
+              </div>
+              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+            </div>
+          </div>
+          <div className="offer-card col border border-1">
+            <div className="top-card position-relative">
+              <img src="/images/img1.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+            </div>
+            <div className="body-card p-3">
+              <h5 className="title">title</h5>
+              <div className="rate">
+                <div></div>
+                <span>1 review</span>
+              </div>
+              <div className="offer-price d-flex gap-2">
+                <div className="before-offer text-decoration-line-through">$9.99</div>
+                <div className="after-offer">$7.50</div>
+              </div>
+              <div className="bar">
+                <div className=""></div>
+                <hr />
+              </div>
+              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+            </div>
+          </div>
+          <div className="offer-card col border border-1">
+            <div className="top-card position-relative">
+              <img src="/images/img1.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+            </div>
+            <div className="body-card p-3">
+              <h5 className="title">title</h5>
+              <div className="rate">
+                <div></div>
+                <span>1 review</span>
+              </div>
+              <div className="offer-price d-flex gap-2">
+                <div className="before-offer text-decoration-line-through">$9.99</div>
+                <div className="after-offer">$7.50</div>
+              </div>
+              <div className="bar">
+                <div className=""></div>
+                <hr />
+              </div>
+              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+            </div>
+          </div>
+          <div className="offer-card col border border-1">
+            <div className="top-card position-relative">
+              <img src="/images/img1.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+            </div>
+            <div className="body-card p-3">
+              <h5 className="title">title</h5>
+              <div className="rate">
+                <div></div>
+                <span>1 review</span>
+              </div>
+              <div className="offer-price d-flex gap-2">
+                <div className="before-offer text-decoration-line-through">$9.99</div>
+                <div className="after-offer">$7.50</div>
+              </div>
+              <div className="bar">
+                <div className=""></div>
+                <hr />
+              </div>
+              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+            </div>
+          </div>
+          <div className="offer-card col border border-1">
+            <div className="top-card position-relative">
+              <img src="/images/img1.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+            </div>
+            <div className="body-card p-3">
+              <h5 className="title">title</h5>
+              <div className="rate">
+                <div></div>
+                <span>1 review</span>
+              </div>
+              <div className="offer-price d-flex gap-2">
+                <div className="before-offer text-decoration-line-through">$9.99</div>
+                <div className="after-offer">$7.50</div>
+              </div>
+              <div className="bar">
+                <div className=""></div>
+                <hr />
+              </div>
+              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
             </div>
           </div>
         </div>
