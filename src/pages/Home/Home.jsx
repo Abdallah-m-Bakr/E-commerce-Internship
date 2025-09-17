@@ -38,112 +38,103 @@ function Home() {
         <div className="offer-cards border border-danger border-2 rounded d-flex row row-cols-md-5 row-cols-12">
           <div className="offer-card col border border-1">
             <div className="top-card position-relative">
-              <img src="/images/img1.jpg" className="col-12" alt="" />
+              <img src="/images/proud1.jpg" className="col-12" alt="" />
               <div className="offer position-absolute top-0 left-0 m-2">25%</div>
             </div>
             <div className="body-card p-3">
-              <h5 className="title">title</h5>
+              <h5 className="title">purple shoes</h5>
               <div className="rate">
                 <div></div>
                 <span>1 review</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$9.99</div>
-                <div className="after-offer">$7.50</div>
+                <div className="before-offer text-decoration-line-through">$75.00</div>
+                <div className="after-offer text-danger fs-5">$56.25</div>
               </div>
               <div className="bar">
-                <div className=""></div>
-                <hr />
+                <div style={{ "--width-bar": "70%" }}></div>
               </div>
-              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+              <p className="pt-3 text-center">the available products: <span className="fw-bold fs-3 text-primary">70</span></p>
             </div>
           </div>
           <div className="offer-card col border border-1">
             <div className="top-card position-relative">
-              <img src="/images/img1.jpg" className="col-12" alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+              <img src="/images/proud9.jpg" className="col-12" alt="" />
             </div>
             <div className="body-card p-3">
-              <h5 className="title">title</h5>
+              <h5 className="title">Pullover</h5>
               <div className="rate">
                 <div></div>
                 <span>1 review</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$9.99</div>
-                <div className="after-offer">$7.50</div>
+                <div className="after-offer text-danger fs-5">$14.50</div>
               </div>
               <div className="bar">
-                <div className=""></div>
-                <hr />
+                <div style={{ "--width-bar": "90%" }}></div>
               </div>
-              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+              <p className="pt-3 text-center">the available products: <span className="fw-bold fs-3 text-primary">90</span></p>
             </div>
           </div>
           <div className="offer-card col border border-1">
             <div className="top-card position-relative">
-              <img src="/images/img1.jpg" className="col-12" alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+              <img src="/images/proud11.jpg" className="col-12" alt="" />
             </div>
             <div className="body-card p-3">
-              <h5 className="title">title</h5>
+              <h5 className="title">Varsity Jacket</h5>
               <div className="rate">
                 <div></div>
                 <span>1 review</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$9.99</div>
-                <div className="after-offer">$7.50</div>
+                <div className="after-offer text-danger fs-5">$10.59</div>
               </div>
               <div className="bar">
-                <div className=""></div>
-                <hr />
+                <div style={{ "--width-bar": "50%" }}></div>
               </div>
-              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+              <p className="pt-3 text-center">the available products: <span className="fw-bold fs-3 text-primary">50</span></p>
             </div>
           </div>
           <div className="offer-card col border border-1">
             <div className="top-card position-relative">
-              <img src="/images/img1.jpg" className="col-12" alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+              <img src="/images/proud3.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">34%</div>
             </div>
             <div className="body-card p-3">
-              <h5 className="title">title</h5>
+              <h5 className="title">blue shoes</h5>
               <div className="rate">
                 <div></div>
                 <span>1 review</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$9.99</div>
-                <div className="after-offer">$7.50</div>
+                <div className="before-offer text-decoration-line-through">$80.00</div>
+                <div className="after-offer text-danger fs-5">$52.80</div>
               </div>
               <div className="bar">
-                <div className=""></div>
-                <hr />
+                <div style={{ "--width-bar": "29%" }}></div>
               </div>
-              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+              <p className="pt-3 text-center">the available products: <span className="fw-bold fs-3 text-primary">29</span></p>
             </div>
           </div>
           <div className="offer-card col border border-1">
             <div className="top-card position-relative">
-              <img src="/images/img1.jpg" className="col-12" alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+              <img src="/images/proud19.jpg" className="col-12" alt="" />
+              <div className="offer position-absolute top-0 left-0 m-2">35%</div>
             </div>
             <div className="body-card p-3">
-              <h5 className="title">title</h5>
+              <h5 className="title">Layered Necklace</h5>
               <div className="rate">
                 <div></div>
                 <span>1 review</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$9.99</div>
-                <div className="after-offer">$7.50</div>
+                <div className="before-offer text-decoration-line-through">$129.99</div>
+                <div className="after-offer text-danger fs-5">$84.50</div>
               </div>
               <div className="bar">
-                <div className=""></div>
-                <hr />
+                <div style={{ "--width-bar": "12%" }}></div>
               </div>
-              <p className="pt-3 text-center">the available product: <span className="fw-bold fs-3 text-primary">90</span></p>
+              <p className="pt-3 text-center">the available products: <span className="fw-bold fs-3 text-primary">12</span></p>
             </div>
           </div>
         </div>
