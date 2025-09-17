@@ -1,5 +1,5 @@
-import Google_Play from "../../assets/imges/Google_Play.svg";
-import app_store from "../../assets/imges/app-store.svg";
+import Google_Play from "../../assets/images/Google_Play.svg";
+import app_store from "../../assets/images/app-store.svg";
 import "./Footer.css";
 
 function Footer() {
