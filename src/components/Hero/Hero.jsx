@@ -1,10 +1,10 @@
 import "./hero.css"
 import {Link} from 'react-router-dom'
 import proud1 from "../../assets/images/proud1.jpg";
-import proud9 from "../../assets/images/proud9.jpg";
-import proud11 from "../../assets/images/proud11.jpg";
-import proud3 from "../../assets/images/proud3.jpg";
-import proud19 from "../../assets/images/proud19.jpg";
+// import proud9 from "../../assets/images/proud9.jpg";
+// import proud11 from "../../assets/images/proud11.jpg";
+// import proud3 from "../../assets/images/proud3.jpg";
+// import proud19 from "../../assets/images/proud19.jpg";
 
 
 
@@ -68,7 +68,7 @@ function Hero(){
           </div>
           <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
             <div className="top-card position-relative">
-              <img src={proud9} alt="" />
+              <img src={proud1} alt="" />
             </div>
             <div className="body-card p-3">
               <h5 className="title">Pullover</h5>
@@ -87,7 +87,7 @@ function Hero(){
           </div>
           <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
             <div className="top-card position-relative">
-              <img src={proud11} alt="" />
+              <img src={proud1} alt="" />
             </div>
             <div className="body-card p-3">
               <h5 className="title">Varsity Jacket</h5>
@@ -106,7 +106,7 @@ function Hero(){
           </div>
           <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
             <div className="top-card position-relative">
-              <img src={proud3} alt="" />
+              <img src={proud1} alt="" />
               <div className="offer position-absolute top-0 left-0 m-2">34%</div>
             </div>
             <div className="body-card p-3">
@@ -127,7 +127,7 @@ function Hero(){
           </div>
           <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
             <div className="top-card position-relative">
-              <img src={proud19} alt="" />
+              <img src={proud1} alt="" />
               <div className="offer position-absolute top-0 left-0 m-2">35%</div>
             </div>
             <div className="body-card p-3">
