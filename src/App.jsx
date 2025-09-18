@@ -13,6 +13,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Cart from './pages/Cart/Cart';
 import Shop from './pages/Shop/Shop';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 // Layouts
 import MainLayout from './layouts/MainLayout';
@@ -38,6 +39,8 @@ function App() {
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+                    <Route path="/product" element={<ProductDetails />} />
+
         </Route>
 
         {/* صفحة الخطأ */}
