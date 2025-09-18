@@ -1,7 +1,10 @@
 import "./Home.css"
 import {Link} from 'react-router-dom'
+import BestSeller from "../../components/BestSeller/bestSeller"
+import Slider from "../../components/Slider/Slider"
 function Home() {
   return (
+    <>
     <div className="container">
       {/* hero section */}
       <div className="hero text-capitalize">
@@ -154,7 +157,17 @@ function Home() {
       </div>
     </div>
 
+{/* // Slider section */}
+<Slider />
+{/* // end Slider section */}
+
+{/* // Best Seller section */}
+<BestSeller />
+{/* // end Best Seller section */}
+</>
   )
 }
 
 export default Home
+
+
