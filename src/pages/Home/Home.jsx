@@ -22,6 +22,7 @@ function Home() {
           <Link to="/shop" className="btn px-3">shop now</Link>
         </div>
       </div>
+      {/* offer down section */}
       <div className="offer-down">
         <div className="timer d-flex flex-md-row flex-column m-4">
           <span>
