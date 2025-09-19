@@ -1,52 +1,70 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(""); // fakestoreapi uses "username"
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email === "admin@test.com" && password === "123456") {
-      navigate("/");
-    } else {
-      alert("❌ بيانات الدخول غير صحيحة");
+    try {
+      const res = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+
+      if (!res.ok) {
+        alert("❌ Invalid login credentials");
+        return;
+      }
+
+      const data = await res.json();
+      console.log("✅ Login success:", data);
+
+      if (data.token) {
+        localStorage.setItem("token", data.token); // save token
+        alert("✅ Logged in successfully!");
+        navigate("/");
+      } else {
+        alert("❌ Invalid login response");
+      }
+    } catch {
+      alert("❌ Error during login");
     }
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div
-        className="card p-4 shadow-lg border-0 animate__animated animate__fadeInDown"
-        style={{ maxWidth: "400px", width: "100%", borderRadius: "20px" }}
-      >
-        <h3
-          className="text-center mb-4 fw-bold"
-          style={{ color: "#49BFAA" }}
-        >
+    <div className="login-container">
+      <div className="login-card">
+        <h3 className="login-title">
           <i className="fas fa-sign-in-alt me-2"></i>
           Login
         </h3>
 
         <form onSubmit={handleSubmit}>
-          {/* Email */}
+          {/* Username */}
           <div className="mb-3">
-            <label htmlFor="email" className="form-label fw-semibold">
-              Email address
+            <label htmlFor="username" className="form-label fw-semibold">
+              Username
             </label>
             <div className="input-group">
-              <span className="input-group-text text-white" style={{ background: "#49BFAA" }}>
-                <i className="fas fa-envelope"></i>
+              <span className="input-group-text">
+                <i className="fas fa-user"></i>
               </span>
               <input
-                type="email"
+                type="text"
                 className="form-control"
-                id="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                id="username"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </div>
@@ -58,7 +76,7 @@ const Login = () => {
               Password
             </label>
             <div className="input-group">
-              <span className="input-group-text text-white" style={{ background: "#49BFAA" }}>
+              <span className="input-group-text">
                 <i className="fas fa-lock"></i>
               </span>
               <input
@@ -74,18 +92,7 @@ const Login = () => {
           </div>
 
           {/* Button */}
-          <button
-            type="submit"
-            className="btn w-100 fw-bold"
-            style={{
-              backgroundColor: "#49BFAA",
-              color: "#fff",
-              borderRadius: "30px",
-              transition: "0.3s",
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.opacity = "0.9")}
-            onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
-          >
+          <button type="submit" className="btn login-btn w-100 fw-bold">
             <i className="fas fa-sign-in-alt me-2"></i>
             Login
           </button>

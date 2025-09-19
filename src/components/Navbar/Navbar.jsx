@@ -58,10 +58,15 @@ function Navbar() {
           </div>
           {/* user $ price & cart*/}
           <div className="user-price-cart d-flex justify-content-evenly">
-            <div className="user"><i class="fa-solid fa-user"></i></div>
+            <div className="user">
+              <NavLink to="/profile" ><i class="fa-solid fa-user"></i></NavLink>
+              {/* <i class="fa-solid fa-user"></i> */}
+              </div>
             <div className="price"><p>$0.00</p></div>
             <div className="cart">
-              <i class="fa-solid fa-bucket"></i>
+              <NavLink to="/cart" ><i class="fa-solid fa-bucket"></i></NavLink>
+
+              {/* <i class="fa-solid fa-bucket"></i> */}
               <span className="number-cart">0</span></div>
           </div>
         </div>

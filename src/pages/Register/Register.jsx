@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Register.css"; // import css file
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -8,38 +9,56 @@ const Register = () => {
   const [confirm, setConfirm] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirm) {
-      alert("❌ كلمة المرور غير متطابقة");
+      alert("❌ Passwords do not match");
       return;
     }
 
-    // هنا تقدر تبعت البيانات للـ API أو Redux
-    alert("✅ تم التسجيل بنجاح!");
-    navigate("/login");
+    try {
+      const res = await fetch("https://fakestoreapi.com/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: name,
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Registration failed!");
+      }
+
+      const data = await res.json();
+      console.log("✅ User created:", data);
+
+      alert("✅ Registration successful!");
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
+      alert("❌ Something went wrong during registration!");
+    }
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div
-        className="card p-4 shadow-lg border-0"
-        style={{ maxWidth: "450px", width: "100%", borderRadius: "20px" }}
-      >
-        <h3 className="text-center mb-4 fw-bold" style={{ color: "#49BFAA" }}>
+    <div className="register-page d-flex justify-content-center align-items-center vh-100">
+      <div className="register-card card p-4 shadow-lg border-0">
+        <h3 className="text-center mb-4 fw-bold register-title">
           <i className="fas fa-user-plus me-2"></i>
           Register
         </h3>
 
         <form onSubmit={handleSubmit}>
-          {/* Name */}
+          {/* Full Name */}
           <div className="mb-3">
             <label htmlFor="name" className="form-label fw-semibold">
               Full Name
             </label>
             <div className="input-group">
-              <span className="input-group-text text-white" style={{ background: "#49BFAA" }}>
+              <span className="input-group-text icon-box">
                 <i className="fas fa-user"></i>
               </span>
               <input
@@ -57,10 +76,10 @@ const Register = () => {
           {/* Email */}
           <div className="mb-3">
             <label htmlFor="email" className="form-label fw-semibold">
-              Email address
+              Email Address
             </label>
             <div className="input-group">
-              <span className="input-group-text text-white" style={{ background: "#49BFAA" }}>
+              <span className="input-group-text icon-box">
                 <i className="fas fa-envelope"></i>
               </span>
               <input
@@ -81,7 +100,7 @@ const Register = () => {
               Password
             </label>
             <div className="input-group">
-              <span className="input-group-text text-white" style={{ background: "#49BFAA" }}>
+              <span className="input-group-text icon-box">
                 <i className="fas fa-lock"></i>
               </span>
               <input
@@ -102,7 +121,7 @@ const Register = () => {
               Confirm Password
             </label>
             <div className="input-group">
-              <span className="input-group-text text-white" style={{ background: "#49BFAA" }}>
+              <span className="input-group-text icon-box">
                 <i className="fas fa-check"></i>
               </span>
               <input
@@ -118,18 +137,7 @@ const Register = () => {
           </div>
 
           {/* Button */}
-          <button
-            type="submit"
-            className="btn w-100 fw-bold"
-            style={{
-              backgroundColor: "#49BFAA",
-              color: "#fff",
-              borderRadius: "30px",
-              transition: "0.3s",
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.opacity = "0.9")}
-            onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
-          >
+          <button type="submit" className="btn register-btn w-100 fw-bold">
             <i className="fas fa-user-plus me-2"></i>
             Register
           </button>
@@ -138,7 +146,7 @@ const Register = () => {
         {/* Link to Login */}
         <p className="text-center mt-3">
           Already have an account?{" "}
-          <a href="/login" style={{ color: "#49BFAA", fontWeight: "bold" }}>
+          <a href="/login" className="login-link">
             Login
           </a>
         </p>
