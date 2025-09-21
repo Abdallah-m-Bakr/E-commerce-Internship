@@ -9,7 +9,7 @@ function Hero(){
   const {t,i18n}=useTranslation();
   useEffect(() => {
     i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية 
-  })
+  },[i18n])
     return(
     <div className="container">
       {/* hero section */}

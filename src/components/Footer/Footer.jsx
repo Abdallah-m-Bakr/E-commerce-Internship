@@ -7,7 +7,7 @@ function Footer() {
   const {t,i18n}=useTranslation();
   useEffect(() => {
     i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية 
-  },[])
+  },[i18n])
   return (
     <footer className="pt-5 border-top">
       <div className="container">

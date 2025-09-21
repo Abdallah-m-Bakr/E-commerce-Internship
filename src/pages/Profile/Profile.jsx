@@ -5,7 +5,7 @@ export default function Profile() {
   const { t,i18n } = useTranslation();
   useEffect(() => {
     i18n.changeLanguage("ar");
-  });
+  },[i18n]);
   return (
     <div className="container my-5 d-flex justify-content-center">
       <div className="card profile-card shadow-lg border-0">

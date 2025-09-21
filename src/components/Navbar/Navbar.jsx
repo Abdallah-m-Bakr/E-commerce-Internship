@@ -17,7 +17,7 @@ function Navbar() {
   const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const handleLanguageChange = (event) => {
-    const language = event.target.value;
+  const language = event.target.value;
     setSelectedLanguage(language);
     try {
       if (language === 'English') {
@@ -62,7 +62,7 @@ function Navbar() {
             </div>
             {/* dropdown */}
             <div className="selection">
-              <select className="select" value={selectedLanguage}  onChange={handleLanguageChange}>
+              <select className="select" id="select" value={selectedLanguage}  onChange={handleLanguageChange}>
                 <option value="English">English</option>
                 <option value="Arabic">عربي</option>
               </select>
@@ -77,19 +77,19 @@ function Navbar() {
           {/* search */}
           <div className="input-text border-0 rounded d-flex justify-content-between" >
             <input className='search border-0' type="text" placeholder={t("Search for products, fruit, meet, eggs, etc...")} />
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </div>
           {/* user $ price & cart*/}
           <div className="user-price-cart d-flex justify-content-evenly">
             <div className="user">
-              <NavLink to="/profile" ><i class="fa-solid fa-user"></i></NavLink>
-              {/* <i class="fa-solid fa-user"></i> */}
+              <NavLink to="/profile" ><i className="fa-solid fa-user"></i></NavLink>
+              {/* <i className="fa-solid fa-user"></i> */}
             </div>
             <div className="price"><p>$0.00</p></div>
             <div className="cart">
-              <NavLink to="/cart" ><i class="fa-solid fa-bucket"></i></NavLink>
+              <NavLink to="/cart" ><i className="fa-solid fa-bucket"></i></NavLink>
 
-              {/* <i class="fa-solid fa-bucket"></i> */}
+              {/* <i className="fa-solid fa-bucket"></i> */}
               <span className="number-cart">0</span></div>
           </div>
         </div>

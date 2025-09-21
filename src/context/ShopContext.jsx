@@ -2,7 +2,6 @@ import React, { createContext, useReducer, useEffect } from "react";
 
 const ShopContext = createContext();
 
-
 const initialState = {
   products: [],
   cart: [],
@@ -15,28 +14,28 @@ function reducer(state, action) {
     case "ADD_TO_CART":
       return { ...state, cart: [...state.cart, action.payload] };
     case "REMOVE_FROM_CART":
-      return { ...state, cart: state.cart.filter((item) => item.id !== action.payload) };
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
     default:
       return state;
   }
 }
-// .then((res) => console.log(res.json())
+
 export function ShopProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-    // fetch("https://fakestoreapi.com/products")
-
-
-  // 📌 جلب المنتجات من Fake Store API
-useEffect(() => {
-  fetch("http://localhost:5000/products") // بدل الفيك ستور
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({ type: "SET_PRODUCTS", payload: data });
-    })
-    .catch((err) => console.error(err));
-}, []);
-
+  // 📌 جلب المنتجات من DummyJSON API
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("API Response:", data); // 🔍 تشوف شكل البيانات في الـ console
+        dispatch({ type: "SET_PRODUCTS", payload: data.products }); // ✅ ناخد الـ array
+      })
+      .catch((err) => console.error("Error fetching products:", err));
+  }, []);
 
   return (
     <ShopContext.Provider value={{ state, dispatch }}>
@@ -44,4 +43,5 @@ useEffect(() => {
     </ShopContext.Provider>
   );
 }
-export default ShopContext;
+
+export default ShopContext

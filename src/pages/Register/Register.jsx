@@ -7,7 +7,7 @@ const Register = () => {
   const{t,i18n}=useTranslation();
   useEffect(()=>{
     i18n.changeLanguage("ar")
-  })
+  },[i18n])
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

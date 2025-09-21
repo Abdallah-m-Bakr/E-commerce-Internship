@@ -86,9 +86,9 @@ const products = [
 
 const BestSeller = () => {
   // أقسم المنتجات: 4 شمال - البنر - 4 يمين
-  const left = products.slice(0, 4);
-  const banner = products.find((p) => p.banner);
-  const right = products.slice(4, 8);
+  // const left = products.slice(0, 4);
+  // const banner = products.find((p) => p.banner);
+  // const right = products.slice(4, 8);
 
   return (
     <div className="container my-5">

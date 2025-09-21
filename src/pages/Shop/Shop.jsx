@@ -78,11 +78,11 @@ function Shop() {
             <div className="sort">sort by: <span className="text-dark">aliphabetically, A-Z</span></div>
           </div>
           <div className="row">
-            {state.products.map((product) => (
+            {state.products.map(product => (
               <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 viewer-blur">
                 <div className="card border border-1 h-100">
                   <div className="top-card position-relative">
-                    <img src={product.image} alt={product.title} className="card-img-top p-3" style={{ height: "200px", objectFit: "contain" }}/>
+                    <img src={product.images[0]} alt={product.title} className="card-img-top p-3" style={{ height: "200px", objectFit: "contain" }}/>
                     <div className={product.offer ? "offer position-absolute top-0 left-0 m-2" : "d-none"}>
                       {product.offer}%
                     </div>
@@ -92,14 +92,14 @@ function Shop() {
                       <h5 className="card-text">{product.title}</h5>
                       <div className="rate d-flex gap-2">
                         <div className="text-warning">
-                          {product.rating.rate}
+                          {product.rating}
                           <i className="fas fa-star"></i>
                         </div>
                         <span>1 review</span>
                       </div>
                       <div className="offer-price d-flex gap-2">
                         <div className={product.offer ? "before-offer text-decoration-line-through": "d-none"}>
-                          ${(+(product.price)/(1- +(product.offer)/100)).toFixed(2)}
+                          ${product.discountPercentage}
                         </div>
                         <div className="after-offer text-danger fs-5 card-text">
                           ${product.price}
