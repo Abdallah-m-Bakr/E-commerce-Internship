@@ -12,14 +12,14 @@ function Newsletter() {
         {/* Left content */}
         <div className="col-lg-5 col-md-6 col-12 mb-4 mb-md-0 newsletter-content">
           <h4>
-            <span className="newsletter-content-discount">$20 discount</span>
-            <span> for your first order</span>
+            <span className="newsletter-content-discount">{t("$20 discount")}</span>
+            <span> {t("for your first order")}</span>
           </h4>
           <h3 className="newsletter-subtitle">
-            Join our email subscription now to get..
+            {t("Join our email subscription now to get..")}
           </h3>
           <p className="newsletter-description">
-            Join our email subscription now to get updates <br /> on promotions and coupons.
+            {t("Join our email subscription now to get updates")} <br /> {t("on promotions and coupons.")}
           </p>
           <div className="input-group rounded border border-1 p-2 bg-white">
             <span className="input-group-text newsletter-icon">
@@ -28,10 +28,10 @@ function Newsletter() {
             <input
               type="email"
               className="form-control newsletter-input"
-              placeholder="Your email address"
+              placeholder={t("Your email address")}
             />
             <button className="btn newsletter-button p-3 rounded" type="button">
-              Subscribe
+              {t("Subscribe")}
             </button>
           </div>
         </div>
@@ -49,17 +49,17 @@ function Newsletter() {
           <div className="ticket">
             <div className="edge-fold" aria-hidden="true"></div>
             <div className="inner">
-              <div className="label">DISCOUNT</div>
+              <div className="label">{t("DISCOUNT")}</div>
               <div className="percent">50%</div>
-              <div className="sub">CAMPAIGN</div>
+              <div className="sub">{t("CAMPAIGN")}</div>
               <div className="perforation" />
               <div className="row mt-2">
-                <div className="col-6 text-start text-muted small">Code</div>
-                <div className="col-6 text-end fw-bold small">#SAVE50</div>
+                <div className="col-6 text-start text-muted small">{t("Code")}</div>
+                <div className="col-6 text-end fw-bold small">{t("#SAVE50")}</div>
               </div>
               <div className="row mt-1">
                 <div className="col-12 text-center text-muted small">
-                  Valid until 30 Sep 2025
+                  {t("Valid until 30 Sep 2025")}
                 </div>
               </div>
             </div>

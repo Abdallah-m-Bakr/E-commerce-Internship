@@ -1,19 +1,25 @@
 import "./Shop.css";
 import ShopContext from "../../context/ShopContext.jsx";
-import React, { useContext } from "react";
+import React, {useEffect, useContext } from "react";
+import { useTranslation } from "react-i18next";
 
 function Shop() {
   const { state, dispatch } = useContext(ShopContext);
+  const{t,i18n} = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage('ar')
+  }, []);
   return (
     <div className="container my-5">
       <div className="cont-shop row row-cols-12">
         <div className="check-inputs col-3 p-2 pe-4">
           <div className="categories mb-5" id="categories">
-            <h6 className="fw-bold text-uppercase">product categories</h6>
+            <h6 className="fw-bold text-uppercase">{t("product categories")}</h6>
             <div className="cont-input">
               <div className="d-flex gap-3">
                 <input type="checkbox" name="shoes" id="shoes" />
-                <label htmlFor="shoes">shoes</label>
+                <label htmlFor="shoes">{t("shoes")}</label>
               </div>
             </div>
           </div>
@@ -31,10 +37,10 @@ function Shop() {
             </div>
           </div> */}
           <div className="price mb-5" id="price">
-            <h6 className="fw-bold text-uppercase">price</h6>
+            <h6 className="fw-bold text-uppercase">{t("price")}</h6>
             <div className="cont-input d-flex align-items-end gap-3">
               <div className="from d-flex flex-column">
-                <label htmlFor="from">from</label>
+                <label htmlFor="from">{t("from")}</label>
                 <input
                   type="number"
                   name="from"
@@ -47,7 +53,7 @@ function Shop() {
               </div>
               <div>-</div>
               <div className="to d-flex flex-column">
-                <label htmlFor="to">to</label>
+                <label htmlFor="to">{t("to")}</label>
                 <input
                   type="number"
                   name="to"
@@ -83,7 +89,7 @@ function Shop() {
                           {product.rating.rate}
                           <i className="fas fa-star"></i>
                         </div>
-                        <span>1 review</span>
+                        <span>{t("1 review")}</span>
                       </div>
                       <div className="offer-price d-flex gap-2">
                         <div className={product.offer ? "before-offer text-decoration-line-through": "d-none"}>
@@ -101,7 +107,7 @@ function Shop() {
                         
                       }
                     >
-                      Add to Cart
+                      {t("Add to Cart")}
                     </button>
                   </div>
                 </div>

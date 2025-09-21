@@ -2,7 +2,7 @@ import "./Navbar.css"
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 import { useTranslation } from 'react-i18next';
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import '../../i18n.jsx';
 function Navbar() {
 
@@ -15,7 +15,12 @@ function Navbar() {
   };
  // تغيير اللغة و الاتجاه
   const { t, i18n } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+  const savedLanguage = localStorage.getItem('selectedLanguage');
+  return savedLanguage || 'English';
+}
+);
+
   const handleLanguageChange = (event) => {
     const language = event.target.value;
     setSelectedLanguage(language);
@@ -27,11 +32,26 @@ function Navbar() {
         i18n.changeLanguage('ar');
         document.body.dir = 'rtl';
       }
+      localStorage.setItem('selectedLanguage', language);
       console.log('Current language:', i18n.language); // للتصحيح
     } catch (error) {
       console.error('Error changing language:', error); // التقاط الأخطاء
     }
   };
+  // تهيئة اللغة عند تحميل الصفحة
+useEffect(() => {
+  const savedLanguage = localStorage.getItem('selectedLanguage');
+  if (savedLanguage) {
+    setSelectedLanguage(savedLanguage);
+    if (savedLanguage === 'English') {
+      i18n.changeLanguage('en');
+      document.body.dir = 'ltr';
+    } else if (savedLanguage === 'Arabic') {
+      i18n.changeLanguage('ar');
+      document.body.dir = 'rtl';
+    }
+  }
+}, [i18n]);
 
   return (
     <>

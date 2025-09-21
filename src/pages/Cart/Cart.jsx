@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next"; 
+import { useEffect } from "react";
 export default function Cart() {
+
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage('ar'); 
+  }, []);
+
   const cartItems = [
     {
       id: 1,
@@ -24,7 +31,7 @@ export default function Cart() {
 
   return (
     <div className="container my-5">
-      <h3 className="mb-4">Shopping Cart</h3>
+      <h3 className="mb-4">{t("Shopping Cart")}</h3>
       <div className="row g-4">
         {/* Cart Items */}
         <div className="col-lg-8">
@@ -78,21 +85,21 @@ export default function Cart() {
         <div className="col-lg-4">
           <div className="card shadow-sm border-0">
             <div className="card-body">
-              <h5 className="mb-3">Order Summary</h5>
+              <h5 className="mb-3">{t("Order Summary")}</h5>
               <div className="d-flex justify-content-between mb-2">
-                <span>Subtotal</span>
+                <span>{t("Subtotal")}</span>
                 <span>${subtotal.toFixed(2)}</span>
               </div>
               <div className="d-flex justify-content-between mb-2">
-                <span>Shipping</span>
+                <span>{t("Shipping")}</span>
                 <span>$5.00</span>
               </div>
               <div className="d-flex justify-content-between fw-bold border-top pt-2">
-                <span>Total</span>
+                <span>{t("Total")}</span>
                 <span>${(subtotal + 5).toFixed(2)}</span>
               </div>
               {/* <button className="btn btn-success w-100 mt-3"> */}
-                <Link className="btn btn-success w-100 mt-3" to="/checkout">Proceed to Checkout</Link>
+                <Link className="btn btn-success w-100 mt-3" to="/checkout">{t("Proceed to Checkout")}</Link>
               {/* </button> */}
             </div>
           </div>

@@ -1,7 +1,8 @@
 import "./BestSeller.css";
 import img from "../../assets/images/img1.jpg";
 import bannerBg from "../../assets/images/download.jpeg"; // 👈 صورة الخلفية للبنر
-
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 const products = [
   {
     id: 1,
@@ -90,11 +91,15 @@ const BestSeller = () => {
   const banner = products.find((p) => p.banner);
   const right = products.slice(4, 8);
 
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage("ar");
+  }, []);
   return (
     <div className="container my-5">
-      <h3 className="fw-bold">Best Seller</h3>
+      <h3 className="fw-bold">{t("Best Seller")}</h3>
       <p className="text-muted">
-        Do not miss the current offers until the end of month.
+        {t("Do not miss the current offers until the end of month.")}
       </p>
       <div className="row g-4">
         {/* الشمال */}
