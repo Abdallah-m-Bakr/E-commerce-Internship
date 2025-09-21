@@ -1,7 +1,10 @@
 import "./Shop.css";
 import ShopContext from "../../context/ShopContext.jsx";
-import React, {useEffect, useContext } from "react";
+
+import  {React,useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
+
+import shop1 from "../../assets/images/shop1.jpeg";
 
 function Shop() {
   const { state, dispatch } = useContext(ShopContext);
@@ -13,7 +16,7 @@ function Shop() {
   return (
     <div className="container my-5">
       <div className="cont-shop row row-cols-12">
-        <div className="check-inputs col-3 p-2 pe-4">
+        <div className="check-inputs col-3 p-2">
           <div className="categories mb-5" id="categories">
             <h6 className="fw-bold text-uppercase">{t("product categories")}</h6>
             <div className="cont-input">
@@ -67,14 +70,25 @@ function Shop() {
             </div>
           </div>
           <div className="photo-ad">
-            <img src="../../assets/images/shop1.jpeg" alt="photo" className="card-img-top p-3" style={{ height: "200px", objectFit: "contain" }}/>
+            <img src={shop1} alt="photo" className="card-img-top" style={{ height: "400px", objectFit: "contain" }}/>
           </div>
         </div>
         <div className="col-9">
+          <div className="hero-shop d-flex justify-content-center align-items-center my-3 p-3">
+            <div className="cont-hero-shop d-flex justify-content-center align-items-start flex-column py-5">
+              <p className="fs-3">organic products</p>
+              <p className="fw-bold fs-3">delivered to <span className="text-success">your home</span></p>
+              <p className="text-secondary">delivered nationwide.</p>
+            </div>
+          </div>
+          <div className="product-length-sort rounded my-3 px-4 py-4 d-flex align-items-center justify-content-between">
+            <div className="length">{state.products.length} products</div>
+            <div className="sort">sort by: <span className="text-dark">aliphabetically, A-Z</span></div>
+          </div>
           <div className="row">
             {state.products.map((product) => (
-              <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3 viewer-blur">
-                <div className="card-product border border-1 h-100">
+              <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 viewer-blur">
+                <div className="card border border-1 h-100">
                   <div className="top-card position-relative">
                     <img src={product.image} alt={product.title} className="card-img-top p-3" style={{ height: "200px", objectFit: "contain" }}/>
                     <div className={product.offer ? "offer position-absolute top-0 left-0 m-2" : "d-none"}>

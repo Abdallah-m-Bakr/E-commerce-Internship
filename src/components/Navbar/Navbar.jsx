@@ -72,7 +72,7 @@ useEffect(() => {
           {/* text */}
           <div className="d-flex justify-content-end text-for-navbar">
             <div className="secure-delivery d-flex text-muted">
-              <i class="fa-solid fa-user-shield pt-1"></i>
+              <i className="fa-solid fa-user-shield pt-1"></i>
               <p>{t("100% secure delivery without contacting the courier")}</p>
             </div>
             <div className="d-flex">
