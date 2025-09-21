@@ -1,6 +1,11 @@
 import "./Newsletter.css";
-
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 function Newsletter() {
+  const { t, i18n } = useTranslation();
+    useEffect(() => {
+    i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية 
+  },[])
   return (
     <section className="newsletter container-fluid">
       <div className="row align-items-center">

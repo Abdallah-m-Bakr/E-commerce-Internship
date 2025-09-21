@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 const Login = () => {
+  const {t, i18n} = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage("ar")
+  }, [])
   const [username, setUsername] = useState(""); // fakestoreapi uses "username"
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,6 +27,7 @@ const Login = () => {
 
       if (!res.ok) {
         alert("❌ Invalid login credentials");
+        // <alert>t("❌ Invalid login credentials")</alert>;
         return;
       }
 
@@ -45,14 +51,14 @@ const Login = () => {
       <div className="login-card">
         <h3 className="login-title">
           <i className="fas fa-sign-in-alt me-2"></i>
-          Login
+          {t("Login")}
         </h3>
 
         <form onSubmit={handleSubmit}>
           {/* Username */}
           <div className="mb-3">
             <label htmlFor="username" className="form-label fw-semibold">
-              Username
+              {t("Username")}
             </label>
             <div className="input-group">
               <span className="input-group-text">
@@ -62,7 +68,7 @@ const Login = () => {
                 type="text"
                 className="form-control"
                 id="username"
-                placeholder="Enter username"
+                placeholder={t("Enter username")}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -73,7 +79,7 @@ const Login = () => {
           {/* Password */}
           <div className="mb-3">
             <label htmlFor="password" className="form-label fw-semibold">
-              Password
+              {t("Password")}
             </label>
             <div className="input-group">
               <span className="input-group-text">
@@ -83,7 +89,7 @@ const Login = () => {
                 type="password"
                 className="form-control"
                 id="password"
-                placeholder="Enter password"
+                placeholder={t("Enter password")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -94,7 +100,7 @@ const Login = () => {
           {/* Button */}
           <button type="submit" className="btn login-btn w-100 fw-bold">
             <i className="fas fa-sign-in-alt me-2"></i>
-            Login
+            {t("Login")}
           </button>
         </form>
       </div>

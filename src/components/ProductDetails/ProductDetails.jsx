@@ -11,6 +11,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./ProductDetails.css"; 
 
+
+
 const product = {
   name: "SkinnyPop Popcorn SkinnyPack Original",
   priceRange: "$15.00 - $25.00",

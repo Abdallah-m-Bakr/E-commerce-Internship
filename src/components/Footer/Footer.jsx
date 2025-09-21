@@ -1,8 +1,13 @@
 import Google_Play from "../../assets/images/Google_Play.svg";
 import app_store from "../../assets/images/app-store.svg";
 import "./Footer.css";
-
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 function Footer() {
+  const {t,i18n}=useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية 
+  },[])
   return (
     <footer className="pt-5 border-top">
       <div className="container">
@@ -10,19 +15,19 @@ function Footer() {
         <div className="row text-center mb-4 border-bottom pb-3">
           <div className="col-md-3 col-6 mb-3 h6">
             <i className="fa fa-leaf me-2"></i>
-            Everyday fresh products
+            {t("Everyday fresh products")}
           </div>
           <div className="col-md-3 col-6 mb-3 h6">
             <i className="fa fa-truck me-2"></i>
-            Free delivery for order over $70
+            {t("Free delivery for order over $70")}
           </div>
           <div className="col-md-3 col-6 mb-3 h6">
             <i className="fa fa-bolt me-2"></i>
-            Daily Mega Discounts
+            {t("Daily Mega Discounts")}
           </div>
           <div className="col-md-3 col-6 mb-3 h6">
             <i className="fa fa-dollar-sign me-2"></i>
-            Best price on the market
+            {t("Best price on the market")}
           </div>
         </div>
 
@@ -101,10 +106,10 @@ function Footer() {
           <div className="col-md-4 text-center text-md-start mb-3">
             <i className="fa fa-phone me-2"></i>
             <strong className="h5">8 800 555-55-55</strong>
-            <div className="small h6">Working 8:00 - 22:00</div>
+            <div className="small h6">{t("Working 8:00 - 22:00")}</div>
           </div>
           <div className="col-md-4 text-center mb-3">
-            <span className="me-2">Download App on Mobile :</span>
+            <span className="me-2">{t("Download App on Mobile :")}</span>
             <img
               src={Google_Play}
               alt="Google Play"
@@ -116,7 +121,7 @@ function Footer() {
               alt="App Store"
               height="36"
             />
-            <div className="small">15% discount on your first purchase</div>
+            <div className="small">{t("15% discount on your first purchase")}</div>
           </div>
           <div className="col-md-4 text-center text-md-end mb-3">
             <a href="#" className="me-3">
@@ -133,12 +138,12 @@ function Footer() {
 
         <div className="row border-top pt-3 mt-3 small">
           <div className="col-md-6 text-center text-md-start mb-2 h6">
-            © 2025 All rights reserved by Blackrise Theme
+            {t("© 2025 All rights reserved by Blackrise Theme")}
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <span className="me-3 h6">Privacy Policy</span>
-            <span className="me-3 h6">Terms and Conditions</span>
-            <span className="me-3 h5">Cookie</span>
+            <span className="me-3 h6">{t("Privacy Policy")}</span>
+            <span className="me-3 h6">{t("Terms and Conditions")}</span>
+            <span className="me-3 h5">{t("Cookie")}</span>
             <i className="fab fa-cc-visa me-2 h4"></i>
             <i className="fab fa-cc-mastercard me-2 h4"></i>
             <i className="fab fa-cc-paypal me-2 h4"></i>

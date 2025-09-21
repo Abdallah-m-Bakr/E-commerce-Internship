@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState ,useEffect, use } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css"; // import css file
-
+import { useTranslation } from "react-i18next";
 const Register = () => {
+
+  const{t,i18n}=useTranslation();
+  useEffect(()=>{
+    i18n.changeLanguage("ar")
+  },[])
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,14 +54,14 @@ const Register = () => {
       <div className="register-card card p-4 shadow-lg border-0">
         <h3 className="text-center mb-4 fw-bold register-title">
           <i className="fas fa-user-plus me-2"></i>
-          Register
+          {t("Register")}
         </h3>
 
         <form onSubmit={handleSubmit}>
           {/* Full Name */}
           <div className="mb-3">
             <label htmlFor="name" className="form-label fw-semibold">
-              Full Name
+              {t("Full Name")}
             </label>
             <div className="input-group">
               <span className="input-group-text icon-box">
@@ -65,7 +71,7 @@ const Register = () => {
                 type="text"
                 className="form-control"
                 id="name"
-                placeholder="Enter your full name"
+                placeholder={t("Enter your full name")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -76,7 +82,7 @@ const Register = () => {
           {/* Email */}
           <div className="mb-3">
             <label htmlFor="email" className="form-label fw-semibold">
-              Email Address
+              {t("Email Address")}
             </label>
             <div className="input-group">
               <span className="input-group-text icon-box">
@@ -86,7 +92,7 @@ const Register = () => {
                 type="email"
                 className="form-control"
                 id="email"
-                placeholder="Enter email"
+                placeholder={t("Enter email")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -97,7 +103,7 @@ const Register = () => {
           {/* Password */}
           <div className="mb-3">
             <label htmlFor="password" className="form-label fw-semibold">
-              Password
+              {t("Password")}
             </label>
             <div className="input-group">
               <span className="input-group-text icon-box">
@@ -107,7 +113,7 @@ const Register = () => {
                 type="password"
                 className="form-control"
                 id="password"
-                placeholder="Enter password"
+                placeholder={t("Enter password")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -118,7 +124,7 @@ const Register = () => {
           {/* Confirm Password */}
           <div className="mb-3">
             <label htmlFor="confirm" className="form-label fw-semibold">
-              Confirm Password
+              {t("Confirm Password")}
             </label>
             <div className="input-group">
               <span className="input-group-text icon-box">
@@ -128,7 +134,7 @@ const Register = () => {
                 type="password"
                 className="form-control"
                 id="confirm"
-                placeholder="Confirm password"
+                placeholder={t("Confirm Password")}
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 required
@@ -139,15 +145,15 @@ const Register = () => {
           {/* Button */}
           <button type="submit" className="btn register-btn w-100 fw-bold">
             <i className="fas fa-user-plus me-2"></i>
-            Register
+            {t("Register")}
           </button>
         </form>
 
         {/* Link to Login */}
         <p className="text-center mt-3">
-          Already have an account?{" "}
+          {t("Already have an account")}?{" "}
           <a href="/login" className="login-link">
-            Login
+            {t("Login")}
           </a>
         </p>
       </div>

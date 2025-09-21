@@ -1,6 +1,7 @@
 // src/App.jsx
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { useTranslation } from 'react-i18next';
 
 // Pages
 import Home from "./pages/Home/Home";
@@ -16,11 +17,17 @@ import Shop from "./pages/Shop/Shop";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Profile from "./pages/profile/profile";
 
+
 // Layouts
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
+// import { useEffect } from "react";
 
 function App() {
+//   const { t, i18n } = useTranslation();
+//  useEffect(() => {
+//     i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية 
+//  } )
   return (
     <Router>
       <Routes>
