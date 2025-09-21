@@ -16,6 +16,7 @@ function Blog() {
     i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية 
   },[i18n])
 
+
   return (
     <div className="blog-page d-flex justify-content-evenly">
       <div className="left">

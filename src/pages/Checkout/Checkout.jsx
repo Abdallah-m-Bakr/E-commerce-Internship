@@ -1,82 +1,87 @@
 import React from "react";
 import "./Checkout.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 const Checkout = () => {
+  const { t,i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage("ar");
+  }, []);
   return (
     <div className="container checkout-container py-5">
       <div className="row">
         {/* ====== Left Side - Form ====== */}
         <div className="col-md-7">
           {/* Contact */}
-          <h5 className="fw-bold mb-3">Contact</h5>
+          <h5 className="fw-bold mb-3">{t("Contact")}</h5>
           <div className="mb-3">
             <input
               type="email"
               className="form-control"
-              placeholder="Email or mobile phone number"
+              placeholder={t("Email or mobile phone number")}
             />
           </div>
           <div className="form-check mb-4">
             <input type="checkbox" className="form-check-input" id="offers" />
             <label htmlFor="offers" className="form-check-label">
-              Email me with news and offers
+              {t("Email me with news and offers")}
             </label>
           </div>
 
           {/* Delivery */}
-          <h5 className="fw-bold mb-3">Delivery</h5>
+          <h5 className="fw-bold mb-3">{t("Delivery")}</h5>
           <div className="mb-3">
             <select className="form-select">
-              <option>United States</option>
-              <option>Canada</option>
-              <option>Egypt</option>
+              <option>{t("United States")}</option>
+              <option>{t("Canada")}</option>
+              <option>{t("Egypt")}</option>
             </select>
           </div>
 
           <div className="row">
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder="First name (optional)" />
+              <input type="text" className="form-control" placeholder={t("First name (optional)")} />
             </div>
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder="Last name" />
+              <input type="text" className="form-control" placeholder={t("Last name")} />
             </div>
           </div>
 
           <div className="mb-3">
-            <input type="text" className="form-control" placeholder="Address" />
+            <input type="text" className="form-control" placeholder={t("Address")} />
           </div>
 
           <div className="mb-3">
-            <input type="text" className="form-control" placeholder="Apartment, suite, etc. (optional)" />
+            <input type="text" className="form-control" placeholder={t("Apartment, suite, etc. (optional)")} />
           </div>
 
           <div className="row">
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder="Postal code (optional)" />
+              <input type="text" className="form-control" placeholder={t("Postal code (optional)")} />
             </div>
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder="City" />
+              <input type="text" className="form-control" placeholder={t("City")} />
             </div>
           </div>
 
           <div className="form-check mb-4">
             <input type="checkbox" className="form-check-input" id="saveInfo" />
             <label htmlFor="saveInfo" className="form-check-label">
-              Save this information for next time
+              {t("Save this information for next time")}
             </label>
           </div>
 
           {/* Shipping */}
-          <h6 className="fw-bold">Shipping method</h6>
+          <h6 className="fw-bold">{t("Shipping method")}</h6>
           <div className="shipping-method p-3 border rounded mb-4 d-flex justify-content-between align-items-center">
-            <span>Standard</span>
-            <span className="fw-bold text-success">FREE</span>
+            <span>{t("Standard")}</span>
+            <span className="fw-bold text-success">{t("FREE")}</span>
           </div>
 
           {/* Payment */}
-          <h5 className="fw-bold">Payment</h5>
-          <p className="text-muted">All transactions are secure and encrypted.</p>
+          <h5 className="fw-bold">{t("Payment")}</h5>
+          <p className="text-muted">{t("All transactions are secure and encrypted.")}</p>
           <div className="payment-box border rounded p-5 text-center">
             <i className="bi bi-credit-card fs-1"></i>
           </div>
@@ -93,7 +98,7 @@ const Checkout = () => {
                 className="me-3 rounded"
               />
               <div className="flex-grow-1">
-                <p className="mb-0 small">All Natural Italian-Style Chicken Meatballs</p>
+                <p className="mb-0 small">{t("All Natural Italian-Style Chicken Meatballs")}</p>
               </div>
               <span className="small">$7.25</span>
             </div>
@@ -124,18 +129,18 @@ const Checkout = () => {
 
             {/* Totals */}
             <div className="d-flex justify-content-between mb-2">
-              <span className="small">Subtotal · 3 items</span>
+              <span className="small">{t("Subtotal · 3 items")}</span>
               <span className="small">$14.79</span>
             </div>
             <div className="d-flex justify-content-between mb-2">
-              <span className="small">Shipping</span>
-              <span className="small text-success">FREE</span>
+              <span className="small">{t("Shipping")}</span>
+              <span className="small text-success">{t("FREE")}</span>
             </div>
             <div className="d-flex justify-content-between fw-bold mt-3">
-              <span>Total</span>
+              <span>{t("Total")}</span>
               <span className="fs-5">$14.79</span>
             </div>
-            <p className="text-muted small">Including $2.46 in taxes</p>
+            <p className="text-muted small">{t("Including $2.46 in taxes")}</p>
           </div>
         </div>
       </div>

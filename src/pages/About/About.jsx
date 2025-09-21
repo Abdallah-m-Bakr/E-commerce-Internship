@@ -3,7 +3,7 @@ import "./About.css"
 function About() {
   return (
     <div className="about-container">
-      <div className="img-heder"></div>
+      <div className="img-heder"><img src="../src/assets/images/IMG_٢٠٢٥٠٩١٩_١٥٠٩٣٩.png" alt="" /></div>
        <div className="poop-heder">
          <span>
           In nec purus eget neque accumsan finibus. Duis condimentum elit ut libero commodo iaculis. Donec augue diam, tristique et ultricies nec, consectetur quis enim. Nullam id
