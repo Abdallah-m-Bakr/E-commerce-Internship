@@ -1,4 +1,4 @@
-import { useState ,useEffect, use } from "react";
+import { useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css"; // import css file
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ const Register = () => {
   const{t,i18n}=useTranslation();
   useEffect(()=>{
     i18n.changeLanguage("ar")
-  },[])
+  })
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
