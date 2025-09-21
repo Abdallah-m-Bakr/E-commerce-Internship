@@ -2,6 +2,7 @@ import "./Home.css"
 import {Link} from 'react-router-dom'
 import BestSeller from "../../components/BestSeller/bestSeller"
 import Slider from "../../components/Slider/Slider"
+import Slider2 from "../../components/Slider2/Slider"
 function Home() {
   return (
     <>
@@ -160,6 +161,10 @@ function Home() {
 {/* // Best Seller section */}
 <BestSeller />
 {/* // end Best Seller section */}
+{/* // Slider2 section */}
+<Slider2 />
+{/* // end Slider2 section */}
+
 </>
   )
 }

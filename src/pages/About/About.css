@@ -3,12 +3,9 @@
     width: 100%;
     height:190vh;
 }   
-.img-heder{
+.img-heder img{
     width: 100%;
-    height: 250px;
-    background-image: url(/src/assets/img-abut/Messenger_creation_852100410448981.jpeg);
-    background-repeat:no-repeat;
-    background-size:cover ;
+    height: 280px;
     margin-bottom: 20px;
 }
 .poop-heder{
@@ -23,7 +20,7 @@
 .span-img{
     width: 300px;
     height: 450px;
-    background-image: url(/src/assets/img-abut/Messenger_creation_1071529774814397.jpeg);
+    background-image: url(/src/assets/images/Messenger_creation_1071529774814397.jpeg);
     background-size: cover;
     float: left;
 }
@@ -34,5 +31,5 @@ h3{
     margin-left: 350px;
 }
 .foter-span{
-    padding-top: 70px;
+    padding-top:70px;
 }

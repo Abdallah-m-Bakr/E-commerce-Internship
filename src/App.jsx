@@ -14,6 +14,7 @@ import Register from './pages/Register/Register';
 import Cart from './pages/Cart/Cart';
 import Shop from './pages/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+// import slider2 from './components/slider2/Slider'
 
 // Layouts
 import MainLayout from './layouts/MainLayout';
