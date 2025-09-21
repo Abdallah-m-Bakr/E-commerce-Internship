@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
+.container .cont-shop{
+    text-transform: capitalize;
+    font-family: 'Quicksand', sans-serif;
+}
+.cont-shop{
+    display: flex;
+}
+.top-card .offer{
+    border-radius: var(--border);
+    background-color: var(--hover-color);
+    color: #fff;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.check-inputs{
+    height: 100vh;
+}
+.cont-input .range-price{
+    width: 100px;
+    color: var(text-color);
+    background-color: #e2e3e5;
+    outline: none;
+    border: none;
+    padding: 5px;
+}

@@ -1,9 +1,121 @@
-import "./Shop.css"
+import "./Shop.css";
+import ShopContext from "../../context/ShopContext.jsx";
+import React, { useContext } from "react";
 
 function Shop() {
+  const { state, dispatch } = useContext(ShopContext);
   return (
-    <div>Shop</div>
-  )
+    <div className="container my-5">
+      <div className="cont-shop row row-cols-12">
+        <div className="check-inputs col-3 p-2 pe-4">
+          <div className="categories mb-5" id="categories">
+            <h6 className="fw-bold text-uppercase">product categories</h6>
+            <div className="cont-input">
+              <div className="d-flex gap-3">
+                <input type="checkbox" name="shoes" id="shoes" />
+                <label htmlFor="shoes">shoes</label>
+              </div>
+            </div>
+          </div>
+          {/* brands */}
+          {/* <div className="brands mb-5" id="brands">
+            <h6 className="fw-bold text-uppercase">brands</h6>
+            <div className="cont-input d-flex justify-content-between">
+              <div className="d-flex gap-3">
+                <input type="checkbox" name="puma" id="puma" />
+                <label htmlFor="puma">puma</label>
+              </div>
+              <div>
+                (<span id="lengthBrandsInputs">8</span>)
+              </div>
+            </div>
+          </div> */}
+          <div className="price mb-5" id="price">
+            <h6 className="fw-bold text-uppercase">price</h6>
+            <div className="cont-input d-flex align-items-end gap-3">
+              <div className="from d-flex flex-column">
+                <label htmlFor="from">from</label>
+                <input
+                  type="number"
+                  name="from"
+                  id="from"
+                  className="range-price"
+                  defaultValue={0}
+                  maxLength={5}
+                  min={0}
+                />
+              </div>
+              <div>-</div>
+              <div className="to d-flex flex-column">
+                <label htmlFor="to">to</label>
+                <input
+                  type="number"
+                  name="to"
+                  id="to"
+                  className="range-price"
+                  defaultValue={99.99}
+                  maxLength={5}
+                  max={99999}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="photo-ad">
+            <img src="../../assets/images/shop1.jpeg" alt="photo" className="card-img-top p-3" style={{ height: "200px", objectFit: "contain" }}/>
+          </div>
+        </div>
+        <div className="col-9">
+          <div className="row">
+            {state.products.map((product) => (
+              <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3 viewer-blur">
+                <div className="card-product border border-1 h-100">
+                  <div className="top-card position-relative">
+                    <img src={product.image} alt={product.title} className="card-img-top p-3" style={{ height: "200px", objectFit: "contain" }}/>
+                    <div className={product.offer ? "offer position-absolute top-0 left-0 m-2" : "d-none"}>
+                      {product.offer}%
+                    </div>
+                  </div>
+                  <div className="card-body d-flex flex-column align-content-between p-3">
+                    <div className="d-flex flex-column">
+                      <h5 className="card-text">{product.title}</h5>
+                      <div className="rate d-flex gap-2">
+                        <div className="text-warning">
+                          {product.rating.rate}
+                          <i className="fas fa-star"></i>
+                        </div>
+                        <span>1 review</span>
+                      </div>
+                      <div className="offer-price d-flex gap-2">
+                        <div className={product.offer ? "before-offer text-decoration-line-through": "d-none"}>
+                          ${(+(product.price)/(1- +(product.offer)/100)).toFixed(2)}
+                        </div>
+                        <div className="after-offer text-danger fs-5 card-text">
+                          ${product.price}
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="btn btn-success mt-auto"
+                      onClick={
+                        () => dispatch({ type: "ADD_TO_CART", payload: product })
+                        
+                      }
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Shop
+export default Shop;
+
+
+
+// npx json-server --watch db.json --port 5000
