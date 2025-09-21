@@ -9,7 +9,7 @@
     width: 40%;
 }
 .hero .slid{
-    background-image: url(../../assets/images/img1.jpg);
+    background-image: url(../../assets/images/bg-hero.jpeg);
     background-size: cover;
     background-position: 80%;
 
@@ -50,7 +50,7 @@
     padding: 15px;
     border-radius: var(--border);
     background-color: #b7b7b7;
-    background-image: url(../../assets/images/img1.jpg);
+    background-image: url(../../assets/images/bg1.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0 30%;
@@ -156,10 +156,10 @@
     border-radius: 15px;
 }
 .bg-img-red-public{
-    background-image: url(../../assets/images/img1.jpg);
+    background-image: url(../../assets/images/bg2.jpeg);
 }
 .bg-img-blue-public{
-    background-image: url(../../assets/images/img1.jpg);
+    background-image: url(../../assets/images/bg1.jpeg);
 }
 /* animation */
 @keyframes viewer-to-left {
