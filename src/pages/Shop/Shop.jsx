@@ -12,7 +12,7 @@ function Shop() {
 
   useEffect(() => {
     i18n.changeLanguage('ar')
-  }, []);
+  }, [i18n]);
   return (
     <div className="container my-5">
       <div className="cont-shop row row-cols-12">
