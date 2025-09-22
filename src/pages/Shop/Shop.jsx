@@ -1,13 +1,12 @@
 import "./Shop.css";
-import ShopContext from "../../context/ShopContext.jsx";
 
-import  {React,useEffect, useContext } from "react";
+import  {useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 
 import shop1 from "../../assets/images/shop1.jpeg";
 
 function Shop() {
-  const { state, dispatch } = useContext(ShopContext);
+  
   const{t,i18n} = useTranslation();
 
   useEffect(() => {
