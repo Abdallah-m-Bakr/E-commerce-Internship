@@ -15,18 +15,6 @@ import Register from './pages/Register/Register';
 import Cart from './pages/Cart/Cart';
 import Shop from './pages/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-// import slider2 from './components/slider2/Slider'
-import Home from "./pages/Home/Home";
-import Blog from "./pages/Blog/Blog";
-import Contact from "./pages/Contact/Contact";
-import About from "./pages/About/About";
-import Checkout from "./pages/Checkout/Checkout";
-import NotFound from "./pages/NotFound/NotFound";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
-import Cart from "./pages/Cart/Cart";
-import Shop from "./pages/Shop/Shop";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Profile from "./pages/profile/profile"
 // Layouts
 import MainLayout from "./layouts/MainLayout";
