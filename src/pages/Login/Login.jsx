@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-card">
+      <div className="login-card p-3">
         <h3 className="login-title">
           <i className="fas fa-sign-in-alt me-2"></i>
           {t("Login")}
@@ -98,11 +98,13 @@ const Login = () => {
           </div>
 
           {/* Button */}
-          <button type="submit" className="btn login-btn w-100 fw-bold">
+          <button type="submit" className="btn login-btn w-100 fw-bold mb-3">
             <i className="fas fa-sign-in-alt me-2"></i>
             {t("Login")}
           </button>
         </form>
+        <p>Not have an account?<a href="/register" className="create-account-now"> create an account now.</a></p>
+        
       </div>
     </div>
   );
