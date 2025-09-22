@@ -4,8 +4,8 @@ import { useEffect } from "react"
 function NotFound() {
   const {t,i18n} = useTranslation()
   useEffect(()=>{
-    i18n.changeLanguage("ar")
-  },[])
+    // i18n.changeLanguage("ar")
+  },[i18n])
   return (
     <div>{t("NotFound")}</div>
   )

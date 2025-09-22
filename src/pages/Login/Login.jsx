@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const Login = () => {
   const {t, i18n} = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage("ar")
+    // i18n.changeLanguage("ar")
   }, [i18n])
   const [username, setUsername] = useState(""); // fakestoreapi uses "username"
   const [password, setPassword] = useState("");

@@ -5,8 +5,8 @@ export default function Cart() {
 
   const { t, i18n } = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage('ar'); 
-  }, []);
+    // i18n.changeLanguage('ar'); 
+  }, [i18n]);
 
   const cartItems = [
     {

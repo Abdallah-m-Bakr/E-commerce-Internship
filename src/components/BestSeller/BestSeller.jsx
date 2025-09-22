@@ -93,8 +93,8 @@ const BestSeller = () => {
 
   const { t, i18n } = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage("ar");
-  }, []);
+    // i18n.changeLanguage("ar");
+  }, [i18n]);
   return (
     <div className="container my-5">
       <h3 className="fw-bold">{t("Best Seller")}</h3>

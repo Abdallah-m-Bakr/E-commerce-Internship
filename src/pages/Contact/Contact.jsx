@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function Contact() {
   const {t, i18n} = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage("ar")
+    // i18n.changeLanguage("ar")
   }, [i18n])
   return (
     <div className="container my-5">

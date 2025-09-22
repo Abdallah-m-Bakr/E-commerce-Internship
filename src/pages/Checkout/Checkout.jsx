@@ -6,8 +6,8 @@ import { useEffect } from "react";
 const Checkout = () => {
   const { t,i18n } = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage("ar");
-  }, []);
+    // i18n.changeLanguage("ar");
+  }, [i18n]);
   return (
     <div className="container checkout-container py-5">
       <div className="row">

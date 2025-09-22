@@ -1,16 +1,13 @@
 import "./Shop.css";
-
-import  {useEffect, useContext } from "react";
-import { useTranslation } from "react-i18next";
-
 import shop1 from "../../assets/images/shop1.jpeg";
+import  {useEffect, useContext  } from "react";
+import { useTranslation } from "react-i18next";
 
 function Shop() {
   
   const{t,i18n} = useTranslation();
-
   useEffect(() => {
-    i18n.changeLanguage('ar')
+    // i18n.changeLanguage('ar')
   }, [i18n]);
   return (
     <div className="container my-5">
@@ -75,14 +72,14 @@ function Shop() {
         <div className="col-9">
           <div className="hero-shop d-flex justify-content-center align-items-center my-3 p-3">
             <div className="cont-hero-shop d-flex justify-content-center align-items-start flex-column py-5">
-              <p className="fs-3">organic products</p>
-              <p className="fw-bold fs-3">delivered to <span className="text-success">your home</span></p>
-              <p className="text-secondary">delivered nationwide.</p>
+              <p className="fs-3">{t("organic products")}</p>
+              <p className="fw-bold fs-3">{t("delivered to")} <span className="text-success">{t("your home")}</span></p>
+              <p className="text-secondary">{t("delivered nationwide.")}</p>
             </div>
           </div>
           <div className="product-length-sort rounded my-3 px-4 py-4 d-flex align-items-center justify-content-between">
-            <div className="length">{state.products.length} products</div>
-            <div className="sort">sort by: <span className="text-dark">aliphabetically, A-Z</span></div>
+            <div className="length">{state.products.length}{t("products")}</div>
+            <div className="sort">{t("sort by:")} <span className="text-dark">{t("aliphabetically, A-Z")}</span></div>
           </div>
           <div className="row">
             {state.products.map(product => (
