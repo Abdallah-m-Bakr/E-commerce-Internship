@@ -20,7 +20,7 @@ const Login = () => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(
       (u) =>
-        (u.username === username || u.email === username) &&
+        (u.username === username) &&
         u.password === password
     );
 
@@ -28,7 +28,7 @@ const Login = () => {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("currentUser", JSON.stringify(user));
       alert("✅ Logged in successfully!");
-      navigate("/profile");
+      navigate("/");
     } else {
       alert("❌ Invalid username/email or password");
     }
@@ -47,10 +47,10 @@ const Login = () => {
         </h3>
 
         <form onSubmit={handleSubmit}>
-          {/* Username or Email */}
+          {/* Username */}
           <div className="mb-3">
             <label htmlFor="username" className="form-label fw-semibold">
-              {t("Username or Email")}
+              {t("Username")}
             </label>
             <div className="input-group">
               <span className="input-group-text">
@@ -60,7 +60,7 @@ const Login = () => {
                 id="username"
                 type="text"
                 className="form-control"
-                placeholder={t("Enter username or email")}
+                placeholder={t("Enter username")}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required

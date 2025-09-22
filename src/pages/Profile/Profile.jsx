@@ -20,11 +20,29 @@ export default function Profile() {
   };
 
   const handleLogout = () => {
-    // Remove login state but keep users
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("currentUser");
     alert("✅ Logged out successfully");
     navigate("/login");
+  };
+
+  const handleDeleteAccount = () => {
+    if (
+      window.confirm(
+        "⚠️ Are you sure you want to permanently delete your account?"
+      )
+    ) {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("currentUser");
+
+      // If you have a users array stored, remove the user from it
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const filtered = users.filter((u) => u.email !== user.email);
+      localStorage.setItem("users", JSON.stringify(filtered));
+
+      alert("🗑️ Account deleted successfully");
+      navigate("/register");
+    }
   };
 
   const goEdit = () => navigate("/edit-profile");
@@ -65,17 +83,26 @@ export default function Profile() {
             </li>
           </ul>
 
-          <div className="d-flex gap-2">
-            <button onClick={goEdit} className="btn btn-success w-50">
-              <i className="fas fa-edit me-2"></i>
-              {t("Edit Profile")}
-            </button>
+          <div className="d-flex flex-column gap-2">
+            <div className="d-flex gap-2">
+              <button onClick={goEdit} className="btn btn-success w-50">
+                <i className="fas fa-edit me-2"></i>
+                {t("Edit Profile")}
+              </button>
+              <button
+                onClick={handleLogout}
+                className="btn btn-outline-danger w-50"
+              >
+                <i className="fas fa-sign-out-alt me-2"></i>
+                {t("Logout")}
+              </button>
+            </div>
             <button
-              onClick={handleLogout}
-              className="btn btn-outline-danger w-50"
+              onClick={handleDeleteAccount}
+              className="btn btn-danger w-100"
             >
-              <i className="fas fa-sign-out-alt me-2"></i>
-              {t("Logout")}
+              <i className="fas fa-trash-alt me-2"></i>
+              {t("Delete My Account")}
             </button>
           </div>
         </div>
