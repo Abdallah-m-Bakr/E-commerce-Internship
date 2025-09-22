@@ -41,6 +41,7 @@ const Login = () => {
         style={{ maxWidth: 420, width: "100%" }}
       >
         <h3 className="login-title text-center mb-4">
+
           <i className="fas fa-sign-in-alt me-2"></i>
           {t("Login")}
         </h3>
@@ -101,6 +102,7 @@ const Login = () => {
           </div>
 
           <button type="submit" className="btn login-btn w-100 fw-bold">
+
             <i className="fas fa-sign-in-alt me-2"></i>
             {t("Login")}
           </button>
@@ -112,6 +114,7 @@ const Login = () => {
             {t("Register")}
           </a>
         </p>
+
       </div>
     </div>
   );
