@@ -15,7 +15,8 @@ import Register from './pages/Register/Register';
 import Cart from './pages/Cart/Cart';
 import Shop from './pages/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import Profile from "./pages/profile/profile"
+import Profile from "./pages/profile/profile";
+import EditProfile from "./pages/EditProfile/EditProfile";
 // Layouts
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
@@ -39,6 +40,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
         </Route>
 
         {/* Layout بدون Navbar و Footer */}

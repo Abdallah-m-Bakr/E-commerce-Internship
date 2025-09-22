@@ -1,74 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+
 const Login = () => {
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   useEffect(() => {
-    // i18n.changeLanguage("ar")
-  }, [i18n])
-  const [username, setUsername] = useState(""); // fakestoreapi uses "username"
+    // i18n.changeLanguage("ar");
+  }, [i18n]);
+
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("https://fakestoreapi.com/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(
+      (u) =>
+        (u.username === username || u.email === username) &&
+        u.password === password
+    );
 
-      if (!res.ok) {
-        alert("❌ Invalid login credentials");
-        // <alert>t("❌ Invalid login credentials")</alert>;
-        return;
-      }
-
-      const data = await res.json();
-      console.log("✅ Login success:", data);
-
-      if (data.token) {
-        localStorage.setItem("token", data.token); // save token
-        alert("✅ Logged in successfully!");
-        navigate("/");
-      } else {
-        alert("❌ Invalid login response");
-      }
-    } catch {
-      alert("❌ Error during login");
+    if (user) {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      alert("✅ Logged in successfully!");
+      navigate("/profile");
+    } else {
+      alert("❌ Invalid username/email or password");
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h3 className="login-title">
+    <div className="login-container d-flex justify-content-center align-items-center vh-100">
+      <div
+        className="login-card card p-4 shadow-lg border-0"
+        style={{ maxWidth: 420, width: "100%" }}
+      >
+        <h3 className="login-title text-center mb-4">
           <i className="fas fa-sign-in-alt me-2"></i>
           {t("Login")}
         </h3>
 
         <form onSubmit={handleSubmit}>
-          {/* Username */}
+          {/* Username or Email */}
           <div className="mb-3">
             <label htmlFor="username" className="form-label fw-semibold">
-              {t("Username")}
+              {t("Username or Email")}
             </label>
             <div className="input-group">
               <span className="input-group-text">
                 <i className="fas fa-user"></i>
               </span>
               <input
+                id="username"
                 type="text"
                 className="form-control"
-                id="username"
-                placeholder={t("Enter username")}
+                placeholder={t("Enter username or email")}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -86,23 +77,41 @@ const Login = () => {
                 <i className="fas fa-lock"></i>
               </span>
               <input
-                type="password"
-                className="form-control"
                 id="password"
+                type={showPassword ? "text" : "password"}
+                className="form-control"
                 placeholder={t("Enter password")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
+            <div className="form-check mt-2">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="showPwdLogin"
+                checked={showPassword}
+                onChange={() => setShowPassword((s) => !s)}
+              />
+              <label className="form-check-label" htmlFor="showPwdLogin">
+                {t("Show Password")}
+              </label>
+            </div>
           </div>
 
-          {/* Button */}
           <button type="submit" className="btn login-btn w-100 fw-bold">
             <i className="fas fa-sign-in-alt me-2"></i>
             {t("Login")}
           </button>
         </form>
+
+        <p className="text-center mt-3">
+          {t("Don't have an account")}?{" "}
+          <a href="/register" className="login-link">
+            {t("Register")}
+          </a>
+        </p>
       </div>
     </div>
   );
