@@ -33,9 +33,9 @@ function Navbar() {
         document.body.dir = 'rtl';
       }
       localStorage.setItem('selectedLanguage', language);
-      // console.log('Current language:', i18n.language); // للتصحيح
+      console.log('Current language:', i18n.language); // للتصحيح
     } catch (error) {
-      // console.error('Error changing language:', error); // التقاط الأخطاء
+      console.error('Error changing language:', error); // التقاط الأخطاء
     }
   };
   // تهيئة اللغة عند تحميل الصفحة
