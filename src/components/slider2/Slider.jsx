@@ -5,7 +5,8 @@ import img from "../../assets/images/img1.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./slider2.css";
-
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 const categories = [
   { id: 1, name: "Beverages", items: "11 Items", img },
   { id: 2, name: "Biscuits & Snacks", items: "6 Items", img },
@@ -16,6 +17,10 @@ const categories = [
 ];
 
 export default function Slider() {
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    // i18n.changeLanguage("ar");
+  }, [i18n]);
   return (
     <div className="categories-wrapper container my-5">
       <div className="categories-box position-relative p-3 rounded-3">
@@ -40,11 +45,11 @@ export default function Slider() {
                   <img src={"./src/assets/images/coffie.png"} alt={cat.name} />
                 </div>
                 <span >USDA Choice Angus Beef Stew Meat</span>
-                <span id="sp-1" className="text-success">IN STOCK </span>
-                <span>1 review </span>
+                <span id="sp-1" className="text-success">{t("IN STOCK")} </span>
+                <span>{t("1 review")} </span>
                 <span id="sp-2">$79.99 <span id="sp-3" className="text-danger">$49.99</span></span>
                 <div className="cat-info">
-                <button type="button" id="btn" className="btn btn-warning">Add to cart</button>
+                <button type="button" id="btn" className="btn btn-warning">{t("Add to cart")}</button>
                 </div>
               </div>
             </SwiperSlide>

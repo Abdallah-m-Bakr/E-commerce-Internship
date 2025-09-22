@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export default function Profile() {
   const { t,i18n } = useTranslation();
   useEffect(() => {
-    i18n.changeLanguage("ar");
+    // i18n.changeLanguage("ar");
   },[i18n]);
   return (
     <div className="container my-5 d-flex justify-content-center">

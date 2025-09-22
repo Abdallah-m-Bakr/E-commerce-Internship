@@ -33,9 +33,9 @@ function Navbar() {
         document.body.dir = 'rtl';
       }
       localStorage.setItem('selectedLanguage', language);
-      console.log('Current language:', i18n.language); // للتصحيح
+      // console.log('Current language:', i18n.language); // للتصحيح
     } catch (error) {
-      console.error('Error changing language:', error); // التقاط الأخطاء
+      // console.error('Error changing language:', error); // التقاط الأخطاء
     }
   };
   // تهيئة اللغة عند تحميل الصفحة
@@ -65,12 +65,12 @@ useEffect(() => {
         <div className="container d-flex pt-2 first-navbar">
           {/* navs */}
           <div>
-            <ul className='d-flex justify-content-evenly navul-1'>
+            <ul className='d-flex justify-content-center navul-1'>
               <li><NavLink to="/about" >{t("About Us")}</NavLink></li>
             </ul>
           </div>
           {/* text */}
-          <div className="d-flex justify-content-end text-for-navbar">
+          <div className="d-flex text-for-navbar">
             <div className="secure-delivery d-flex text-muted">
               <i className="fa-solid fa-user-shield pt-1"></i>
               <p>{t("100% secure delivery without contacting the courier")}</p>
