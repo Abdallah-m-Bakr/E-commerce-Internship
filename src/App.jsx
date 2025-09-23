@@ -15,7 +15,7 @@ import Register from './pages/Register/Register';
 import Cart from './pages/Cart/Cart';
 import Shop from './pages/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import Profile from "./pages/profile/profile";
+import Profile from './pages/Profile/Profile';
 import EditProfile from "./pages/EditProfile/EditProfile";
 // Layouts
 import MainLayout from "./layouts/MainLayout";

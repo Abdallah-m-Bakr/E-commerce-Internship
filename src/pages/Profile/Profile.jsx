@@ -16,7 +16,7 @@ export default function Profile() {
   const user = JSON.parse(localStorage.getItem("currentUser")) || {
     username: "Guest",
     email: "guest@example.com",
-    image: null,
+    image: null,      
   };
 
   const handleLogout = () => {
