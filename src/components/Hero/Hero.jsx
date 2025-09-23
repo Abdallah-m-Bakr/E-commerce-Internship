@@ -1,8 +1,8 @@
 import "./hero.css"
 import {Link} from 'react-router-dom'
-import img1 from "../../assets/images/img1.jpg";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { useEffect ,useContext } from "react";
+import { HomeContext } from "../../context/HomeContext";
 
 
 function Hero(){
@@ -10,6 +10,9 @@ function Hero(){
   useEffect(() => {
     // i18n.changeLanguage('ar'); 
   },[i18n])
+
+  // context hero
+  const { homeProducts } = useContext(HomeContext);
     return(
     <div className="container">
       {/* hero section */}
@@ -46,108 +49,31 @@ function Hero(){
           </div>
         </div>
         <div className="offer-cards border border-danger border-2 rounded row row-col-12">
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
+          {homeProducts.slice(0,5).map((p) => (
+          <div key={p.id} className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
             <div className="top-card position-relative">
-              <img src={img1} alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">25%</div>
+              <img src={p.images} alt={p.title} />
+              <div className="offer position-absolute top-0 left-0 m-2">{p.discountPercentage}%</div>
             </div>
             <div className="body-card p-3">
-              <h5 className="title">{t("purple shoes")}</h5>
+              <h5 className="title">{t(p.title)}</h5>
               <div className="rate d-flex gap-2">
-                <div className="text-warning">5<i className="fas fa-star"></i></div>
-                <span>{t("1 review")}</span>
+                <div className="text-warning">{p.rating}<i className="fas fa-star"></i></div>
+                <span>{p.reviews.length}{t(" review")}</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$75.00</div>
-                <div className="after-offer text-danger fs-5">$56.25</div>
+                <div className="before-offer text-decoration-line-through">${(p.price/(1-(p.discountPercentage)/100)).toFixed(2)}</div>
+                <div className="after-offer text-danger fs-5">${p.price}</div>
               </div>
               <div className="bar">
-                <div style={{ "--width-bar": "70%" }}></div>
+                <div style={{ "width": p.stock + "%" }}></div>
               </div>
-              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">70</span></p>
+              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">{p.stock}</span></p>
             </div>
           </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-right">
-            <div className="top-card position-relative">
-              <img src={img1} alt="" />
-            </div>
-            <div className="body-card p-3">
-              <h5 className="title">{t("Pullover")}</h5>
-              <div className="rate d-flex gap-2">
-                <div className="text-warning">4<i className="fas fa-star"></i></div>
-                <span>{t("1 review")}</span>
-              </div>
-              <div className="offer-price d-flex gap-2">
-                <div className="after-offer text-danger fs-5">$14.50</div>
-              </div>
-              <div className="bar">
-                <div style={{ "--width-bar": "90%" }}></div>
-              </div>
-              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">90</span></p>
-            </div>
-          </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
-            <div className="top-card position-relative">
-              <img src={img1} alt="" />
-            </div>
-            <div className="body-card p-3">
-              <h5 className="title">{t("Varsity Jacket")}</h5>
-              <div className="rate d-flex gap-2">
-                <div className="text-warning">4<i className="fas fa-star"></i></div>
-                <span>{t("1 review")}</span>
-              </div>
-              <div className="offer-price d-flex gap-2">
-                <div className="after-offer text-danger fs-5">$10.59</div>
-              </div>
-              <div className="bar">
-                <div style={{ "--width-bar": "50%" }}></div>
-              </div>
-              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">50</span></p>
-            </div>
-          </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-right">
-            <div className="top-card position-relative">
-              <img src={img1} alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">34%</div>
-            </div>
-            <div className="body-card p-3">
-              <h5 className="title">{t("blue shoes")}</h5>
-              <div className="rate d-flex gap-2">
-                <div className="text-warning">5<i className="fas fa-star"></i></div>
-                <span>{t("1 review")}</span>
-              </div>
-              <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$80.00</div>
-                <div className="after-offer text-danger fs-5">$52.80</div>
-              </div>
-              <div className="bar">
-                <div style={{ "--width-bar": "29%" }}></div>
-              </div>
-              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">29</span></p>
-            </div>
-          </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
-            <div className="top-card position-relative">
-              <img src={img1} alt="" />
-              <div className="offer position-absolute top-0 left-0 m-2">35%</div>
-            </div>
-            <div className="body-card p-3">
-              <h5 className="title">{t("Layered Necklace")}</h5>
-              <div className="rate d-flex gap-2">
-                <div className="text-warning">5<i className="fas fa-star"></i></div>
-                <span>{t("1 review")}</span>
-              </div>
-              <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">$129.99</div>
-                <div className="after-offer text-danger fs-5">$84.50</div>
-              </div>
-              <div className="bar">
-                <div style={{ "--width-bar": "12%" }}></div>
-              </div>
-              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">12</span></p>
-            </div>
-          </div>
+          ))}
         </div>
+
       </div>
       <div className="row row-cols-12 my-4 d-flex gap-5">
         <div className="col-12 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public" style={{backgroundSize:"cover" ,backgroundPosition:"0 75%"}}>

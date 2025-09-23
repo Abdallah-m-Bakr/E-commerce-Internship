@@ -1,22 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import img from "../../assets/images/img1.jpg";
+import { HomeContext } from "../../context/HomeContext";
+import { useEffect ,useContext } from "react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "./slider2.css";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-const categories = [
-  { id: 1, name: "Beverages", items: "11 Items", img },
-  { id: 2, name: "Biscuits & Snacks", items: "6 Items", img },
-  { id: 3, name: "Breads & Bakery", items: "6 Items", img },
-  { id: 4, name: "Breakfast & Dairy", items: "8 Items", img },
-  { id: 5, name: "Frozen Foods", items: "7 Items", img },
-  { id: 6, name: "Frozen Foods", items: "7 Items", img },
-];
 
 export default function Slider() {
+    const { homeProducts } = useContext(HomeContext);
+
   const { t, i18n } = useTranslation();
   useEffect(() => {
     // i18n.changeLanguage("ar");
@@ -38,16 +32,19 @@ export default function Slider() {
             0: { slidesPerView: 1 },
           }}
         >
-          {categories.map((cat) => (
+          {homeProducts.slice(14,24).map((cat) => (
             <SwiperSlide key={cat.id}>
               <div className="cat-card card">
                 <div className="img-wrap">
-                  <img src={"./src/assets/images/coffie.png"} alt={cat.name} />
+                  <img src={cat.images} alt={cat.title} />
                 </div>
-                <span >USDA Choice Angus Beef Stew Meat</span>
-                <span id="sp-1" className="text-success">{t("IN STOCK")} </span>
-                <span>{t("1 review")} </span>
-                <span id="sp-2">$79.99 <span id="sp-3" className="text-danger">$49.99</span></span>
+                <span>{cat.title}</span>
+                <span id="sp-1" className="text-success">{cat.stock}. {t("IN STOCK")} </span>
+                <span>{cat.reviews.length}{t("1 review")} </span>
+                <div>
+                  {/* <span id="sp-2" className="text-decoration-line-through">${(cat.price/(1-(cat.discountPercentage)/100)).toFixed(2)} </span>  */}
+                  <span id="sp-3" className="text-danger">${cat.price}</span>
+                </div>
                 <div className="cat-info">
                 <button type="button" id="btn" className="btn btn-warning">{t("Add to cart")}</button>
                 </div>
