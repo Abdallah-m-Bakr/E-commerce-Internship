@@ -38,12 +38,10 @@ function Navbar() {
         i18n.changeLanguage("ar");
         document.body.dir = "rtl";
       }
-localStorage.setItem("selectedLanguage", language);
-console.log("Current language:", i18n.language); // للتصحيح
-} catch (error) {
-  console.error("Error changing language:", error); // التقاط الأخطاء
-}
-
+      localStorage.setItem("selectedLanguage", language);
+      console.log("Current language:", i18n.language); // للتصحيح
+    } catch (error) {
+      console.error("Error changing language:", error); // التقاط الأخطاء
     }
   };
 
@@ -65,17 +63,16 @@ console.log("Current language:", i18n.language); // للتصحيح
   return (
     <header>
       <div>
-        {/* اول حاجة خالص في الصفحة */}
-        <div className="dueto ">
+        <div className="dueto">
           <p className="duetotext text-light">
             {t(
               "Due to current circumstances, there may be slight delays in order processing"
             )}
           </p>
         </div>
+
         {/* 1st navbar */}
         <div className="container-md d-flex pt-2 first-navbar">
-          {/* navs */}
           <div>
             <ul className="d-flex justify-content-center navul-1">
               <li>
@@ -83,7 +80,7 @@ console.log("Current language:", i18n.language); // للتصحيح
               </li>
             </ul>
           </div>
-          {/* text */}
+
           <div className="d-flex text-for-navbar">
             <div className="secure-delivery d-flex text-muted">
               <i className="fa-solid fa-user-shield pt-1"></i>
@@ -97,7 +94,7 @@ console.log("Current language:", i18n.language); // للتصحيح
               </p>
               <div className="line-vertical pt-3 "></div>
             </div>
-            {/* dropdown */}
+
             <div className="selection">
               <select
                 className="select"
@@ -111,12 +108,12 @@ console.log("Current language:", i18n.language); // للتصحيح
             </div>
           </div>
         </div>
-        {/* line */}
+
         <hr className="horizontail-line pt-1" />
 
-        <div className="header d-flex justify-content-between container ">
+        <div className="header d-flex justify-content-between container">
           <img className="img" src={logo} alt="logo" width={200} height={80} />
-          {/* search */}
+
           <div className="input-text border-0 rounded d-flex justify-content-between">
             <input
               className="search border-0"
@@ -127,7 +124,7 @@ console.log("Current language:", i18n.language); // للتصحيح
             />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
-          {/* user $ price & cart*/}
+
           <div className="user-price-cart d-flex justify-content-evenly">
             <div className="user">
               <NavLink to="/profile">
@@ -187,6 +184,6 @@ console.log("Current language:", i18n.language); // للتصحيح
       <hr className="horizontail-line pt-1" />
     </header>
   );
-
+}
 
 export default Navbar;
