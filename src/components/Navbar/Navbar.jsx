@@ -38,16 +38,12 @@ function Navbar() {
         i18n.changeLanguage("ar");
         document.body.dir = "rtl";
       }
-<<<<<<< HEAD
-      localStorage.setItem('selectedLanguage', language);
-      console.log('Current language:', i18n.language); // للتصحيح
-    } catch (error) {
-      console.error('Error changing language:', error); // التقاط الأخطاء
-=======
-      localStorage.setItem("selectedLanguage", language);
-    } catch (error) {
-      console.error("Error changing language:", error);
->>>>>>> 6052a0c (shop cart checkout)
+localStorage.setItem("selectedLanguage", language);
+console.log("Current language:", i18n.language); // للتصحيح
+} catch (error) {
+  console.error("Error changing language:", error); // التقاط الأخطاء
+}
+
     }
   };
 
@@ -191,6 +187,6 @@ function Navbar() {
       <hr className="horizontail-line pt-1" />
     </header>
   );
-}
+
 
 export default Navbar;
