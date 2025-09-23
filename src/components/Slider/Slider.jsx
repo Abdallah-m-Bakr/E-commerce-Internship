@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { useContext } from "react";
-import { HomeContext } from "../../context/HomeContext";
 
+import { useProducts } from "../../context/ProductContext";
+import Loader from "../../components/Loader/Loader";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,7 +10,10 @@ import "./Slider.css";
 
 
 export default function Slider() {
-    const { homeProducts } = useContext(HomeContext);
+const { filteredProducts: products, loading, error } = useProducts();
+  if (loading) return <Loader />;
+  if (error) return <div className="text-danger">{error}</div>;
+  const sliderProducts = products.slice(10, 18);
 
   return (
     <div className="categories-wrapper container my-5">
@@ -29,7 +32,7 @@ export default function Slider() {
             0: { slidesPerView: 1 },
           }}
         >
-          {homeProducts.slice(20,30).map((cat) => (
+          {sliderProducts.map((cat) => (
             <SwiperSlide key={cat.id}>
               <div className="cat-card text-center">
                 <div className="img-wrap">

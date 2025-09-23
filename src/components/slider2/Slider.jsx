@@ -1,7 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { HomeContext } from "../../context/HomeContext";
-import { useEffect ,useContext } from "react";
+import { useEffect  } from "react";
+import { useProducts } from "../../context/ProductContext";
+import Loader from "../../components/Loader/Loader";
+import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -9,7 +12,12 @@ import "./slider2.css";
 import { useTranslation } from "react-i18next";
 
 export default function Slider() {
-    const { homeProducts } = useContext(HomeContext);
+const { filteredProducts: products, loading, error } = useProducts();
+  if (loading) return <Loader />;
+  if (error) return <div className="text-danger">{error}</div>;
+  // Limit to first 4 products for Home
+  const homeProducts = products.slice(20, 28);
+ const { addToCart } = useCart();
 
   const { t, i18n } = useTranslation();
   useEffect(() => {
@@ -32,7 +40,7 @@ export default function Slider() {
             0: { slidesPerView: 1 },
           }}
         >
-          {homeProducts.slice(14,24).map((cat) => (
+          {homeProducts.map((cat) => (
             <SwiperSlide key={cat.id}>
               <div className="cat-card card">
                 <div className="img-wrap">

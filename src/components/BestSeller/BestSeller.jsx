@@ -1,12 +1,16 @@
 import "./BestSeller.css";
 import bannerBg from "../../assets/images/download.jpeg"; // 👈 صورة الخلفية للبنر
 import { useTranslation } from "react-i18next";
-import { useEffect ,useContext } from "react";
-import { HomeContext } from "../../context/HomeContext";
-
+import { useEffect  } from "react";
+import { useProducts } from "../../context/ProductContext";
+import Loader from "../../components/Loader/Loader";
 
 const BestSeller = () => {
-  const { homeProducts } = useContext(HomeContext);
+const { filteredProducts: products, loading, error } = useProducts();
+  if (loading) return <Loader />;
+  if (error) return <div className="text-danger">{error}</div>;
+  // Limit to first 4 products for Home
+  const homeProducts = products
 
   // أقسم المنتجات: 4 شمال - البنر - 4 يمين
   // const left = products.slice(0, 4);

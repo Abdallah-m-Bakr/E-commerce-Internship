@@ -1,8 +1,9 @@
 import "./hero.css"
 import {Link} from 'react-router-dom'
 import { useTranslation } from "react-i18next";
-import { useEffect ,useContext } from "react";
-import { HomeContext } from "../../context/HomeContext";
+import { useEffect  } from "react";
+import { useProducts } from "../../context/ProductContext";
+import Loader from "../../components/Loader/Loader";
 
 
 function Hero(){
@@ -12,7 +13,14 @@ function Hero(){
   },[i18n])
 
   // context hero
-  const { homeProducts } = useContext(HomeContext);
+  // const { homeProducts } = useContext(HomeContext);
+
+const { filteredProducts: products, loading, error } = useProducts();
+  if (loading) return <Loader />;
+  if (error) return <div className="text-danger">{error}</div>;
+  // Limit to first 4 products for Home
+  const homeProducts = products.slice(0, 5);
+
     return(
     <div className="container">
       {/* hero section */}
@@ -39,7 +47,7 @@ function Hero(){
         <div className="timer d-flex flex-md-row flex-column m-4">
           <span>
             <h4 className="text-primary">{t("special offers of the week!")}</h4>
-            <p>ut placerat, magna quis porttitor vulputate, magna nunc ante.</p>
+            <p>{t("Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!")}</p>
           </span>
           <div className="counter">
             <div className="days bg-danger text-light">71</div><b>:</b>
