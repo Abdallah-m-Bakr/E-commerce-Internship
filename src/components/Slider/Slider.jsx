@@ -24,7 +24,6 @@ const { filteredProducts: products, loading, error } = useProducts();
   spaceBetween={20}
   slidesPerView={5}
   loop={sliderProducts.length > 5} // ✅ يشتغل loop بس لو عدد المنتجات > 5
-  loopedSlides={sliderProducts.length} // ✅ يكرر المنتجات عشان يمنع التحذير
   breakpoints={{
     1200: { slidesPerView: 5 },
     992: { slidesPerView: 4 },
