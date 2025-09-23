@@ -6,12 +6,6 @@ import { useProducts } from "../../context/ProductContext";
 import Loader from "../../components/Loader/Loader";
 
 const BestSeller = () => {
-const { filteredProducts: products, loading, error } = useProducts();
-  if (loading) return <Loader />;
-  if (error) return <div className="text-danger">{error}</div>;
-  // Limit to first 4 products for Home
-  const homeProducts = products
-
   // أقسم المنتجات: 4 شمال - البنر - 4 يمين
   // const left = products.slice(0, 4);
   // const banner = products.find((p) => p.banner);
@@ -21,6 +15,12 @@ const { filteredProducts: products, loading, error } = useProducts();
   useEffect(() => {
     // i18n.changeLanguage("ar");
   }, [i18n]);
+const { filteredProducts: products, loading, error } = useProducts();
+  if (loading) return <Loader />;
+  if (error) return <div className="text-danger">{error}</div>;
+  // Limit to first 4 products for Home
+  const homeProducts = products
+
   return (
     <div className="container my-5">
       <p className="fw-bold fs-3 text-center">{t("Best Seller")}</p>
@@ -39,11 +39,7 @@ const { filteredProducts: products, loading, error } = useProducts();
                     <span className="badge bg-success position-absolute top-0 start-0 m-2">
                       {item.discountPercentage}%
                     </span>
-                    <img
-                      src={item.images}
-                      alt={item.title}
-                      className="img-fluid mb-3 product-img"
-                    />
+                    <img src={Array.isArray(item.images) ? item.images[0] : item.images} alt={item.title} className="img-fluid mb-3 product-img"/>
                     <h6 className="mb-1 viewer-blur">{item.title}</h6>
                     <p className="text-success small mb-1 viewer-blur">{item.stock} IN STOCK</p>
                     <div className="d-flex align-items-center mb-1 viewer-blur">
@@ -89,11 +85,7 @@ const { filteredProducts: products, loading, error } = useProducts();
                     <span className="badge bg-success position-absolute top-0 start-0 m-2">
                       {item.discountPercentage}%
                     </span>
-                    <img
-                      src={item.images}
-                      alt={item.title}
-                      className="img-fluid mb-3 product-img"
-                    />
+                    <img src={Array.isArray(item.images) ? item.images[0] : item.images} alt={item.title} className="img-fluid mb-3 product-img"/>
                     <h6 className="mb-1 viewer-blur">{item.title}</h6>
                     <p className="text-success small mb-1 viewer-blur">{item.stock} IN STOCK</p>
                     <div className="d-flex align-items-center mb-1 viewer-blur">

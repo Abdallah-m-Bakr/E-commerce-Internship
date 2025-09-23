@@ -1,100 +1,123 @@
-import "./Navbar.css"
-import { NavLink } from 'react-router-dom';
-import logo from '../../assets/images/logo.png'
-import { useTranslation } from 'react-i18next';
+import "./Navbar.css";
+import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
+import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
-import '../../i18n.jsx';
-function Navbar() {
+import { useProducts } from "../../context/ProductContext"; 
+import { useCart } from "../../context/CartContext";
 
-  // active link
-  const activeStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "#49BFAA" : "",
-      backgroundColor: isActive ? "#F0FAFF" : ""
-    }
-  };
-  // تغيير اللغة و الاتجاه
+function Navbar() {
+  // 🟢 Active link style
+  const activeStyle = ({ isActive }) => ({
+    color: isActive ? "#49BFAA" : "",
+    backgroundColor: isActive ? "#F0FAFF" : "",
+  });
+
+  // 🟢 Language
   const { t, i18n } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    return savedLanguage || 'English';
-  }
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("selectedLanguage") || "English"
   );
 
   const handleLanguageChange = (event) => {
     const language = event.target.value;
     setSelectedLanguage(language);
-    try {
-      if (language === 'English') {
-        i18n.changeLanguage('en');
-        document.body.dir = 'ltr';
-      } else if (language === 'Arabic') {
-        i18n.changeLanguage('ar');
-        document.body.dir = 'rtl';
-      }
-      localStorage.setItem('selectedLanguage', language);
-      // console.log('Current language:', i18n.language); // للتصحيح
-    } catch (error) {
-      // console.error('Error changing language:', error); // التقاط الأخطاء
+    if (language === "English") {
+      i18n.changeLanguage("en");
+      document.body.dir = "ltr";
+    } else if (language === "Arabic") {
+      i18n.changeLanguage("ar");
+      document.body.dir = "rtl";
     }
+    localStorage.setItem("selectedLanguage", language);
   };
-  // تهيئة اللغة عند تحميل الصفحة
+
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-      setSelectedLanguage(savedLanguage);
-      if (savedLanguage === 'English') {
-        i18n.changeLanguage('en');
-        document.body.dir = 'ltr';
-      } else if (savedLanguage === 'Arabic') {
-        i18n.changeLanguage('ar');
-        document.body.dir = 'rtl';
-      }
+    if (selectedLanguage === "English") {
+      i18n.changeLanguage("en");
+      document.body.dir = "ltr";
+    } else {
+      i18n.changeLanguage("ar");
+      document.body.dir = "rtl";
     }
-  }, [i18n]);
+  }, [i18n, selectedLanguage]);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
+  // 🟢 Auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
 
   useEffect(() => {
-
     const handleStorageChange = () => {
       setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
     };
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
-  // معالجة تسجيل الخروج
   const handleLogout = () => {
     localStorage.setItem("isLoggedIn", "false");
     setIsLoggedIn(false);
   };
 
+  // 🟢 Search
+  const { setFilters } = useProducts();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, search: searchTerm }));
+    if (searchTerm.length > 0) {
+      navigate("/shop");
+    }
+  }, [searchTerm, setFilters, navigate]);
+
+  // 🟢 Cart
+  const { cart } = useCart();
+  const cartCount = cart.reduce((acc, item) => acc + item.qty, 0);
+  const cartTotal = cart
+    .reduce((acc, item) => acc + item.price * item.qty, 0)
+    .toFixed(2);
+
   return (
     <>
       <div>
-
-        {/* اول حاجة خالص في الصفحة */}
-        <div className='dueto '>
-          <p className="duetotext text-light">{t("Due to current circumstances, there may be slight delays in order processing")}</p>
+        {/* 🟢 Top notice */}
+        <div className="dueto">
+          <p className="duetotext text-light">
+            {t(
+              "Due to current circumstances, there may be slight delays in order processing"
+            )}
+          </p>
         </div>
-        {/* 1st navbar */}
+
+        {/* 🟢 First navbar */}
         <div className="container d-flex pt-2 first-navbar">
-          {/* navs */}
           <div>
-            <ul className='d-flex justify-content-evenly navul-1'>
+            <ul className="d-flex justify-content-evenly navul-1">
               {!isLoggedIn && (
                 <>
-                  <li><NavLink id="login" to="/login">{t("LOGIN")}</NavLink></li>
-                  <li><NavLink id="register" to="/register">{t("REGISTER")}</NavLink></li>
+                  <li>
+                    <NavLink id="login" to="/login">
+                      {t("LOGIN")}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink id="register" to="/register">
+                      {t("REGISTER")}
+                    </NavLink>
+                  </li>
                 </>
               )}
               {isLoggedIn && (
-                <li><NavLink id="logout" to="/" onClick={handleLogout}>{t("LOGOUT")}</NavLink></li>
+                <li>
+                  <NavLink id="logout" to="/" onClick={handleLogout}>
+                    {t("LOGOUT")}
+                  </NavLink>
+                </li>
               )}
             </ul>
           </div>
-          {/* text */}
           <div className="d-flex text-for-navbar">
             <div className="secure-delivery d-flex text-muted">
               <i className="fa-solid fa-user-shield pt-1"></i>
@@ -102,58 +125,105 @@ function Navbar() {
             </div>
             <div className="d-flex">
               <div className="line-vertical pt-3 "></div>
-              <p className="text-muted">{t("Need help? call us:")}<b className="number">{t("+00200 500")}</b></p>
+              <p className="text-muted">
+                {t("Need help? call us:")}
+                <b className="number">{t("+00200 500")}</b>
+              </p>
               <div className="line-vertical pt-3 "></div>
             </div>
-            {/* dropdown */}
             <div className="selection">
-              <select className="select" id="select" value={selectedLanguage} onChange={handleLanguageChange}>
+              <select
+                className="select"
+                id="select"
+                value={selectedLanguage}
+                onChange={handleLanguageChange}
+              >
                 <option value="English">English</option>
                 <option value="Arabic">عربي</option>
               </select>
             </div>
           </div>
         </div>
-        {/* line */}
+
         <hr className="horizontail-line pt-1" />
 
-        <div className='header d-flex justify-content-between container '>
-          <img className='img' src={logo} alt='logo' width={200} height={80} />
-          {/* search */}
-          <div className="input-text border-0 rounded d-flex justify-content-between" >
-            <input className='search border-0' type="text" placeholder={t("Search for products, fashion, clothes, accessories, etc...")} />
+        {/* 🟢 Logo + Search + Cart */}
+        <div className="header d-flex justify-content-between container ">
+          <img
+            className="img"
+            src={logo}
+            alt="logo"
+            width={200}
+            height={80}
+          />
+
+          {/* Search */}
+          <div className="text-decoration-none input-text border-0 rounded d-flex justify-content-between">
+            <input
+              className="search border-0"
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder={t(
+                "Search for products, fashion, clothes, accessories, etc..."
+              )}
+            />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
-          {/* user $ price & cart*/}
+
+          {/* User + Cart */}
           <div className="user-price-cart d-flex justify-content-evenly">
             <div className="user">
-              <NavLink to="/profile" ><i className="fa-solid fa-user"></i></NavLink>
-              {/* <i className="fa-solid fa-user"></i> */}
+              <NavLink to="/profile">
+                <i className="fa-solid fa-user"></i>
+              </NavLink>
             </div>
-            <div className="price"><p>$0.00</p></div>
+            <div className="price">
+              <p>${cartTotal}</p>
+            </div>
             <div className="cart">
-              <NavLink to="/cart" ><i className="fa-solid fa-bucket"></i></NavLink>
-
-              {/* <i className="fa-solid fa-bucket"></i> */}
-              <span className="number-cart">0</span></div>
+              <NavLink to="/cart">
+                <i className="fa-solid fa-bucket"></i>
+              </NavLink>
+              <span className="number-cart">{cartCount}</span>
+            </div>
           </div>
         </div>
 
-        {/* 2nd navbar */}
+        {/* 🟢 Second navbar */}
         <div className="navbar2 container">
-          <ul className='d-flex justify-content-evenly navul'>
-            <li><NavLink style={activeStyle} to="/" >{t("HOME")}</NavLink></li>
-            <li><NavLink style={activeStyle} to="/shop" >{t("SHOP")}</NavLink></li>
-            <li><NavLink style={activeStyle} to="/blog" >{t("BLOG")}</NavLink></li>
-            <li><NavLink style={activeStyle} to="/contact" >{t("CONTACT")}</NavLink></li>
-            <li><NavLink style={activeStyle} to="/about" >{t("About Us")}</NavLink></li>
+          <ul className="d-flex justify-content-evenly navul">
+            <li>
+              <NavLink style={activeStyle} to="/">
+                {t("HOME")}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={activeStyle} to="/shop">
+                {t("SHOP")}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={activeStyle} to="/blog">
+                {t("BLOG")}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={activeStyle} to="/contact">
+                {t("CONTACT")}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={activeStyle} to="/about">
+                {t("About Us")}
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
       <hr className="horizontail-line pt-1" />
     </>
-
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

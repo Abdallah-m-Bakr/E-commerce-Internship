@@ -60,7 +60,8 @@ const { filteredProducts: products, loading, error } = useProducts();
           {homeProducts.slice(0,5).map((p) => (
           <div key={p.id} className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
             <div className="top-card position-relative">
-              <img src={p.images} alt={p.title} />
+              <img src={Array.isArray(p.images) ? p.images[0] : p.images} alt={p.title}/>
+
               <div className="offer position-absolute top-0 left-0 m-2">{p.discountPercentage}%</div>
             </div>
             <div className="body-card p-3">
