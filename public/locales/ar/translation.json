@@ -9,9 +9,11 @@
     "Due to current circumstances, there may be slight delays in order processing":" نظرًا للظروف الحالية، قد تكون هناك تأخيرات طفيفة في معالجة الطلبات",
     "100% secure delivery without contacting the courier":"توصيل آمن 100٪ دون الاتصال بشركة النقل",
     "Need help? call us:":"هل تحتاج إلى مساعدة؟ اتصل بنا:",
-    "Search for products, fruit, meet, eggs, etc...":"ابحث عن المنتجات، الفواكه، اللحوم، البيض، إلخ...",
-    "But i must explain to you how all those mistaken idea":"ولكن يجب أن أشرح لك كيف أن كل تلك الأفكار الخاطئة",
-    "the problem with typefaces on the web":"المشكلة في الخطوط على الويب",
+    "+00200 500":"500 00200+",
+    "How to Choose the Perfect Accessories for Every Outfit":"كيفية اختيار الإكسسوارات المثالية لكل زي",
+    "Customer Success Stories: How Our Products Transformed Their Wardrobes":"قصص نجاح العملاء: كيف حولت منتجاتنا خزائنهم",
+    "Read about our customers' experiences and how they revamped their style with our products. Join our story today!":"اقرأ عن تجارب عملائنا وكيف أعادوا تصميم أسلوبهم بمنتجاتنا. انضم إلى قصتنا اليوم!",
+    "Learn how to complete your look with accessories that suit every occasion. From simple earrings to bold necklaces, here are secrets to pairing them with your wardrobe from our collection!":"تعلم كيفية إكمال مظهرك بالإكسسوارات التي تناسب كل مناسبة. من الأقراط البسيطة إلى القلائد الجريئة، إليك أسرار تنسيقها مع خزانة ملابسك من مجموعتنا!",
     "Grocery":"البقالة",
     "shop":"تسوق",
     "organic":"عضوي",
@@ -56,7 +58,7 @@
     "Terms and Conditions": "الأحكام والشروط",
     "Cookie": "ملف تعريف الارتباط",
     "Get In Touch": "ابقى على تواصل",
-    "102 Street 2714 Donovan": "102 شارع 2714 دونوفان",
+   "10 Nile Street, Cairo, Egypt": "10 شارع النيل، القاهرة، مصر",
     "Send Us": "ارسل لنا",
     "Contact us for all your questions and opinions, or you can solve your problems in a shorter time with our contact offices.": "اتصل بنا لجميع أسئلتك وآرائك، أو يمكنك حل مشاكلك في وقت أقصر مع مكاتب الاتصال الخاصة بنا.",
     "Name": "الاسم",
@@ -143,7 +145,23 @@
     "sort by:": "ترتيب حسب:",
     "aliphabetically, A-Z": "ترتيب أبجدي، من ي إلى أ",
     "Filter by price": "تصفية حسب السعر",
-    "Clear all": "مسح الكل"
+    "Clear all": "مسح الكل",
+    "We’re here to assist you every step of the way! Whether you need help choosing products or have questions about your order, our team is ready to support you. Feel free to reach out via email, phone, or visit us in-store.": "نحن هنا لمساعدتك في كل خطوة على الطريق! سواء كنت بحاجة إلى مساعدة في اختيار المنتجات أو لديك أسئلة حول طلبك، فإن فريقنا جاهز لدعمك. لا تتردد في التواصل عبر البريد الإلكتروني أو الهاتف، أو زيارتنا في المتجر.",
+    "Contact us for any inquiries or complaints!": "اتصل بنا لأي استفسارات أو شكاوى!",
+    "Available from 9 AM to 6 PM, 7 days a week": "متاح من 9 صباحًا إلى 6 مساءً، 7 أيام في الأسبوع",
+    "Visit us for a unique shopping experience!": "قم بزيارتنا لتجربة تسوق فريدة!",
+    "Search for products, fashion, clothes, accessories, etc...":"ابحث عن منتجات، أزياء، ملابس، إكسسوارات، وما إلى ذلك...",
+    "Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!":"استمتع بعروض الأسبوع المميزة! احصل على خصومات رائعة على أحدث الملابس والإكسسوارات. لا تفوت الفرصة، اطلب الآن!",
+    "We are a passionate team dedicated to fashion and style since our founding in 2020. Our journey began with a simple idea: to provide clothing and accessories that meet everyone’s needs at affordable prices and modern designs. Over the years, we’ve grown to become one of the leading players in e-commerce, always aiming to deliver an exceptional shopping experience that combines high quality and striking elegance. ":"نحن فريق شغوف بالموضة والأناقة منذ تأسيسنا في عام 2020. بدأنا رحلتنا بفكرة بسيطة: توفير ملابس وإكسسوارات تلبي احتياجات الجميع بأسعار معقولة وتصاميم عصرية. على مر السنين، تطورنا لنصبح واحدًا من أبرز اللاعبين في عالم التجارة الإلكترونية، حيث نهدف دائمًا إلى تقديم تجربة تسوق استثنائية تجمع بين الجودة العالية والأناقة اللافتة.",
+    "Our Vision and Goals":"رؤيتنا و هدفنا",
+    "We aspire to be the preferred destination for fashion enthusiasts in the region. We aim to expand our collection to include over 500 new products each season, focusing on sustainability and quality. We also strive to offer outstanding customer service, ensuring fast shipping and a hassle-free 30-day return policy.":"نطمح لأن نكون الوجهة المفضلة لعشاق الموضة في المنطقة. نهدف إلى توسيع مجموعتنا لتشمل أكثر من 500 منتج جديد كل موسم، مع التركيز على الاستدامة والجودة. نسعى أيضًا لتقديم خدمات عملاء متميزة، حيث نضمن شحنًا سريعًا وإرجاعًا مريحًا خلال 30 يومًا.",
+    "Our Story":"قصتنا",
+    "It all started in a small room where we combined our love for design with the goal of building a trusted brand. Over time, we grew thanks to the support of our loyal customers, who inspired us to keep innovating. Today, we’re proud to have over 10,000 satisfied customers, and we aim to reach many more.":"بدأت القصة في غرفة صغيرة حيث جمعنا شغفنا بالتصميم والهدف ببناء علامة تجارية موثوقة. مع الوقت، نمينا بفضل دعم عملائنا الأوفى، الذين ألهمونا لنستمر في الابتكار. اليوم، نحن نفخر بأن لدينا أكثر من 10,000 عميل راضٍ، ونهدف لنصل إلى المزيد.",
+    "Get in Touch":"ابقَ على اتصال",
+    "If you’d like to join our journey or have any suggestions, feel free to visit us at 10 Nile Street, Cairo, or call us at +20 123 456 7890, or email us at info@fashionhub.com. Additional Notes: We continuously improve our services based on your feedback. Follow us on social media for the latest news and offers!":"إذا كنت ترغب في الانضمام إلى رحلتنا أو لديك أي اقتراحات، لا تتردد في زيارتنا في 10 شارع النيل، القاهرة، أو الاتصال بنا على +20 123 456 7890، أو مراسلتنا على info@fashionhub.com.ملاحظات إضافية: نعمل باستمرار على تحسين خدماتنا بناءً على آرائكم. تابعونا على وسائل التواصل الاجتماعي للحصول على آخر الأخبار والعروض!",
+    "Delete My Account":"حذف حسابي",
+    "LOGOUT":"تسجيل خروج"
+
 
     
 

@@ -2,7 +2,7 @@ import "./Navbar.css"
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 import { useTranslation } from 'react-i18next';
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import '../../i18n.jsx';
 function Navbar() {
 
@@ -13,16 +13,16 @@ function Navbar() {
       backgroundColor: isActive ? "#F0FAFF" : ""
     }
   };
- // تغيير اللغة و الاتجاه
+  // تغيير اللغة و الاتجاه
   const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
-  const savedLanguage = localStorage.getItem('selectedLanguage');
-  return savedLanguage || 'English';
-}
-);
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    return savedLanguage || 'English';
+  }
+  );
 
   const handleLanguageChange = (event) => {
-  const language = event.target.value;
+    const language = event.target.value;
     setSelectedLanguage(language);
     try {
       if (language === 'English') {
@@ -39,19 +39,36 @@ function Navbar() {
     }
   };
   // تهيئة اللغة عند تحميل الصفحة
-useEffect(() => {
-  const savedLanguage = localStorage.getItem('selectedLanguage');
-  if (savedLanguage) {
-    setSelectedLanguage(savedLanguage);
-    if (savedLanguage === 'English') {
-      i18n.changeLanguage('en');
-      document.body.dir = 'ltr';
-    } else if (savedLanguage === 'Arabic') {
-      i18n.changeLanguage('ar');
-      document.body.dir = 'rtl';
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+      setSelectedLanguage(savedLanguage);
+      if (savedLanguage === 'English') {
+        i18n.changeLanguage('en');
+        document.body.dir = 'ltr';
+      } else if (savedLanguage === 'Arabic') {
+        i18n.changeLanguage('ar');
+        document.body.dir = 'rtl';
+      }
     }
-  }
-}, [i18n]);
+  }, [i18n]);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
+
+  useEffect(() => {
+
+    const handleStorageChange = () => {
+      setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  // معالجة تسجيل الخروج
+  const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", "false");
+    setIsLoggedIn(false);
+  };
 
   return (
     <>
@@ -65,8 +82,16 @@ useEffect(() => {
         <div className="container d-flex pt-2 first-navbar">
           {/* navs */}
           <div>
-            <ul className='d-flex justify-content-center navul-1'>
-              <li><NavLink to="/about" >{t("About Us")}</NavLink></li>
+            <ul className='d-flex justify-content-evenly navul-1'>
+              {!isLoggedIn && (
+                <>
+                  <li><NavLink id="login" to="/login">{t("LOGIN")}</NavLink></li>
+                  <li><NavLink id="register" to="/register">{t("REGISTER")}</NavLink></li>
+                </>
+              )}
+              {isLoggedIn && (
+                <li><NavLink id="logout" to="/" onClick={handleLogout}>{t("LOGOUT")}</NavLink></li>
+              )}
             </ul>
           </div>
           {/* text */}
@@ -77,12 +102,12 @@ useEffect(() => {
             </div>
             <div className="d-flex">
               <div className="line-vertical pt-3 "></div>
-              <p className="text-muted">{t("Need help? call us:")}<b className="number">+00200 500</b></p>
+              <p className="text-muted">{t("Need help? call us:")}<b className="number">{t("+00200 500")}</b></p>
               <div className="line-vertical pt-3 "></div>
             </div>
             {/* dropdown */}
             <div className="selection">
-              <select className="select" id="select" value={selectedLanguage}  onChange={handleLanguageChange}>
+              <select className="select" id="select" value={selectedLanguage} onChange={handleLanguageChange}>
                 <option value="English">English</option>
                 <option value="Arabic">عربي</option>
               </select>
@@ -96,7 +121,7 @@ useEffect(() => {
           <img className='img' src={logo} alt='logo' width={200} height={80} />
           {/* search */}
           <div className="input-text border-0 rounded d-flex justify-content-between" >
-            <input className='search border-0' type="text" placeholder={t("Search for products, fruit, meet, eggs, etc...")} />
+            <input className='search border-0' type="text" placeholder={t("Search for products, fashion, clothes, accessories, etc...")} />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
           {/* user $ price & cart*/}
@@ -121,8 +146,7 @@ useEffect(() => {
             <li><NavLink style={activeStyle} to="/shop" >{t("SHOP")}</NavLink></li>
             <li><NavLink style={activeStyle} to="/blog" >{t("BLOG")}</NavLink></li>
             <li><NavLink style={activeStyle} to="/contact" >{t("CONTACT")}</NavLink></li>
-            <li><NavLink style={activeStyle} to="/login" >{t("LOGIN")}</NavLink></li>
-            <li><NavLink style={activeStyle} to="/register" >{t("REGISTER")}</NavLink></li>
+            <li><NavLink style={activeStyle} to="/about" >{t("About Us")}</NavLink></li>
           </ul>
         </div>
       </div>

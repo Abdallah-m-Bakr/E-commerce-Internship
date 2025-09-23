@@ -11,11 +11,7 @@ function Contact() {
     <div className="container my-5">
 
       <h2 className="text-center mb-3">{t("Get In Touch")}</h2>
-      <p className="text-center text-muted mb-5">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-        quaerat unde quam dolor culpa veritatis inventore, aut commodi eum
-        veniam vel.
-      </p>
+      <p className="text-center text-muted mb-5">{t("We’re here to assist you every step of the way! Whether you need help choosing products or have questions about your order, our team is ready to support you. Feel free to reach out via email, phone, or visit us in-store.")}</p>
 
       <div className="row text-center mb-5">
         <div className="col-md-4 mb-3">
@@ -23,8 +19,8 @@ function Contact() {
             <div className="d-flex justify-content-center mb-3">
               <i className="fas fa-map-marker-alt fa-3x text-teal"></i>
             </div>
-            <h6 className="fw-bold">{t("102 Street 2714 Donovan")}</h6>
-            <p className="text-muted">Lorem ipsum dolar site amet discont</p>
+            <h6 className="fw-bold">{t("10 Nile Street, Cairo, Egypt")}</h6>
+            <p className="text-muted">{t("Visit us for a unique shopping experience!")}</p>
           </div>
         </div>
 
@@ -34,7 +30,7 @@ function Contact() {
               <i className="fas fa-phone-alt fa-3x text-teal"></i>
             </div>
             <h6 className="fw-bold">+02 1234 567 88</h6>
-            <p className="text-muted">Lorem ipsum dolar site amet discont</p>
+            <p className="text-muted">{t("Available from 9 AM to 6 PM, 7 days a week")}</p>
           </div>
         </div>
 
@@ -44,7 +40,7 @@ function Contact() {
               <i className="fas fa-envelope fa-3x text-teal"></i>
             </div>
             <h6 className="fw-bold">info@example.com</h6>
-            <p className="text-muted">Lorem ipsum dolar site amet discont</p>
+            <p className="text-muted">{t("Contact us for any inquiries or complaints!")}</p>
           </div>
         </div>
       </div>

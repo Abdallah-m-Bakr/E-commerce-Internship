@@ -25,18 +25,18 @@ function Blog() {
         </div>
         <div className="grocery1 grocery">
           <p className="text-muted">{t("Grocery")}</p>
-          <h2>{t("But i must explain to you how all those mistaken idea")}</h2>
+          <h2>{t("Customer Success Stories: How Our Products Transformed Their Wardrobes")}</h2>
           <span className="text-muted">jan 13 2025 &nbsp; <span className="text-dark">{t("Sinan ISIK")}</span> </span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat vero, quis sed ullam nihil deserunt, esse nam quasi repudiandae facilis debitis perspiciatis.</p>
+          <p>{t("Read about our customers' experiences and how they revamped their style with our products. Join our story today!")}</p>
         </div>
         <div className="coffie-nut">
           <img src={coffie} alt="coffie" />
         </div>
         <div className="grocery2 grocery">
           <p className="text-muted">{t("Grocery")}</p>
-          <h2>{t("the problem with typefaces on the web")}</h2>
+          <h2>{t("How to Choose the Perfect Accessories for Every Outfit")}</h2>
           <span className="text-muted">jan 13 2025 &nbsp; <span className="text-dark">{t("Sinan ISIK")}</span> </span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat vero, quis sed ullam nihil deserunt, esse nam quasi repudiandae facilis debitis perspiciatis.</p>
+          <p>{t("Learn how to complete your look with accessories that suit every occasion. From simple earrings to bold necklaces, here are secrets to pairing them with your wardrobe from our collection!")}</p>
         </div>
       </div>
       <div className="right">
@@ -45,11 +45,11 @@ function Blog() {
           <div className="border p-3">
             <div className="d-flex justify-content-between posts-content">
               <img src={bottle} alt="water" width={40} height={40} />
-              <p>{t("But i must explain to you how all those mistaken idea")}</p>
+              <p>{t("Customer Success Stories: How Our Products Transformed Their Wardrobes")}</p>
             </div>
             <div className="d-flex justify-content-between posts-content">
               <img src={coffie} alt="coffie" width={40} height={40} />
-              <p>{t("the problem with typefaces on the web")}</p>
+              <p>{t("How to Choose the Perfect Accessories for Every Outfit")}</p>
             </div>
           </div>
         </div>
