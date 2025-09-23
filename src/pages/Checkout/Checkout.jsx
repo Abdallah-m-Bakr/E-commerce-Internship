@@ -1,13 +1,16 @@
-import React from "react";
 import "./Checkout.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { useCart } from "../../context/CartContext"; // 🟢 ربط بالكارت
+
 const Checkout = () => {
-  const { t,i18n } = useTranslation();
-  useEffect(() => {
-    // i18n.changeLanguage("ar");
-  }, [i18n]);
+  const { t } = useTranslation();
+  const { cart } = useCart();
+
+  // 🟢 إجمالي السعر
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const shipping = 0; // مجاني
+  const total = subtotal + shipping;
+
   return (
     <div className="container checkout-container py-5">
       <div className="row">
@@ -41,27 +44,51 @@ const Checkout = () => {
 
           <div className="row">
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder={t("First name (optional)")} />
+              <input
+                type="text"
+                className="form-control"
+                placeholder={t("First name (optional)")}
+              />
             </div>
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder={t("Last name")} />
+              <input
+                type="text"
+                className="form-control"
+                placeholder={t("Last name")}
+              />
             </div>
           </div>
 
           <div className="mb-3">
-            <input type="text" className="form-control" placeholder={t("Address")} />
+            <input
+              type="text"
+              className="form-control"
+              placeholder={t("Address")}
+            />
           </div>
 
           <div className="mb-3">
-            <input type="text" className="form-control" placeholder={t("Apartment, suite, etc. (optional)")} />
+            <input
+              type="text"
+              className="form-control"
+              placeholder={t("Apartment, suite, etc. (optional)")}
+            />
           </div>
 
           <div className="row">
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder={t("Postal code (optional)")} />
+              <input
+                type="text"
+                className="form-control"
+                placeholder={t("Postal code (optional)")}
+              />
             </div>
             <div className="col-md-6 mb-3">
-              <input type="text" className="form-control" placeholder={t("City")} />
+              <input
+                type="text"
+                className="form-control"
+                placeholder={t("City")}
+              />
             </div>
           </div>
 
@@ -81,7 +108,9 @@ const Checkout = () => {
 
           {/* Payment */}
           <h5 className="fw-bold">{t("Payment")}</h5>
-          <p className="text-muted">{t("All transactions are secure and encrypted.")}</p>
+          <p className="text-muted">
+            {t("All transactions are secure and encrypted.")}
+          </p>
           <div className="payment-box border rounded p-5 text-center">
             <i className="bi bi-credit-card fs-1"></i>
           </div>
@@ -90,47 +119,36 @@ const Checkout = () => {
         {/* ====== Right Side - Order Summary ====== */}
         <div className="col-md-5">
           <div className="order-summary ps-md-5">
-            {/* Product item */}
-            <div className="d-flex align-items-center mb-3">
-              <img
-                src="https://via.placeholder.com/50"
-                alt="Product"
-                className="me-3 rounded"
-              />
-              <div className="flex-grow-1">
-                <p className="mb-0 small">{t("All Natural Italian-Style Chicken Meatballs")}</p>
-              </div>
-              <span className="small">$7.25</span>
-            </div>
-
-            <div className="d-flex align-items-center mb-3">
-              <img
-                src="https://via.placeholder.com/50"
-                alt="Product"
-                className="me-3 rounded"
-              />
-              <div className="flex-grow-1">
-                <p className="mb-0 small">Coca-Cola – 2 L Bottle</p>
-              </div>
-              <span className="small">$3.85</span>
-            </div>
-
-            <div className="d-flex align-items-center mb-4">
-              <img
-                src="https://via.placeholder.com/50"
-                alt="Product"
-                className="me-3 rounded"
-              />
-              <div className="flex-grow-1">
-                <p className="mb-0 small">Fairlife Lactose-Free 2% Milk</p>
-              </div>
-              <span className="small">$3.69</span>
-            </div>
+            {/* 🟢 المنتجات من الكارت */}
+            {cart.length === 0 ? (
+              <p className="text-muted">{t("Your cart is empty")}</p>
+            ) : (
+              cart.map((item) => (
+                <div key={item.id} className="d-flex align-items-center mb-3">
+                  <img
+                    src={item.images ? item.images[0] : item.img}
+                    alt={item.title || item.name}
+                    className="me-3 rounded"
+                  />
+                  <div className="flex-grow-1">
+                    <p className="mb-0 small">{item.title || item.name}</p>
+                    <small className="text-muted">
+                      {item.qty} × ${item.price}
+                    </small>
+                  </div>
+                  <span className="small">
+                    ${(item.price * item.qty).toFixed(2)}
+                  </span>
+                </div>
+              ))
+            )}
 
             {/* Totals */}
             <div className="d-flex justify-content-between mb-2">
-              <span className="small">{t("Subtotal · 3 items")}</span>
-              <span className="small">$14.79</span>
+              <span className="small">
+                {t("Subtotal ·")} {cart.length} {t("items")}
+              </span>
+              <span className="small">${subtotal.toFixed(2)}</span>
             </div>
             <div className="d-flex justify-content-between mb-2">
               <span className="small">{t("Shipping")}</span>
@@ -138,9 +156,11 @@ const Checkout = () => {
             </div>
             <div className="d-flex justify-content-between fw-bold mt-3">
               <span>{t("Total")}</span>
-              <span className="fs-5">$14.79</span>
+              <span className="fs-5">${total.toFixed(2)}</span>
             </div>
-            <p className="text-muted small">{t("Including $2.46 in taxes")}</p>
+            <p className="text-muted small">
+              {t("Including taxes (if applicable)")}
+            </p>
           </div>
         </div>
       </div>

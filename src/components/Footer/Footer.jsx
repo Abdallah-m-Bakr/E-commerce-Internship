@@ -123,15 +123,15 @@ function Footer() {
             />
             <div className="small">{t("15% discount on your first purchase")}</div>
           </div>
-          <div className="col-md-4 text-center text-md-end mb-3">
-            <a href="#" className="me-3">
-              <i className="fab fa-facebook-f icon-social-media"></i>
+          <div className="col-md-4 text-center text-md-end mb-3 icons-footer">
+            <a href="#" className="me-3 icon-social-media">
+              <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="#" className="me-3">
-              <i className="fab fa-twitter icon-social-media"></i>
+            <a href="#" className="me-3 icon-social-media">
+              <i className="fab fa-twitter"></i>
             </a>
-            <a href="#" className="me-3">
-              <i className="fab fa-instagram icon-social-media"></i>
+            <a href="#" className="me-3 icon-social-media">
+              <i className="fab fa-instagram"></i>
             </a>
           </div>
         </div>

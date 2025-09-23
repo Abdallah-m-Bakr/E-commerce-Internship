@@ -46,7 +46,7 @@ function Hero(){
           </div>
         </div>
         <div className="offer-cards border border-danger border-2 rounded row row-col-12">
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
+          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
             <div className="top-card position-relative">
               <img src={img1} alt="" />
               <div className="offer position-absolute top-0 left-0 m-2">25%</div>
@@ -67,7 +67,7 @@ function Hero(){
               <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">70</span></p>
             </div>
           </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
+          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-right">
             <div className="top-card position-relative">
               <img src={img1} alt="" />
             </div>
@@ -86,7 +86,7 @@ function Hero(){
               <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">90</span></p>
             </div>
           </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
+          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
             <div className="top-card position-relative">
               <img src={img1} alt="" />
             </div>
@@ -105,7 +105,7 @@ function Hero(){
               <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">50</span></p>
             </div>
           </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
+          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-right">
             <div className="top-card position-relative">
               <img src={img1} alt="" />
               <div className="offer position-absolute top-0 left-0 m-2">34%</div>
@@ -126,7 +126,7 @@ function Hero(){
               <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">29</span></p>
             </div>
           </div>
-          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1">
+          <div className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
             <div className="top-card position-relative">
               <img src={img1} alt="" />
               <div className="offer position-absolute top-0 left-0 m-2">35%</div>
@@ -151,12 +151,12 @@ function Hero(){
       </div>
       <div className="row row-cols-12 my-4 d-flex gap-5">
         <div className="col-12 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public" style={{backgroundSize:"cover" ,backgroundPosition:"0 75%"}}>
-          <h3 className="viewer-blur">{t("cave products")}</h3>
+          <p className="viewer-blur fs-3">{t("cave products")}</p>
           <p className="viewer-blur" style={{color:"var(--text-color)"}}>{t("text")}</p>
           <Link to="/shop" className="btn btn-info px-3 rounded-5 viewer-blur">{t("shop now")}</Link>
         </div>
         <div className="col-12 col-lg rounded p-5 viewer-to-left bg-img-blue-public" style={{backgroundSize:"cover" ,backgroundPosition:"0 75%"}}>
-          <h3 className="viewer-blur">{t("cave products")}</h3>
+          <p className="viewer-blur fs-3">{t("cave products")}</p>
           <p className="viewer-blur" style={{color:"var(--text-color)"}}>{t("text")}</p>
           <Link to="/shop" className="btn btn-danger px-3 rounded-5 viewer-blur">{t("shop now")}</Link>
         </div>

@@ -1,45 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
-.container .cont-shop{
-    text-transform: capitalize;
-    font-family: 'Quicksand', sans-serif;
-}
-.cont-shop{
-    display: flex;
-}
-.top-card .offer{
-    border-radius: var(--border);
-    background-color: var(--hover-color);
-    color: #fff;
-    width: 60px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.check-inputs{
-    height: 100vh;
-}
-.cont-input .range-price{
-    width: 100px;
-    color: var(--text-color);
-    background-color: #e2e3e5;
-    outline: none;
-    border: none;
-    padding: 5px;
+.main-color{
+    background-color: var(--main-color)!important;
+    color: white!important;
+    border: none!important;
 }
 
-.product-length-sort{
-    color: var(--text-color);
-    width: 100%;
-    background-color: #e2e3e5;
+.main-color:hover {
+    background-color: white !important;
+    color: var(--main-color) !important;
+    border: 1px solid var(--main-color) !important;
 }
-.hero-shop{
-    background-image: url(../../assets/images/bg1.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* object-fit: cover; */
+
+.cont-shop {
+  font-family: 'Quicksand', sans-serif;
 }
-.cont-hero-shop{
-    width: 350px;
+
+/* Sidebar */
+.filter-box {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+/* Hero */
+.hero-shop {
+  background-image: url("../../assets/images/bg1.jpeg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  min-height: 200px;
+}
+.cont-hero-shop {
+  max-width: 350px;
+}
+
+/* Product Card */
+.card {
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Offer Badge */
+.offer-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #dc3545;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Pagination */
+.pagination .page-item.active .page-link {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
 }

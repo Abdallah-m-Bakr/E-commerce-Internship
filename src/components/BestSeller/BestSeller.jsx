@@ -97,8 +97,8 @@ const BestSeller = () => {
   }, [i18n]);
   return (
     <div className="container my-5">
-      <h3 className="fw-bold">{t("Best Seller")}</h3>
-      <p className="text-muted">
+      <p className="fw-bold fs-3 text-center">{t("Best Seller")}</p>
+      <p className="text-muted text-center">
         {t("Do not miss the current offers until the end of month.")}
       </p>
       <div className="row g-4">
@@ -119,19 +119,19 @@ const BestSeller = () => {
                       alt={item.name}
                       className="img-fluid mb-3 product-img"
                     />
-                    <h6 className="mb-1">{item.name}</h6>
-                    <p className="text-success small mb-1">{item.stock}</p>
-                    <div className="d-flex align-items-center mb-1">
+                    <h6 className="mb-1 viewer-blur">{item.name}</h6>
+                    <p className="text-success small mb-1 viewer-blur">{item.stock}</p>
+                    <div className="d-flex align-items-center mb-1 viewer-blur">
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-secondary"></i>
-                      <span className="ms-2 small">1 review</span>
+                      <span className="ms-2 small viewer-blur">1 review</span>
                     </div>
                     <div>
                       {item.oldPrice && (
-                        <span className="text-muted text-decoration-line-through me-2">
+                        <span className="text-muted text-decoration-line-through me-2 viewer-blur">
                           ${item.oldPrice.toFixed(2)}
                         </span>
                       )}
@@ -188,19 +188,19 @@ const BestSeller = () => {
                       alt={item.name}
                       className="img-fluid mb-3 product-img"
                     />
-                    <h6 className="mb-1">{item.name}</h6>
-                    <p className="text-success small mb-1">{item.stock}</p>
-                    <div className="d-flex align-items-center mb-1">
+                    <h6 className="mb-1 viewer-blur">{item.name}</h6>
+                    <p className="text-success small mb-1 viewer-blur">{item.stock}</p>
+                    <div className="d-flex align-items-center mb-1 viewer-blur">
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-warning"></i>
                       <i className="fas fa-star text-secondary"></i>
-                      <span className="ms-2 small">1 review</span>
+                      <span className="ms-2 small viewer-blur">1 review</span>
                     </div>
                     <div>
                       {item.oldPrice && (
-                        <span className="text-muted text-decoration-line-through me-2">
+                        <span className="text-muted text-decoration-line-through me-2 viewer-blur">
                           ${item.oldPrice.toFixed(2)}
                         </span>
                       )}
