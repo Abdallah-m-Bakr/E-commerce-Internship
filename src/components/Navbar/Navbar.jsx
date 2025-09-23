@@ -62,7 +62,7 @@ useEffect(() => {
           <p className="duetotext text-light">{t("Due to current circumstances, there may be slight delays in order processing")}</p>
         </div>
         {/* 1st navbar */}
-        <div className="container d-flex pt-2 first-navbar">
+        <div className="container-md d-flex pt-2 first-navbar">
           {/* navs */}
           <div>
             <ul className='d-flex justify-content-center navul-1'>

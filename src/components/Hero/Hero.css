@@ -1,6 +1,10 @@
-*{
-        font-family: sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
+
+
 /* hero section */
 .hero{
     margin: var(--margin-home);
@@ -59,6 +63,9 @@
     align-items: center;
     color: var(--active-color);
     font-weight: bold;
+    animation: viewer-to-right both;
+    animation-timeline: view();  
+    animation-range: entry 0 cover 20%;  
     /* flex-direction: column; */
 }
 /* offer time section */
@@ -72,8 +79,7 @@
     align-items: center;
     gap: 30px;  
 }
-.offer-down .timer > *,
-.viewer-to-left{
+.offer-down .timer > *{
     animation: viewer-to-left both;
     animation-timeline: view();  
     animation-range: entry 0 cover 20%;  
@@ -99,16 +105,15 @@
     align-items: center;
     font-weight: bold;
 }
-.offer-card > *,
+
 .offer-card > * > *,
-.offer-card > * > * > *,
-.viewer-blur{
+.offer-card > * > * > *{
     animation: viewer-blur both;
     animation-timeline: view();  
     animation-range: entry 0 cover 20%;
 }
 .offer-card{
-    max-width: 270px;    
+    max-width: 270px;
 }
 .offer-card .top-card{
     overflow: hidden;
@@ -162,27 +167,3 @@
     background-image: url(../../assets/images/bg1.jpeg);
 }
 /* animation */
-@keyframes viewer-to-left {
-    0%{
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateX(0);
-
-    }
-}
-@keyframes viewer-blur {
-    0%{
-        /* opacity: 0; */
-        /* transform: translateX(30px); */
-        filter: blur(30px);
-    }
-    100%{
-        /* opacity: 1; */
-        /* transform: translateX(0); */
-        filter: blur(0);
-
-    }
-}
