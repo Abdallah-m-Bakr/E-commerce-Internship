@@ -39,7 +39,7 @@ function Hero(){
         <div className="timer d-flex flex-md-row flex-column m-4">
           <span>
             <h4 className="text-primary">{t("special offers of the week!")}</h4>
-            <p>ut placerat, magna quis porttitor vulputate, magna nunc ante.</p>
+            <p>{t("Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!")}</p>
           </span>
           <div className="counter">
             <div className="days bg-danger text-light">71</div><b>:</b>
