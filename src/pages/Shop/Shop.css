@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
 .main-color{
-    background-color: var(--main-color);
-    color: white;
-    border: none;
+    background-color: var(--main-color)!important;
+    color: white!important;
+    border: none!important;
+}
+
+.main-color:hover {
+    background-color: white !important;
+    color: var(--main-color) !important;
+    border: 1px solid var(--main-color) !important;
 }
 
 .cont-shop {

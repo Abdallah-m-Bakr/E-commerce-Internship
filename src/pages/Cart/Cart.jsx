@@ -90,7 +90,7 @@ export default function Cart() {
                 <span>${(subtotal + 5).toFixed(2)}</span>
               </div>
 
-              <Link className="btn btn-success w-100 mt-3" to="/checkout">
+              <Link className="btn main-color w-100 mt-3" to="/checkout">
                 {t("Proceed to Checkout")}
               </Link>
             </div>
