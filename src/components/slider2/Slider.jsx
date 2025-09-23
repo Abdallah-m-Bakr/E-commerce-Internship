@@ -1,8 +1,8 @@
+// src/components/Slider/Slider.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { useEffect } from "react";
 import { useProducts } from "../../context/ProductContext";
-import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
+import { useCart } from "../../context/CartContext";
 import Loader from "../../components/Loader/Loader";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,18 +11,14 @@ import { useTranslation } from "react-i18next";
 
 export default function Slider() {
   const { filteredProducts: products, loading, error } = useProducts();
-  const { addToCart } = useCart(); // 🟢 هنا بنجيب الدالة
+  const { addToCart } = useCart();
+  const { t } = useTranslation(); // 👈 كفاية نستخدم t بس
 
   if (loading) return <Loader />;
   if (error) return <div className="text-danger">{error}</div>;
 
-  // Limit to first 8 products for Home
-  const homeProducts = products;
-
-  const { t, i18n } = useTranslation();
-  useEffect(() => {
-    // i18n.changeLanguage("ar");
-  }, [i18n]);
+  // نجيب منتجات كفاية عشان ما يطلعش Warning بتاع loop
+  const homeProducts = products.slice(0, 20);
 
   return (
     <div className="categories-wrapper container my-5">
@@ -32,7 +28,7 @@ export default function Slider() {
           navigation={true}
           spaceBetween={20}
           slidesPerView={5}
-          loop={true}
+          loop={false} // 👈 يشتغل loop بس لو عندك منتجات كفاية
           breakpoints={{
             1200: { slidesPerView: 5 },
             992: { slidesPerView: 4 },
@@ -41,12 +37,14 @@ export default function Slider() {
             0: { slidesPerView: 1 },
           }}
         >
-
-          {homeProducts.slice(20, 30).map((cat) => (
+          {homeProducts.map((cat) => (
             <SwiperSlide key={cat.id}>
               <div className="cat-card card">
                 <div className="img-wrap">
-                  <img src={Array.isArray(cat.images) ? cat.images[0] : cat.images} alt={cat.title} />
+                  <img
+                    src={Array.isArray(cat.images) ? cat.images[0] : cat.images}
+                    alt={cat.title}
+                  />
                 </div>
                 <span>{cat.title}</span>
                 <span id="sp-1" className="text-success">
@@ -65,7 +63,7 @@ export default function Slider() {
                     type="button"
                     id="btn"
                     className="btn btn-warning"
-                    onClick={() => addToCart(cat)} // 🟢 هنا بنضيف المنتج للسلة
+                    onClick={() => addToCart(cat)}
                   >
                     {t("Add to cart")}
                   </button>
