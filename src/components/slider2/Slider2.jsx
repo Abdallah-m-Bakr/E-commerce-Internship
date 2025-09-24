@@ -3,13 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useProducts } from "../../context/ProductContext";
 import { useCart } from "../../context/CartContext";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../Loader/Loader";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "./slider2.css";
+import "./Slider2.css";
 
 export default function Slider() {
   const { filteredProducts: products, loading, error } = useProducts();
