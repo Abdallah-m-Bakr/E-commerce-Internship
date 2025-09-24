@@ -80,7 +80,7 @@ function Navbar() {
     .toFixed(2);
 
   return (
-    <>
+    <header>
       <div>
         {/* 🟢 Top notice */}
         <div className="dueto">
@@ -222,7 +222,7 @@ function Navbar() {
         </div>
       </div>
       <hr className="horizontail-line pt-1" />
-    </>
+    </header>
   );
 }
 
