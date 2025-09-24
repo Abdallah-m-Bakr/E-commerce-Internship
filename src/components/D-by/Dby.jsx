@@ -16,7 +16,7 @@ function Dby() {
   ];
 
   return (
-    <div className="container py-5 text-center">
+    <div className="container py-5 text-center mar">
       <h2 className="mb-4 card-title ">Developing Team</h2>
       <div className="row justify-content-center">
         {developers.map((dev, index) => (
