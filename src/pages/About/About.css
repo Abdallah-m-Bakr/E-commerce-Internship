@@ -1,3 +1,12 @@
+.about-container{
+    width: 100%;
+    height:110vh;
+}   
+.img-heder img{
+    width: 100%;
+    height: 280px;
+    margin-bottom: 20px;
+}
 .about-container {
   width: 100%;
   min-height: 100vh;
