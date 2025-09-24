@@ -19,7 +19,7 @@ export default function Slider() {
 
   return (
     <div className="categories-wrapper container my-5">
-      <div className="categories-box position-relative p-3 rounded-3">
+      <div className="categories-box position-relative p-3 rounded-3 viewer-blur">
         <Swiper
           modules={[Navigation]}
           navigation={true}

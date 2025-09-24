@@ -56,7 +56,7 @@ function Hero() {
       </div>
       {/* offer down section */}
       <div className="offer-down">        
-        <div className="timer d-flex flex-column flex-md-row justify-content-center align-items-center text-center gap-4 my-4 flex-wrap">
+        <div className="timer d-flex flex-column flex-md-row justify-content-center align-items-center text-center gap-4 my-4 flex-wrap viewer-blur">
           <div className="text-section" style={{ maxWidth: "500px" }}>
            <h4 className="text-primary">{t("special offers of the week!")}</h4>
             <p>
@@ -67,11 +67,11 @@ function Hero() {
           </div>
           <Timer />
         </div>
-         <div className="offer-cards border border-danger border-2 rounded row row-col-12">
+         <div className="offer-cards border border-danger border-2 rounded row row-col-12 viewer-blur">
          {homeProducts.slice(0, 5).map((p) => (
             <div
               key={p.id}
-              className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left"
+              className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-blur"
               style={{ cursor: "pointer" }}
               onClick={() => navigate(`/product/${p.id}`)}
             >
@@ -85,7 +85,7 @@ function Hero() {
                   {p.discountPercentage}%
                 </div>
               </div>
-              <div className="body-card p-3">
+              <div className="body-card p-3 viewer-blur">
                 <h5 className="title viewer-blur">{t(p.title)}</h5>
                 <div className="rate d-flex gap-2 viewer-blur">
                   <div className="text-warning">
@@ -151,109 +151,3 @@ function Hero() {
 }
 
 export default Hero;
-
-// import "./hero.css";
-// import { Link } from "react-router-dom";
-// import { useTranslation } from "react-i18next";
-// import { useEffect } from "react";
-// import { useProducts } from "../../context/ProductContext";
-// import Loader from "../../components/Loader/Loader";
-// import Timer from "../Timer/Timer";
-// import { useNavigate } from "react-router-dom";
-
-// function Hero() {
-//   const navigate = useNavigate();
-//   const { t, i18n } = useTranslation();
-//   useEffect(() => {
-//     // i18n.changeLanguage('ar');
-//   }, [i18n]);
-
-//   // context hero
-//   // const { homeProducts } = useContext(HomeContext);
-
-//   const { filteredProducts: products, loading, error } = useProducts();
-//   if (loading) return <Loader />;
-//   if (error) return <div className="text-danger">{error}</div>;
-//   // Limit to first 4 products for Home
-//   const homeProducts = products.slice(0, 5);
-
-//   return (
-//     <div className="container">
-//       {/* hero section */}
-//       <div className="hero text-capitalize">
-//         <div className="slid">
-//           <div className="cont-slid">
-//             <div className="line-offer">
-//               <p>{t("EXCLUSIVE OFFER")}</p>
-//               <span>{t("-20% OFF")}</span>
-//             </div>
-//             <h2 className="fw-bold fs-1">
-//               {t("specialist in the grocery store")}
-//             </h2>
-//             <p>{t("only this week.don't miss...")}</p>
-//             <span>{t("from")}</span>
-//             <span className="fw-bold fs-2 text-danger">$7.99</span>
-//             <br />
-//             <Link to="/shop" className="btn px-3">
-//               {t("shop now")} <i className="fas fa-right-long"></i>
-//             </Link>
-//           </div>
-//         </div>
-//         <div className="tag-line">
-//           <span>
-//             <b>{t("100% secure delivery")}</b>{" "}
-//             {t("without contacting the couier")}
-//           </span>
-//           <Link to="/shop" className="btn px-3">
-//             {t("shop now")}
-//           </Link>
-//         </div>
-//       </div>
-//       {/* offer down section */}
-//       <div className="offer-down">
-//         <div className="timer d-flex flex-column flex-md-row justify-content-center align-items-center text-center gap-4 my-4 flex-wrap">
-//           <div className="text-section" style={{ maxWidth: "500px" }}>
-//             <h4 className="text-primary">{t("special offers of the week!")}</h4>
-//             <p>
-//               {t(
-//                 "Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!"
-//               )}
-//             </p>
-//           </div>
-//           <Timer />
-//         </div>
-
-//         <div className="offer-cards border border-danger border-2 rounded row row-col-12">
-//           {homeProducts.slice(0, 5).map((p) => (
-//             <div
-//               key={p.id}
-//               className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left"
-//               sdivtyle={{ cursor: "pointer" }}
-//               onClick={() => navigate(`/product/${p.id}`)}
-//             >
-//               <div className="top-card position-relative">
-//                 <img
-//                   src={Array.isArray(p.images) ? p.images[0] : p.images}
-//                   alt={p.title}
-//                 />
-
-//                 <div className="offer position-absolute top-0 left-0 m-2">
-//                   {p.discountPercentage}%
-//                 </div>
-//               </div>
-//               <div className="body-card p-3">
-//                 <h5 className="title">{t(p.title)}</h5>
-//                 <div className="rate d-flex gap-2">
-//                   <div className="text-warning">
-//                     {p.rating}
-//                     <i className="fas fa-star"></i>
-//                   </div>
-//                   <span>
-//                     {p.reviews.length}
-//                     {t(" review")}
-//                   </span>
-//                 </div>
-//                 <div className="offer-price d-flex gap-2">
-//                   <div className="before-offer text-decoration-line-through">
-//                     ${(p.price / (1 - p.discountPercentage / 100)).toFixed(2)}
-//                   </div
