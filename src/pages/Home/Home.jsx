@@ -1,5 +1,5 @@
 import "./Home.css"
-import BestSeller from "../../components/BestSeller/bestSeller"
+import BestSeller from "../../components/BestSeller/BestSeller"
 import Slider from "../../components/Slider/Slider"
 import Slider2 from "../../components/Slider2/Slider"
 import Hero from "../../components/Hero/Hero"
