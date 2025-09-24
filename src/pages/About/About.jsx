@@ -2,6 +2,7 @@ import "./About.css";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import Dby from "../../components/D-by/Dby"
+import HeroAbout from "../../assets/images/HeroAbout.png"
 
 function About() {
   const { t, i18n } = useTranslation();
@@ -15,7 +16,7 @@ function About() {
     <div className="about-container container py-4">
       <div className="img-header mb-4">
         <img
-          src="../src/assets/images/IMG_٢٠٢٥٠٩١٩_١٥٠٩٣٩.png"
+          src={HeroAbout}
           alt="Header"
           className="img-fluid w-100"
         />
@@ -38,9 +39,6 @@ function About() {
         <div className="col-lg-4 col-md-6 mb-4">
           <div
             className="img-box"
-            style={{
-              backgroundImage: "url(/src/assets/images/Messenger_creation_1071529774814397.jpeg)",
-            }}
           ></div>
         </div>
 
