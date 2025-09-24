@@ -1,35 +1,47 @@
+.about-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
 
-.about-container{
-    width: 100%;
-    height:110vh;
-}   
-.img-heder img{
-    width: 100%;
-    height: 280px;
-    margin-bottom: 20px;
+.img-header img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
 }
-.poop-heder{
-    width: 80%;
-    height: 300px;
-    margin: auto;
 
+.about-content {
+  width: 100%;
 }
-.span-col{
-    margin: 30px;
+
+.img-box {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
 }
-.span-img{
-    width: 300px;
-    height: 450px;
-    background-image: url(/src/assets/images/Messenger_creation_1071529774814397.jpeg);
-    background-size: cover;
-    float: left;
+
+h2, h3 {
+  margin-top: 20px;
+  font-weight: bold;
 }
-h3{
-    margin-left:330px;
+
+p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
 }
-.cspan-2{
-    margin-left: 350px;
-}
-.foter-span{
-    padding-top:70px;
+
+@media (max-width: 768px) {
+  .img-header img {
+    max-height: 200px;
+  }
+
+  .img-box {
+    min-height: 200px;
+  }
 }
