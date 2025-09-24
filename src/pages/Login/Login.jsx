@@ -101,7 +101,7 @@ const Login = () => {
             </div>
           </div>
 
-          <button type="submit" className="btn login-btn w-100 fw-bold">
+          <button type="submit" className="btn main-button w-100 fw-bold">
 
             <i className="fas fa-sign-in-alt me-2"></i>
             {t("Login")}
