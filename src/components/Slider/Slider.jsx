@@ -1,21 +1,22 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import img from "../../assets/images/img1.jpg";
+import { useNavigate } from "react-router-dom"; // ✅ استخدم useNavigate للتنقل
+import { useProducts } from "../../context/ProductContext";
+import Loader from "../../components/Loader/Loader";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "./Slider.css";
 
-const categories = [
-  { id: 1, name: "Beverages", items: "11 Items", img },
-  { id: 2, name: "Biscuits & Snacks", items: "6 Items", img },
-  { id: 3, name: "Breads & Bakery", items: "6 Items", img },
-  { id: 4, name: "Breakfast & Dairy", items: "8 Items", img },
-  { id: 5, name: "Frozen Foods", items: "7 Items", img },
-  { id: 6, name: "Frozen Foods", items: "7 Items", img },
-];
-
 export default function Slider() {
+  const { filteredProducts: products, loading, error } = useProducts();
+  const navigate = useNavigate(); // ✅ Hook للتنقل عند الضغط
+
+  if (loading) return <Loader />;
+  if (error) return <div className="text-danger">{error}</div>;
+
+  const sliderProducts = products.slice(10, 18);
+
   return (
     <div className="categories-wrapper container my-5">
       <div className="categories-box position-relative p-3 rounded-3">
@@ -24,7 +25,7 @@ export default function Slider() {
           navigation={true}
           spaceBetween={20}
           slidesPerView={5}
-          loop={true}
+          loop={sliderProducts.length > 5}
           breakpoints={{
             1200: { slidesPerView: 5 },
             992: { slidesPerView: 4 },
@@ -33,15 +34,25 @@ export default function Slider() {
             0: { slidesPerView: 1 },
           }}
         >
-          {categories.map((cat) => (
+          {sliderProducts.map((cat) => (
             <SwiperSlide key={cat.id}>
-              <div className="cat-card text-center">
+              <div
+                className="cat-card text-center"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ يطلع فوق
+                  navigate(`/product/${cat.id}`);
+                }}
+              >
                 <div className="img-wrap">
-                  <img src={cat.img} alt={cat.name} />
+                  <img
+                    src={Array.isArray(cat.images) ? cat.images[0] : cat.images}
+                    alt={cat.title}
+                  />
                 </div>
                 <div className="cat-info">
-                  <h6 className="cat-title">{cat.name}</h6>
-                  <p className="cat-items">{cat.items}</p>
+                  <h6 className="cat-title">{cat.title}</h6>
+                  <p className="cat-items">{cat.stock} items</p>
                 </div>
               </div>
             </SwiperSlide>

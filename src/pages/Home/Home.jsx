@@ -3,6 +3,9 @@ import BestSeller from "../../components/BestSeller/bestSeller"
 import Slider from "../../components/Slider/Slider"
 import Slider2 from "../../components/Slider2/Slider"
 import Hero from "../../components/Hero/Hero"
+import HomeBlog from "../../components/HomeBlog/HomeBlog"
+
+
 function Home() {
   return (
     <>
@@ -19,6 +22,9 @@ function Home() {
 {/* // Slider2 section */}
 <Slider2 />
 {/* // end Slider2 section */}
+{/* // Home Blog section */}
+<HomeBlog />
+{/* // end Home Blog section */}
 
 </>
   )

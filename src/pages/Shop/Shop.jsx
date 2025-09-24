@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useProducts } from "../../context/ProductContext";
 import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
 import Loader from "./../../components/Loader/Loader";
+import { Link } from "react-router-dom"; // 🆕 إضافة Link
 
 function Shop() {
   const { t } = useTranslation();
@@ -164,7 +165,7 @@ function Shop() {
             <img
               src={shop1}
               alt="photo"
-              className="card-img-top "
+              className="card-img-top"
               style={{
                 height: "300px",
                 objectFit: "cover",
@@ -247,13 +248,22 @@ function Shop() {
                         )}
                       </div>
                     </div>
-                    {/* 🟢 Add to Cart */}
-                    <button
-                      className="btn main-color mt-auto"
-                      onClick={() => addToCart(product)}
-                    >
-                      {t("Add to Cart")}
-                    </button>
+
+                    {/* 🟢 Add to Cart + Show Details */}
+                    <div className="d-flex flex-column gap-2 mt-auto">
+                      <button
+                        className="btn main-color"
+                        onClick={() => addToCart(product)}
+                      >
+                        {t("Add to Cart")}
+                      </button>
+                      <Link
+                        to={`/product/${product.id}`}
+                        className="btn btn-outline-secondary"
+                      >
+                        Show Details
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

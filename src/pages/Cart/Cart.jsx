@@ -4,20 +4,34 @@ import { useCart } from "../../context/CartContext"; // 🟢 استدعاء ال
 
 export default function Cart() {
   const { t } = useTranslation();
-  const { cart, removeFromCart, updateQty } = useCart();
+  const { cart, removeFromCart, updateQty, clearCart } = useCart(); // 🟢 استدعاء clearCart
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   return (
     <div className="container my-5">
-      <h3 className="mb-4">{t("Shopping Cart")}</h3>
+      <h3 className="mb-4 d-flex justify-content-between align-items-center">
+        {t("Shopping Cart")}
+        {/* 🟢 زرار تفريغ الكارت */}
+        {cart.length > 0 && (
+          <button
+            className="btn btn-sm btn-outline-danger"
+            onClick={clearCart}
+          >
+            <i className="fas fa-trash me-1"></i> {t("Clear Cart")}
+          </button>
+        )}
+      </h3>
+
       <div className="row g-4">
         {/* Cart Items */}
         <div className="col-lg-8">
           <div className="card shadow-sm border-0">
             <div className="card-body">
               {cart.length === 0 ? (
-                <p className="text-center text-muted">{t("Your cart is empty")}</p>
+                <p className="text-center text-muted">
+                  {t("Your cart is empty")}
+                </p>
               ) : (
                 cart.map((item) => (
                   <div
@@ -29,7 +43,11 @@ export default function Cart() {
                         src={item.images ? item.images[0] : item.img}
                         alt={item.title || item.name}
                         className="rounded me-3"
-                        style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          objectFit: "cover",
+                        }}
                       />
                       <div>
                         <h6 className="mb-1">{item.title || item.name}</h6>
