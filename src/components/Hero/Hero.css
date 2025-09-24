@@ -155,10 +155,12 @@ body {
     border-radius: 15px;
 }
 .bg-img-red-public{
-    background-image: url(../../assets/images/bg2.jpeg);
+    background-image: url(../../assets/images/hero-button-lifte.jpg);
+    background-position: 50% 0%!important;
 }
 .bg-img-blue-public{
     background-image: url(../../assets/images/bg1.jpeg);
+
 }
 
 
