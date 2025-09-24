@@ -29,16 +29,7 @@
   border: none;
 }
 
-.login-btn {
-  background-color: #49bfaa;
-  color: #fff;
-  border-radius: 30px;
-  transition: 0.3s;
-}
 
-.login-btn:hover {
-  opacity: 0.9;
-}
 .create-account-now{
   text-decoration: none;
   color: var(--main-color);

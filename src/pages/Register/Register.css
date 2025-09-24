@@ -22,16 +22,7 @@
 }
 
 /* Button */
-.register-btn {
-  background-color: #49bfaa;
-  color: #fff;
-  border-radius: 30px;
-  transition: 0.3s;
-}
 
-.register-btn:hover {
-  opacity: 0.9;
-}
 
 /* Login link */
 .login-link {

@@ -33,7 +33,7 @@ const BestSeller = () => {
             {homeProducts
               .slice(0, 4)
               .map((item) => (
-                <div className="col-6" key={item.id}>
+                <div className="col-6 viewer-blur" key={item.id}>
                   <div
                     className="product-card p-3 border rounded h-100 position-relative"
                     style={{ cursor: "pointer" }}  // ✅
@@ -62,10 +62,13 @@ const BestSeller = () => {
                       </span>
                     </div>
                     <div>
-                      <span className="text-muted text-decoration-line-through me-2 viewer-blur">
-                        ${(item.price / (1 - item.discountPercentage / 100)).toFixed(2)}
-                      </span>
-                      <span className="text-danger fw-bold">${item.price.toFixed(2)}</span>
+                        <span className="text-muted text-decoration-line-through me-2 viewer-blur">
+                          ${(item.price/(1-(item.discountPercentage)/100)).toFixed(2)}
+                        </span>
+                        <span className="text-danger fw-bold viewer-blur">
+                          ${item.price.toFixed(2)}
+                        </span>
+
                     </div>
                   </div>
                 </div>
@@ -93,7 +96,8 @@ const BestSeller = () => {
             {homeProducts
               .slice(15, 19)
               .map((item) => (
-                <div className="col-6" key={item.id}>
+
+                <div className="col-6 viewer-blur" key={item.id}>
                   <div
                     className="product-card p-3 border rounded h-100 position-relative"
                     style={{ cursor: "pointer" }}  // ✅
@@ -122,10 +126,12 @@ const BestSeller = () => {
                       </span>
                     </div>
                     <div>
-                      <span className="text-muted text-decoration-line-through me-2 viewer-blur">
-                        ${(item.price / (1 - item.discountPercentage / 100)).toFixed(2)}
-                      </span>
-                      <span className="text-danger fw-bold">${item.price.toFixed(2)}</span>
+                        <span className="text-muted text-decoration-line-through me-2 viewer-blur">
+                          ${(item.price/(1-(item.discountPercentage)/100)).toFixed(2)}
+                        </span>
+                        <span className="text-danger fw-bold viewer-blur">
+                          ${item.price.toFixed(2)}
+                        </span>
                     </div>
                   </div>
                 </div>

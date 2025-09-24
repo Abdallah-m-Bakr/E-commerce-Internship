@@ -5,8 +5,12 @@ import { useTranslation } from "react-i18next";
 
 export default function EditProfile() {
   const { t, i18n } = useTranslation();
+  // useEffect(() => {
+  //   // i18n.changeLanguage("ar");
+  // }, [i18n]);
+
   useEffect(() => {
-    // i18n.changeLanguage("ar");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [i18n]);
 
   const navigate = useNavigate();

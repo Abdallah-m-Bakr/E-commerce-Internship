@@ -1,10 +1,15 @@
 import "./Checkout.css";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../../context/CartContext"; // 🟢 ربط بالكارت
+import { useEffect } from "react";
 
 const Checkout = () => {
   const { t } = useTranslation();
   const { cart } = useCart();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   // 🟢 إجمالي السعر
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);

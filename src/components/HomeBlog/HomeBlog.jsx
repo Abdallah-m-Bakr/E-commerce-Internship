@@ -41,11 +41,11 @@ const HomeBlog = () => {
         {blogPosts.map((post) => (
           <div key={post.id} className="col">
             <div className="card h-100">
-              <img src={post.img} className="card-img-top" alt={post.title} />
+              <img src={post.img} className="card-img-top viewer-blur" alt={post.title} />
               <div className="card-body">
-                <span className="text-muted">{post.category}</span>
-                <h5 className="card-title mt-2">{post.title}</h5>
-                <p className="text-muted small">
+                <span className="text-muted viewer-blur">{post.category}</span>
+                <h5 className="card-title mt-2 viewer-blur">{post.title}</h5>
+                <p className="text-muted small viewer-blur">
                   {post.date} - {post.author}
                 </p>
               </div>

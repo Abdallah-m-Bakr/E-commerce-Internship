@@ -25,7 +25,7 @@ export default function Slider() {
 
   return (
     <div className="categories-wrapper container my-5">
-      <div className="categories-box position-relative p-3 rounded-3">
+      <div className="categories-box position-relative p-3 rounded-3 viewer-blur">
         <Swiper
           modules={[Navigation]}
           navigation={true}
@@ -51,6 +51,8 @@ export default function Slider() {
                   <img
                     src={Array.isArray(cat.images) ? cat.images[0] : cat.images}
                     alt={cat.title}
+                    style={{objectFit:"fill"}}
+                    className="img-fluid"
                   />
                 </div>
                 <span>{cat.title}</span>
@@ -69,7 +71,7 @@ export default function Slider() {
                   <button
                     type="button"
                     id="btn"
-                    className="btn btn-warning"
+                    className="btn main-button"
                     onClick={(e) => {
                       e.stopPropagation(); // عشان الزر ما ينقلش لصفحة التفاصيل
                       addToCart(cat);

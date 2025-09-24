@@ -210,7 +210,7 @@ const Register = () => {
           </div>
 
           {/* Button */}
-          <button type="submit" className="btn register-btn w-100 fw-bold">
+          <button type="submit" className="btn main-button w-100 fw-bold">
             <i className="fas fa-user-plus me-2"></i>
             {t("Register")}
           </button>

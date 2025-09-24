@@ -17,7 +17,7 @@ body {
     background-size: cover;
     background-position: 80%;
 
-    padding: 50px;
+    padding: 35px;
     width: 100%;
     height: 60vh;
     background-color: #f7f7f7;
@@ -105,13 +105,6 @@ body {
     align-items: center;
     font-weight: bold;
 }
-
-.offer-card > * > *,
-.offer-card > * > * > *{
-    animation: viewer-blur both;
-    animation-timeline: view();  
-    animation-range: entry 0 cover 20%;
-}
 .offer-cards{
     overflow: hidden;
 }
@@ -166,4 +159,13 @@ body {
 }
 .bg-img-blue-public{
     background-image: url(../../assets/images/bg1.jpeg);
+<<<<<<< HEAD
 }
+/* animation */
+
+
+/* responsive design */
+
+=======
+}
+>>>>>>> 72a3f05d18419729ad0f9291072d2852d5a65172

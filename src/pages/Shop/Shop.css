@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
-.main-color{
-    background-color: var(--main-color)!important;
-    color: white!important;
-    border: none!important;
-}
-
-.main-color:hover {
-    background-color: white !important;
-    color: var(--main-color) !important;
-    border: 1px solid var(--main-color) !important;
-}
 
 .cont-shop {
   font-family: 'Quicksand', sans-serif;
@@ -59,4 +48,12 @@
 .pagination .page-item.active .page-link {
   background-color: var(--main-color);
   border-color: var(--main-color);
+}
+
+.offer {
+  background-color: var(--main-color) !important; 
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
 }

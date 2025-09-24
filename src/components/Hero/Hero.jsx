@@ -8,12 +8,11 @@ import Timer from "../Timer/Timer";
 import { useNavigate } from "react-router-dom";
 
 function Hero() {
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   useEffect(() => {
     // i18n.changeLanguage('ar');
   }, [i18n]);
-
+  const navigate = useNavigate();
   // context hero
   // const { homeProducts } = useContext(HomeContext);
 
@@ -33,7 +32,7 @@ function Hero() {
               <p>{t("EXCLUSIVE OFFER")}</p>
               <span>{t("-20% OFF")}</span>
             </div>
-            <h2 className="fw-bold fs-1">
+            <h2 className="fw-bold">
               {t("specialist in the grocery store")}
             </h2>
             <p>{t("only this week.don't miss...")}</p>
@@ -56,24 +55,23 @@ function Hero() {
         </div>
       </div>
       {/* offer down section */}
-      <div className="offer-down">
-        <div className="timer d-flex flex-column flex-md-row justify-content-center align-items-center text-center gap-4 my-4 flex-wrap">
+      <div className="offer-down">        
+        <div className="timer d-flex flex-column flex-md-row justify-content-center align-items-center text-center gap-4 my-4 flex-wrap viewer-blur">
           <div className="text-section" style={{ maxWidth: "500px" }}>
-            <h4 className="text-primary">{t("special offers of the week!")}</h4>
+           <h4 className="text-primary">{t("special offers of the week!")}</h4>
             <p>
               {t(
-                "Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!"
+             "Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!"
               )}
             </p>
           </div>
           <Timer />
         </div>
-
-        <div className="offer-cards border border-danger border-2 rounded row row-col-12">
-          {homeProducts.slice(0, 5).map((p) => (
+         <div className="offer-cards border border-danger border-2 rounded row row-col-12 viewer-blur">
+         {homeProducts.slice(0, 5).map((p) => (
             <div
               key={p.id}
-              className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left"
+              className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-blur"
               style={{ cursor: "pointer" }}
               onClick={() => navigate(`/product/${p.id}`)}
             >
@@ -83,13 +81,13 @@ function Hero() {
                   alt={p.title}
                 />
 
-                <div className="offer position-absolute top-0 left-0 m-2">
+                <div className="offer position-absolute top-0 left-0 m-2 viewer-blur">
                   {p.discountPercentage}%
                 </div>
               </div>
-              <div className="body-card p-3">
-                <h5 className="title">{t(p.title)}</h5>
-                <div className="rate d-flex gap-2">
+              <div className="body-card p-3 viewer-blur">
+                <h5 className="title viewer-blur">{t(p.title)}</h5>
+                <div className="rate d-flex gap-2 viewer-blur">
                   <div className="text-warning">
                     {p.rating}
                     <i className="fas fa-star"></i>
@@ -100,15 +98,17 @@ function Hero() {
                   </span>
                 </div>
                 <div className="offer-price d-flex gap-2">
-                  <div className="before-offer text-decoration-line-through">
+                  <div className="before-offer text-decoration-line-through viewer-blur">
                     ${(p.price / (1 - p.discountPercentage / 100)).toFixed(2)}
                   </div>
-                  <div className="after-offer text-danger fs-5">${p.price}</div>
+                  <div className="after-offer text-danger fs-5 viewer-blur">
+                    ${p.price}
+                  </div>
                 </div>
-                <div className="bar">
+                <div className="bar viewer-blur">
                   <div style={{ width: p.stock + "%" }}></div>
                 </div>
-                <p className="pt-3 text-center">
+                <p className="pt-3 text-center viewer-blur">
                   {t("the available products:")}{" "}
                   <span className="fw-bold fs-3 text-primary">{p.stock}</span>
                 </p>
@@ -119,7 +119,7 @@ function Hero() {
       </div>
       <div className="row row-cols-12 my-4 d-flex gap-5">
         <div
-          className="col-12 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public"
+          className="col-11 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public"
           style={{ backgroundSize: "cover", backgroundPosition: "0 75%" }}
         >
           <p className="viewer-blur fs-3">{t("High-quality products")}</p>
@@ -131,7 +131,7 @@ function Hero() {
           </Link>
         </div>
         <div
-          className="col-12 col-lg rounded p-5 viewer-to-left bg-img-blue-public"
+          className="col-11 col-lg rounded p-5 viewer-to-left bg-img-blue-public"
           style={{ backgroundSize: "cover", backgroundPosition: "0 75%" }}
         >
           <p className="viewer-blur fs-3">{t("High-quality products")}</p>
