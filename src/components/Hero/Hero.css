@@ -13,7 +13,7 @@ body {
     width: 40%;
 }
 .hero .slid{
-    background-image: url(../../assets/images/bg-hero.jpeg);
+    background-image: url(../../assets/images/hero.png);
     background-size: cover;
     background-position: 80%;
 
@@ -161,3 +161,27 @@ body {
     background-image: url(../../assets/images/bg1.jpeg);
 }
 
+
+/* responsive design */
+@media (max-width: 768px) {
+    
+}
+@media (max-width: 576px){
+.cont-slid h2{
+        font-size: 20px;
+    }
+    .tag-line span{
+        font-size: 13px;
+        margin-right: 100px;
+    }
+    .tag-line .btn{
+        font-size: 9px;
+        margin-right:100px;
+    
+    }
+    .tag-line{
+        display: flex;
+        flex-direction: column;
+    }
+
+}

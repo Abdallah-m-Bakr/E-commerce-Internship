@@ -1,6 +1,6 @@
 // src/pages/Shop/Shop.jsx
 import "./Shop.css";
-import shop1 from "../../assets/images/shop1.jpeg";
+import Shopbutton from "../../assets/images/Shopbutton.png";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useProducts } from "../../context/ProductContext";
@@ -263,7 +263,7 @@ function Shop() {
             {/* Ad image */}
             <div className="photo-ad mt-4">
               <img
-                src={shop1}
+                src={Shopbutton}
                 alt="photo"
                 className="card-img-top"
                 style={{

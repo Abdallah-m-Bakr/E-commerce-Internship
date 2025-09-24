@@ -46,7 +46,7 @@ function Hero() {
         </div>
         <div className="tag-line">
           <span>
-            <b>{t("100% secure delivery")}</b>{" "}
+            <b>{t("100% secure delivery")}</b>{" "}<br/>
             {t("without contacting the couier")}
           </span>
           <Link to="/shop" className="btn px-3">
