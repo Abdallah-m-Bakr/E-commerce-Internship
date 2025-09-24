@@ -32,7 +32,7 @@ function Hero() {
               <p>{t("EXCLUSIVE OFFER")}</p>
               <span>{t("-20% OFF")}</span>
             </div>
-            <h2 className="fw-bold fs-1">
+            <h2 className="fw-bold">
               {t("specialist in the grocery store")}
             </h2>
             <p>{t("only this week.don't miss...")}</p>
