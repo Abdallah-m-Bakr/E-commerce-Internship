@@ -1,7 +1,9 @@
 .card{
     font-size: 14px;
 }
-
+.cat-card.card{
+    min-height: 340px;
+}
 #sp-3{
     font-size: 17px;
 }

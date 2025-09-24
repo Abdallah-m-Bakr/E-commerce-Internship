@@ -56,28 +56,28 @@ const { filteredProducts: products, loading, error } = useProducts();
             <div className="sec bg-danger text-light">16</div>
           </div>
         </div>
-        <div className="offer-cards border border-danger border-2 rounded row row-col-12">
+        <div className="offer-cards border border-danger border-2 rounded row row-col-12 viewer-blur">
           {homeProducts.slice(0,5).map((p) => (
           <div key={p.id} className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left">
             <div className="top-card position-relative">
               <img src={Array.isArray(p.images) ? p.images[0] : p.images} alt={p.title}/>
 
-              <div className="offer position-absolute top-0 left-0 m-2">{p.discountPercentage}%</div>
+              <div className="offer position-absolute top-0 left-0 m-2 viewer-blur">{p.discountPercentage}%</div>
             </div>
             <div className="body-card p-3">
-              <h5 className="title">{t(p.title)}</h5>
-              <div className="rate d-flex gap-2">
+              <h5 className="title viewer-blur">{t(p.title)}</h5>
+              <div className="rate d-flex gap-2 viewer-blur">
                 <div className="text-warning">{p.rating}<i className="fas fa-star"></i></div>
                 <span>{p.reviews.length}{t(" review")}</span>
               </div>
               <div className="offer-price d-flex gap-2">
-                <div className="before-offer text-decoration-line-through">${(p.price/(1-(p.discountPercentage)/100)).toFixed(2)}</div>
-                <div className="after-offer text-danger fs-5">${p.price}</div>
+                <div className="before-offer text-decoration-line-through viewer-blur">${(p.price/(1-(p.discountPercentage)/100)).toFixed(2)}</div>
+                <div className="after-offer text-danger fs-5 viewer-blur">${p.price}</div>
               </div>
-              <div className="bar">
+              <div className="bar viewer-blur">
                 <div style={{ "width": p.stock + "%" }}></div>
               </div>
-              <p className="pt-3 text-center">{t("the available products:")} <span className="fw-bold fs-3 text-primary">{p.stock}</span></p>
+              <p className="pt-3 text-center viewer-blur">{t("the available products:")} <span className="fw-bold fs-3 text-primary">{p.stock}</span></p>
             </div>
           </div>
           ))}

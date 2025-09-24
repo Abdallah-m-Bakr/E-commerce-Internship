@@ -10,7 +10,8 @@
   padding: 15px;
   transition: all 0.3s ease;
   cursor: pointer;
-  height: 100%;
+  /* height: fit-content; */
+  min-height: 280px;
 }
 
 .cat-card:hover {

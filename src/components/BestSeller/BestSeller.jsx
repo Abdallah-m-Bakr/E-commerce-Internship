@@ -34,7 +34,7 @@ const { filteredProducts: products, loading, error } = useProducts();
             {homeProducts
               .slice(0, 4) // أول 4 منتجات للشمال
               .map((item) => (
-                <div className="col-6" key={item.id}>
+                <div className="col-6 viewer-blur" key={item.id}>
                   <div className="product-card p-3 border rounded h-100 position-relative">
                     <span className="badge bg-success position-absolute top-0 start-0 m-2">
                       {item.discountPercentage}%
@@ -50,7 +50,7 @@ const { filteredProducts: products, loading, error } = useProducts();
                         <span className="text-muted text-decoration-line-through me-2 viewer-blur">
                           ${(item.price/(1-(item.discountPercentage)/100)).toFixed(2)}
                         </span>
-                        <span className="text-danger fw-bold">
+                        <span className="text-danger fw-bold viewer-blur">
                           ${item.price.toFixed(2)}
                         </span>
                     </div>
@@ -80,7 +80,7 @@ const { filteredProducts: products, loading, error } = useProducts();
             {homeProducts
               .slice(15, 19) // 4 منتجات لليمين
               .map((item) => (
-                <div className="col-6" key={item.id}>
+                <div className="col-6 viewer-blur" key={item.id}>
                   <div className="product-card p-3 border rounded h-100 position-relative">
                     <span className="badge bg-success position-absolute top-0 start-0 m-2">
                       {item.discountPercentage}%
@@ -96,7 +96,7 @@ const { filteredProducts: products, loading, error } = useProducts();
                         <span className="text-muted text-decoration-line-through me-2 viewer-blur">
                           ${(item.price/(1-(item.discountPercentage)/100)).toFixed(2)}
                         </span>
-                        <span className="text-danger fw-bold">
+                        <span className="text-danger fw-bold viewer-blur">
                           ${item.price.toFixed(2)}
                         </span>
                     </div>
