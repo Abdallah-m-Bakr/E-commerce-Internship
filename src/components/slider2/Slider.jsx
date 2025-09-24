@@ -4,20 +4,23 @@ import { Navigation } from "swiper/modules";
 import { useProducts } from "../../context/ProductContext";
 import { useCart } from "../../context/CartContext";
 import Loader from "../../components/Loader/Loader";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "./slider2.css";
-import { useTranslation } from "react-i18next";
 
 export default function Slider() {
   const { filteredProducts: products, loading, error } = useProducts();
   const { addToCart } = useCart();
-  const { t } = useTranslation(); // 👈 كفاية نستخدم t بس
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   if (loading) return <Loader />;
   if (error) return <div className="text-danger">{error}</div>;
 
-  // نجيب منتجات كفاية عشان ما يطلعش Warning بتاع loop
+  // نجيب عدد مناسب من المنتجات عشان ما يطلعش Warning بتاع loop
   const homeProducts = products.slice(0, 20);
 
   return (
@@ -28,7 +31,7 @@ export default function Slider() {
           navigation={true}
           spaceBetween={20}
           slidesPerView={5}
-          loop={false} // 👈 يشتغل loop بس لو عندك منتجات كفاية
+          loop={false} // يمكنك تفعيلها حسب عدد المنتجات
           breakpoints={{
             1200: { slidesPerView: 5 },
             992: { slidesPerView: 4 },
@@ -39,7 +42,11 @@ export default function Slider() {
         >
           {homeProducts.map((cat) => (
             <SwiperSlide key={cat.id}>
-              <div className="cat-card card">
+              <div
+                className="cat-card card"
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate(`/product/${cat.id}`)}
+              >
                 <div className="img-wrap">
                   <img
                     src={Array.isArray(cat.images) ? cat.images[0] : cat.images}
@@ -63,7 +70,10 @@ export default function Slider() {
                     type="button"
                     id="btn"
                     className="btn btn-warning"
-                    onClick={() => addToCart(cat)}
+                    onClick={(e) => {
+                      e.stopPropagation(); // عشان الزر ما ينقلش لصفحة التفاصيل
+                      addToCart(cat);
+                    }}
                   >
                     {t("Add to cart")}
                   </button>

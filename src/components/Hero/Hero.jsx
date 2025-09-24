@@ -5,8 +5,10 @@ import { useEffect } from "react";
 import { useProducts } from "../../context/ProductContext";
 import Loader from "../../components/Loader/Loader";
 import Timer from "../Timer/Timer";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   useEffect(() => {
     // i18n.changeLanguage('ar');
@@ -56,19 +58,24 @@ function Hero() {
       {/* offer down section */}
       <div className="offer-down">
         <div className="timer d-flex flex-column flex-md-row justify-content-center align-items-center text-center gap-4 my-4 flex-wrap">
-  <div className="text-section" style={{ maxWidth: "500px" }}>
-    <h4 className="text-primary">{t("special offers of the week!")}</h4>
-    <p>{t("Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!")}</p>
-  </div>
-  <Timer />
-</div>
-
+          <div className="text-section" style={{ maxWidth: "500px" }}>
+            <h4 className="text-primary">{t("special offers of the week!")}</h4>
+            <p>
+              {t(
+                "Enjoy our special offers of the week! Get amazing discounts on the latest clothes and accessories. Don’t miss out, shop now!"
+              )}
+            </p>
+          </div>
+          <Timer />
+        </div>
 
         <div className="offer-cards border border-danger border-2 rounded row row-col-12">
           {homeProducts.slice(0, 5).map((p) => (
             <div
               key={p.id}
               className="offer-card col-md-6 col-lg-4 col-xl border border-1 viewer-to-left"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate(`/product/${p.id}`)}
             >
               <div className="top-card position-relative">
                 <img
