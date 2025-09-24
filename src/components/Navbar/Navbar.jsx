@@ -1,68 +1,88 @@
-// src/components/Navbar/Navbar.jsx
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
-import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
-import "../../i18n.jsx";
+import { useProducts } from "../../context/ProductContext"; 
+import { useCart } from "../../context/CartContext";
 
 function Navbar() {
-  // 🟢 كاونتر الكارت
-  const { cart } = useCart();
-  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
-
-  // active link
-  const activeStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "#49BFAA" : "",
-      backgroundColor: isActive ? "#F0FAFF" : "",
-    };
-  };
-
-  // تغيير اللغة و الاتجاه
-  const { t, i18n } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    const savedLanguage = localStorage.getItem("selectedLanguage");
-    return savedLanguage || "English";
+  // 🟢 Active link style
+  const activeStyle = ({ isActive }) => ({
+    color: isActive ? "#49BFAA" : "",
+    backgroundColor: isActive ? "#F0FAFF" : "",
   });
+
+  // 🟢 Language
+  const { t, i18n } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("selectedLanguage") || "English"
+  );
 
   const handleLanguageChange = (event) => {
     const language = event.target.value;
     setSelectedLanguage(language);
-    try {
-      if (language === "English") {
-        i18n.changeLanguage("en");
-        document.body.dir = "ltr";
-      } else if (language === "Arabic") {
-        i18n.changeLanguage("ar");
-        document.body.dir = "rtl";
-      }
-      localStorage.setItem("selectedLanguage", language);
-      console.log("Current language:", i18n.language); // للتصحيح
-    } catch (error) {
-      console.error("Error changing language:", error); // التقاط الأخطاء
+    if (language === "English") {
+      i18n.changeLanguage("en");
+      document.body.dir = "ltr";
+    } else if (language === "Arabic") {
+      i18n.changeLanguage("ar");
+      document.body.dir = "rtl";
     }
+    localStorage.setItem("selectedLanguage", language);
   };
 
-  // تهيئة اللغة عند تحميل الصفحة
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("selectedLanguage");
-    if (savedLanguage) {
-      setSelectedLanguage(savedLanguage);
-      if (savedLanguage === "English") {
-        i18n.changeLanguage("en");
-        document.body.dir = "ltr";
-      } else if (savedLanguage === "Arabic") {
-        i18n.changeLanguage("ar");
-        document.body.dir = "rtl";
-      }
+    if (selectedLanguage === "English") {
+      i18n.changeLanguage("en");
+      document.body.dir = "ltr";
+    } else {
+      i18n.changeLanguage("ar");
+      document.body.dir = "rtl";
     }
-  }, [i18n]);
+  }, [i18n, selectedLanguage]);
+
+  // 🟢 Auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", "false");
+    setIsLoggedIn(false);
+  };
+
+  // 🟢 Search
+  const { setFilters } = useProducts();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, search: searchTerm }));
+    if (searchTerm.length > 0) {
+      navigate("/shop");
+    }
+  }, [searchTerm, setFilters, navigate]);
+
+  // 🟢 Cart
+  const { cart } = useCart();
+  const cartCount = cart.reduce((acc, item) => acc + item.qty, 0);
+  const cartTotal = cart
+    .reduce((acc, item) => acc + item.price * item.qty, 0)
+    .toFixed(2);
 
   return (
-    <header>
+    <>
       <div>
+        {/* 🟢 Top notice */}
         <div className="dueto">
           <p className="duetotext text-light">
             {t(
@@ -71,16 +91,33 @@ function Navbar() {
           </p>
         </div>
 
-        {/* 1st navbar */}
-        <div className="container-md d-flex pt-2 first-navbar">
+        {/* 🟢 First navbar */}
+        <div className="container d-flex pt-2 first-navbar">
           <div>
-            <ul className="d-flex justify-content-center navul-1">
-              <li>
-                <NavLink to="/about">{t("About Us")}</NavLink>
-              </li>
+            <ul className="d-flex justify-content-evenly navul-1">
+              {!isLoggedIn && (
+                <>
+                  <li>
+                    <NavLink id="login" to="/login">
+                      {t("LOGIN")}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink id="register" to="/register">
+                      {t("REGISTER")}
+                    </NavLink>
+                  </li>
+                </>
+              )}
+              {isLoggedIn && (
+                <li>
+                  <NavLink id="logout" to="/" onClick={handleLogout}>
+                    {t("LOGOUT")}
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
-
           <div className="d-flex text-for-navbar">
             <div className="secure-delivery d-flex text-muted">
               <i className="fa-solid fa-user-shield pt-1"></i>
@@ -90,11 +127,10 @@ function Navbar() {
               <div className="line-vertical pt-3 "></div>
               <p className="text-muted">
                 {t("Need help? call us:")}
-                <b className="number">+00200 500</b>
+                <b className="number">{t("+00200 500")}</b>
               </p>
               <div className="line-vertical pt-3 "></div>
             </div>
-
             <div className="selection">
               <select
                 className="select"
@@ -111,20 +147,31 @@ function Navbar() {
 
         <hr className="horizontail-line pt-1" />
 
-        <div className="header d-flex justify-content-between container">
-          <img className="img" src={logo} alt="logo" width={200} height={80} />
+        {/* 🟢 Logo + Search + Cart */}
+        <div className="header d-flex justify-content-between container ">
+          <img
+            className="img"
+            src={logo}
+            alt="logo"
+            width={200}
+            height={80}
+          />
 
-          <div className="input-text border-0 rounded d-flex justify-content-between">
+          {/* Search */}
+          <div className="text-decoration-none input-text border-0 rounded d-flex justify-content-between">
             <input
               className="search border-0"
               type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={t(
-                "Search for products, fruit, meet, eggs, etc..."
+                "Search for products, fashion, clothes, accessories, etc..."
               )}
             />
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
 
+          {/* User + Cart */}
           <div className="user-price-cart d-flex justify-content-evenly">
             <div className="user">
               <NavLink to="/profile">
@@ -132,20 +179,18 @@ function Navbar() {
               </NavLink>
             </div>
             <div className="price">
-              <p>$0.00</p>
+              <p>${cartTotal}</p>
             </div>
-            <div className="cart position-relative">
+            <div className="cart">
               <NavLink to="/cart">
                 <i className="fa-solid fa-bucket"></i>
               </NavLink>
-              {cartCount > 0 && (
-                <span className="number-cart">{cartCount}</span>
-              )}
+              <span className="number-cart">{cartCount}</span>
             </div>
           </div>
         </div>
 
-        {/* 2nd navbar */}
+        {/* 🟢 Second navbar */}
         <div className="navbar2 container">
           <ul className="d-flex justify-content-evenly navul">
             <li>
@@ -169,20 +214,15 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink style={activeStyle} to="/login">
-                {t("LOGIN")}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink style={activeStyle} to="/register">
-                {t("REGISTER")}
+              <NavLink style={activeStyle} to="/about">
+                {t("About Us")}
               </NavLink>
             </li>
           </ul>
         </div>
       </div>
       <hr className="horizontail-line pt-1" />
-    </header>
+    </>
   );
 }
 

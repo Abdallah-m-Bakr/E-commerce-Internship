@@ -121,7 +121,6 @@ body {
 
     display: flex;
     text-align: center;
-    background-color: red;
 }
 .offer-card .top-card img{
     min-height: inherit;
@@ -155,7 +154,6 @@ body {
     margin: 15px 0;
 }
 .offer-card .body-card .bar div{
-    width: var(--width-bar);
     background-color: var(--active-color);
     height: 100%;
     border-radius: 15px;
@@ -166,4 +164,3 @@ body {
 .bg-img-blue-public{
     background-image: url(../../assets/images/bg1.jpeg);
 }
-/* animation */

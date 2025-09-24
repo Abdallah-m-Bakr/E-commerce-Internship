@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ProductProvider>
       <CartProvider>   {/* ✅ لف CartProvider حوالين App */}
-        <App />
+          <App />
       </CartProvider>
     </ProductProvider>
   </StrictMode>,

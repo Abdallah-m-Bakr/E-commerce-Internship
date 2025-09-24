@@ -164,7 +164,7 @@ function Shop() {
             <img
               src={shop1}
               alt="photo"
-              className="card-img-top "
+              className="card-img-top"
               style={{
                 height: "300px",
                 objectFit: "cover",
