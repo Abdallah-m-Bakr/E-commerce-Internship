@@ -4,10 +4,10 @@ import "./Footer.css";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 function Footer() {
-  const {t,i18n}=useTranslation();
+  const { t, i18n } = useTranslation();
   useEffect(() => {
-    // i18n.changeLanguage('ar'); 
-  },[i18n])
+    // i18n.changeLanguage('ar');
+  }, [i18n]);
   return (
     <footer className="pt-5 border-top">
       <div className="container">
@@ -34,69 +34,68 @@ function Footer() {
         {/* Links */}
         <div className="row text-start">
           <div className="col-md-2 col-6 mb-4">
-            <h6>FRUIT & VEGETABLES</h6>
+            <h6>{t("FOOTWEAR")}</h6>
             <ul className="list-unstyled">
-              <li>Fresh Vegetables</li>
-              <li>Herbs & Seasonings</li>
-              <li>Fresh Fruits</li>
-              <li>Cuts & Sprouts</li>
-              <li>Exotic Fruits & Veggies</li>
-              <li>Packaged Produce</li>
-              <li>Party Trays</li>
+              <li>{t("Casual Shoes")}</li>
+              <li>{t("Sneakers")}</li>
+              <li>{t("Loafers")}</li>
+              <li>{t("Sandals")}</li>
+              <li>{t("Boots")}</li>
+              <li>{t("Slippers")}</li>
+              <li>{t("Running Shoes")}</li>
+              <li>{t("Dress Shoes")}</li>
             </ul>
           </div>
           <div className="col-md-2 col-6 mb-4">
-            <h6>BREAKFAST & DAIRY</h6>
+            <h6>{t("CLOTHING")}</h6>
             <ul className="list-unstyled">
-              <li>Milk & Flavoured Milk</li>
-              <li>Butter and Margarine</li>
-              <li>Cheese</li>
-              <li>Eggs Substitutes</li>
-              <li>Honey</li>
-              <li>Marmalades</li>
-              <li>Sour Cream and Dips</li>
-              <li>Yogurt</li>
+              <li>{t("CLOTHING")}</li>
+              <li>{t("Winter Coats")}</li>
+              <li>{t("Summer Dresses")}</li>
+              <li>{t("Formal Suits")}</li>
+              <li>{t("Jeans")}</li>
+              <li>{t("Skirts")}</li>
+              <li>{t("Activewear")}</li>
+              <li>{t("Swimwear")}</li>
             </ul>
           </div>
           <div className="col-md-2 col-6 mb-4">
-            <h6>MEAT & SEAFOOD</h6>
+            <h6>{t("ACCESSORIES")}</h6>
             <ul className="list-unstyled">
-              <li>Breakfast Sausage</li>
-              <li>Dinner Sausage</li>
-              <li>Beef</li>
-              <li>Chicken</li>
-              <li>Sliced Deli Meat</li>
-              <li>Shrimp</li>
-              <li>Wild Caught Fillets</li>
-              <li>Crab and Shellfish</li>
-              <li>Farm Raised Fillets</li>
+              <li>{t("BEVERA")}</li>
+              <li>{t("Sunglasses")}</li>
+              <li>{t("Watches")}</li>
+              <li>{t("Belts")}</li>
+              <li>{t("Hats")}</li>
+              <li>{t("Scarves")}</li>
+              <li>{t("Gloves")}</li>
+              <li>{t("Ties")}</li>
             </ul>
           </div>
           <div className="col-md-2 col-6 mb-4">
-            <h6>BEVERAGES</h6>
+            <h6>{t("TOPS & OUTERWEAR")}</h6>
             <ul className="list-unstyled">
-              <li>Water</li>
-              <li>Sparkling Water</li>
-              <li>Soda & Pop</li>
-              <li>Coffee</li>
-              <li>Milk & Plant-Based Milk</li>
-              <li>Tea & Kombucha</li>
-              <li>Drink Boxes & Pouches</li>
-              <li>Craft Beer</li>
-              <li>Wine</li>
+              <li>{t("T-Shirts & Polos")}</li>
+              <li>{t("Blazers & Jackets")}</li>
+              <li>{t("Hoodies")}</li>
+              <li>{t("Sweatshirts")}</li>
+              <li>{t("Tank Tops")}</li>
+              <li>{t("Graphic Tees")}</li>
+              <li>{t("Casual Shirts")}</li>
+              <li>{t("Polo Shirts")}</li>
             </ul>
           </div>
           <div className="col-md-2 col-6 mb-4">
-            <h6>BREADS & BAKERY</h6>
+            <h6>{t("JEWELRY")}</h6>
             <ul className="list-unstyled">
-              <li>Milk & Flavoured Milk</li>
-              <li>Butter and Margarine</li>
-              <li>Cheese</li>
-              <li>Eggs Substitutes</li>
-              <li>Honey</li>
-              <li>Marmalades</li>
-              <li>Sour Cream and Dips</li>
-              <li>Yogurt</li>
+              <li>{t("JEWELRY")}</li>
+              <li>{t("Necklaces")}</li>
+              <li>{t("Earrings")}</li>
+              <li>{t("Bracelets")}</li>
+              <li>{t("Rings")}</li>
+              <li>{t("Anklets")}</li>
+              <li>{t("Brooches")}</li>
+              <li>{t("Cufflinks")}</li>
             </ul>
           </div>
         </div>
@@ -116,12 +115,10 @@ function Footer() {
               height="36"
               className="me-2"
             />
-            <img
-              src={app_store}
-              alt="App Store"
-              height="36"
-            />
-            <div className="small">{t("15% discount on your first purchase")}</div>
+            <img src={app_store} alt="App Store" height="36" />
+            <div className="small">
+              {t("15% discount on your first purchase")}
+            </div>
           </div>
           <div className="col-md-4 text-center text-md-end mb-3 icons-footer">
             <a href="#" className="me-3 icon-social-media">

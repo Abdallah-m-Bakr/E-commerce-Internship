@@ -160,11 +160,55 @@
     "Get in Touch":"ابقَ على اتصال",
     "If you’d like to join our journey or have any suggestions, feel free to visit us at 10 Nile Street, Cairo, or call us at +20 123 456 7890, or email us at info@fashionhub.com. Additional Notes: We continuously improve our services based on your feedback. Follow us on social media for the latest news and offers!":"إذا كنت ترغب في الانضمام إلى رحلتنا أو لديك أي اقتراحات، لا تتردد في زيارتنا في 10 شارع النيل، القاهرة، أو الاتصال بنا على +20 123 456 7890، أو مراسلتنا على info@fashionhub.com.ملاحظات إضافية: نعمل باستمرار على تحسين خدماتنا بناءً على آرائكم. تابعونا على وسائل التواصل الاجتماعي للحصول على آخر الأخبار والعروض!",
     "Delete My Account":"حذف حسابي",
-    "LOGOUT":"تسجيل خروج"
+    "LOGOUT":"تسجيل خروج",
+    "FOOTWEAR":"أحذية",
+    "Casual Shoes":"أحذية-كاجوال",
+    "Sneakers":"سنيكرز",
+    "Loafers":"لوفرز",
+    "Sandals":"صنادل",
+    "Boots":"احذية برقبة",
+    "Slippers":"نعال",
+    "Running Shoes":"أحذية-ركض",
+    "Dress Shoes":"أحذية-رسمية",
+    "CLOTHING":" ملابس",
+    "Winter Coats":"معاطف-شتوية",
+    "Summer Dresses":"فساتين-صيفية",
+    "Formal Suits":"بدلات-رسمية",
+    "Jeans":"جينز",
+    "Skirts":"تنانير",
+    "Activewear":"ملابس-رياضية",
+    "Swimwear":"ملابس-سباحة",
 
+    "ACCESSORIES":"اكسسوارات",
+    "BEVERA":" بيفرا",
+    "Sunglasses":"نظارات-شمس",
+    "Watches":"ساعات",
+    "Belts":"أحزمة",
+    "Hats":"قبعات",
+    "Scarves":"وشاحات",
+    "Gloves":"قفازات",
+    "Ties":"ربطات-عنق",
+    "JEWELRY":"مجوهرات",
+    "Necklaces":"قلادات",
+    "Earrings":"أقراط",
+    "Bracelets":"أساور",
+    "Rings":"خواتم",
+    "Anklets":"تساريح",
+    "Brooches":"بروشات",
+    "Cufflinks":"أكمام-أزرار",
+    "TOPS & OUTERWEAR":" قمصان-ومعاطف",
+    "Polo Shirts":"قمصان-بولو",
+    "T-Shirts & Polos":"تي-شيرتات-و-بولو",
+    "Blazers & Jackets":"بليزر-وجواكيت",
+    "Hoodies":"هوديز",
+    "Sweatshirts":"سويت-شيرتات",
+    "Tank Tops":"تانك-توبس",
+    "Graphic Tees":"تي-شيرتات-جرافيك",
+    "Casual Shirts":"قمصان-كاجوال"
+   
 
-    
-
-    
-    
+             
+             
+             
+            
 }
