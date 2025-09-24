@@ -4,9 +4,6 @@ import { useEffect } from "react";
 
 function Contact() {
   const {t, i18n} = useTranslation();
-  // useEffect(() => {
-  //   // i18n.changeLanguage("ar")
-  // }, [i18n])
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [i18n]);

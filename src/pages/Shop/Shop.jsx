@@ -4,14 +4,14 @@ import Shopbutton from "../../assets/images/Shopbutton.png";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useProducts } from "../../context/ProductContext";
-import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
+import { useCart } from "../../context/CartContext"; //  استدعاء الكارت
 import Loader from "./../../components/Loader/Loader";
-import { Link } from "react-router-dom"; // 🆕 إضافة Link
+import { Link } from "react-router-dom"; //  إضافة Link
 
 function Shop() {
   const { t } = useTranslation();
   const { filteredProducts: products, loading, error } = useProducts();
-  const { addToCart } = useCart(); // 🟢 استخدام الكارت
+  const { addToCart } = useCart(); //  استخدام الكارت
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -350,7 +350,7 @@ function Shop() {
                       </div>
                     </div>
 
-                    {/* 🟢 Add to Cart + Show Details */}
+                    {/*  Add to Cart + Show Details */}
                     <div className="d-flex flex-column gap-2 mt-auto">
                       <button
                         className="btn main-button"

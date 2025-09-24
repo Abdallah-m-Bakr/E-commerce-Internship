@@ -1,6 +1,6 @@
 import "./Checkout.css";
 import { useTranslation } from "react-i18next";
-import { useCart } from "../../context/CartContext"; // 🟢 ربط بالكارت
+import { useCart } from "../../context/CartContext"; // ربط بالكارت
 import { useEffect } from "react";
 
 const Checkout = () => {
@@ -11,7 +11,7 @@ const Checkout = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  // 🟢 إجمالي السعر
+  // إجمالي السعر
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
   const shipping = 0; // مجاني
   const total = subtotal + shipping;
@@ -124,7 +124,7 @@ const Checkout = () => {
         {/* ====== Right Side - Order Summary ====== */}
         <div className="col-md-5">
           <div className="order-summary ps-md-5">
-            {/* 🟢 المنتجات من الكارت */}
+            {/* المنتجات من الكارت */}
             {cart.length === 0 ? (
               <p className="text-muted">{t("Your cart is empty")}</p>
             ) : (

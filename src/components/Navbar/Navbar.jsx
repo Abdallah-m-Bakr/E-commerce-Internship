@@ -7,13 +7,13 @@ import { useProducts } from "../../context/ProductContext";
 import { useCart } from "../../context/CartContext";
 
 function Navbar() {
-  // 🟢 Active link style
+  //  Active link style
   const activeStyle = ({ isActive }) => ({
     color: isActive ? "#49BFAA" : "",
     backgroundColor: isActive ? "#F0FAFF" : "",
   });
 
-  // 🟢 Language
+  //  Language
   const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("selectedLanguage") || "English"
@@ -42,7 +42,7 @@ function Navbar() {
     }
   }, [i18n, selectedLanguage]);
 
-  // 🟢 Auth state
+  //  Auth state
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
@@ -60,7 +60,7 @@ function Navbar() {
     setIsLoggedIn(false);
   };
 
-  // 🟢 Search
+  //  Search
   const { setFilters } = useProducts();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
@@ -72,7 +72,7 @@ function Navbar() {
     }
   }, [searchTerm, setFilters, navigate]);
 
-  // 🟢 Cart
+  //  Cart
   const { cart } = useCart();
   const cartCount = cart.reduce((acc, item) => acc + item.qty, 0);
   const cartTotal = cart
@@ -82,7 +82,7 @@ function Navbar() {
   return (
     <header>
       <div>
-        {/* 🟢 Top notice */}
+        {/*  Top notice */}
         <div className="dueto">
           <p className="duetotext text-light">
             {t(
@@ -91,7 +91,7 @@ function Navbar() {
           </p>
         </div>
 
-        {/* 🟢 First navbar */}
+        {/*  First navbar */}
         <div className="container d-flex pt-2 first-navbar">
           <div>
             <ul className="d-flex justify-content-evenly navul-1">
@@ -147,7 +147,7 @@ function Navbar() {
 
         <hr className="horizontail-line pt-1" />
 
-        {/* 🟢 Logo + Search + Cart */}
+        {/*  Logo + Search + Cart */}
         <div className="header d-flex justify-content-between container ">
           <img
             className="img"
@@ -190,7 +190,7 @@ function Navbar() {
           </div>
         </div>
 
-        {/* 🟢 Second navbar */}
+        {/*  Second navbar */}
         <div className="navbar2 container">
           <ul className="d-flex justify-content-evenly navul">
             <li>
