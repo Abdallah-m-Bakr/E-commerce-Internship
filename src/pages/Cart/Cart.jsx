@@ -7,23 +7,26 @@ import { useNavigate } from "react-router-dom";
 export default function Cart() {
   const { t } = useTranslation();
   const { cart, removeFromCart, updateQty, clearCart } = useCart();
-   const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const handleCheckout = () => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  if (isLoggedIn === "true") {
-    navigate("/checkout");
-  } else {
-    if (window.confirm(t("You need to login to proceed. Do you want to login now?"))) {
-      navigate("/login");
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true") {
+      navigate("/checkout");
+    } else {
+      if (
+        window.confirm(
+          t("You need to login to proceed. Do you want to login now?")
+        )
+      ) {
+        navigate("/login");
+      }
     }
-  }
-};
-
+  };
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
@@ -33,10 +36,7 @@ export default function Cart() {
         {t("Shopping Cart")}
         {/* 🟢 زرار تفريغ الكارت */}
         {cart.length > 0 && (
-          <button
-            className="btn btn-sm btn-outline-danger"
-            onClick={clearCart}
-          >
+          <button className="btn btn-sm btn-outline-danger" onClick={clearCart}>
             <i className="fas fa-trash me-1"></i> {t("Clear Cart")}
           </button>
         )}
@@ -127,10 +127,12 @@ export default function Cart() {
                 <span>${(subtotal + 5).toFixed(2)}</span>
               </div>
 
-              <button className="btn main-button w-100 mt-3" onClick={handleCheckout}>
-  {t("Proceed to Checkout")}
-</button>
-
+              <button
+                className="btn main-button w-100 mt-3"
+                onClick={handleCheckout}
+              >
+                {t("Proceed to Checkout")}
+              </button>
             </div>
           </div>
         </div>

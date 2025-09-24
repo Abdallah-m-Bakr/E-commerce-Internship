@@ -33,7 +33,7 @@ const BestSeller = () => {
             {homeProducts
               .slice(0, 4)
               .map((item) => (
-                <div className="col-6" key={item.id}>
+                <div className="col-6 viewer-blur" key={item.id}>
                   <div
                     className="product-card p-3 border rounded h-100 position-relative"
                     style={{ cursor: "pointer" }}  // ✅
@@ -97,7 +97,7 @@ const BestSeller = () => {
               .slice(15, 19)
               .map((item) => (
 
-                <div className="col-6" key={item.id}>
+                <div className="col-6 viewer-blur" key={item.id}>
                   <div
                     className="product-card p-3 border rounded h-100 position-relative"
                     style={{ cursor: "pointer" }}  // ✅
