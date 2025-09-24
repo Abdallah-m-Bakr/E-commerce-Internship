@@ -12,9 +12,14 @@ import { useEffect } from "react"
 function Blog() {
 
   const {t,i18n}=useTranslation();
+
   useEffect(() => {
-    // i18n.changeLanguage('ar'); 
-  },[i18n])
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [i18n]);
+  
+  // useEffect(() => {
+  //   // i18n.changeLanguage('ar'); 
+  // },[i18n])
 
 
   return (

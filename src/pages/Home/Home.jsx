@@ -4,9 +4,13 @@ import Slider from "../../components/Slider/Slider"
 import Slider2 from "../../components/Slider2/Slider"
 import Hero from "../../components/Hero/Hero"
 import HomeBlog from "../../components/HomeBlog/HomeBlog"
-
+import { useEffect } from "react"
 
 function Home() {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
 
