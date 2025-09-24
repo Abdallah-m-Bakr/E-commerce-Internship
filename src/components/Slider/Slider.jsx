@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { useNavigate } from "react-router-dom"; // ✅ استخدم useNavigate للتنقل
+import { useNavigate } from "react-router-dom"; //  استخدم useNavigate للتنقل
 import { useProducts } from "../../context/ProductContext";
 import Loader from "../../components/Loader/Loader";
 
@@ -10,7 +10,7 @@ import "./Slider.css";
 
 export default function Slider() {
   const { filteredProducts: products, loading, error } = useProducts();
-  const navigate = useNavigate(); // ✅ Hook للتنقل عند الضغط
+  const navigate = useNavigate(); //  Hook للتنقل عند الضغط
 
   if (loading) return <Loader />;
   if (error) return <div className="text-danger">{error}</div>;
@@ -40,7 +40,7 @@ export default function Slider() {
                 className="cat-card text-center"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ يطلع فوق
+                  window.scrollTo({ top: 0, behavior: "smooth" }); //  يطلع فوق
                   navigate(`/product/${cat.id}`);
                 }}
               >

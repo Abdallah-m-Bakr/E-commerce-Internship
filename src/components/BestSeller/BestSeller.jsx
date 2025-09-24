@@ -1,5 +1,5 @@
 import "./BestSeller.css";
-import bannerBg from "../../assets/images/download.jpeg"; // 👈 صورة الخلفية للبنر
+import bannerBg from "../../assets/images/bestSeller.jpg"; 
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useProducts } from "../../context/ProductContext";

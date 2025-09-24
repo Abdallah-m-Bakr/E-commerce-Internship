@@ -6,10 +6,6 @@ function About() {
     useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [i18n]);
-
-  // useEffect(() => {
-  //   // i18n.changeLanguage("ar")
-  // }, [i18n]);
   return (
     <div className="about-container">
       <div className="img-heder"><img src="../src/assets/images/IMG_٢٠٢٥٠٩١٩_١٥٠٩٣٩.png" alt="" /></div>

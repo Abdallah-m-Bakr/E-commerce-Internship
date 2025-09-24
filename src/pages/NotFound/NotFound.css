@@ -1,11 +1,3 @@
-/* :root {
-  --main-color: #49BFAA;
-  --hover-color: #00cc88;
-  --active-color: #009966;
-  --disabled-color: #b2e5d6;
-  --text-color: #6c757d;
-} */
-
 .page-404 h1 {
   color: var(--main-color);
   font-weight: 700;

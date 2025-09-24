@@ -4,7 +4,6 @@ import { useEffect } from "react";
 function Newsletter() {
   const { t, i18n } = useTranslation();
     useEffect(() => {
-    // i18n.changeLanguage('ar'); 
   },[i18n])
   return (
     <section className="newsletter container-fluid">
