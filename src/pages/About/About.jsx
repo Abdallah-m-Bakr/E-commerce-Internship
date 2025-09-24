@@ -3,9 +3,13 @@ import { useTranslation } from "react-i18next"
 import { useEffect } from "react"
 function About() {
    const { t, i18n } = useTranslation();
-  useEffect(() => {
-    // i18n.changeLanguage("ar")
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [i18n]);
+
+  // useEffect(() => {
+  //   // i18n.changeLanguage("ar")
+  // }, [i18n]);
   return (
     <div className="about-container">
       <div className="img-heder"><img src="../src/assets/images/IMG_٢٠٢٥٠٩١٩_١٥٠٩٣٩.png" alt="" /></div>

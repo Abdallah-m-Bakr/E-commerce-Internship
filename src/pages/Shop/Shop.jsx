@@ -13,6 +13,10 @@ function Shop() {
   const { filteredProducts: products, loading, error } = useProducts();
   const { addToCart } = useCart(); // 🟢 استخدام الكارت
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;

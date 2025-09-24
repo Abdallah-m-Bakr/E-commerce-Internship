@@ -54,7 +54,7 @@ function Newsletter() {
               <div className="sub">{t("CAMPAIGN")}</div>
               <div className="perforation" />
               <div className="row mt-2">
-                <div className="col-6 text-start text-muted small">{t("Code")}</div>
+                <div className="col-6 text-start text-muted small"></div>
                 <div className="col-6 text-end fw-bold small">{t("#SAVE50")}</div>
               </div>
               <div className="row mt-1">

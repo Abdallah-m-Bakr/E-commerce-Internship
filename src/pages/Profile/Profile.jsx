@@ -11,6 +11,7 @@ export default function Profile() {
     // i18n.changeLanguage("ar");
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn !== "true") navigate("/login");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [i18n, navigate]);
 
   const user = JSON.parse(localStorage.getItem("currentUser")) || {

@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
+import { useEffect } from "react";
 
 export default function Cart() {
   const { t } = useTranslation();
   const { cart, removeFromCart, updateQty, clearCart } = useCart(); // 🟢 استدعاء clearCart
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
