@@ -13,7 +13,7 @@ body {
     width: 40%;
 }
 .hero .slid{
-    background-image: url(../../assets/images/bg-hero.jpeg);
+    background-image: url(../../assets/images/hero.png);
     background-size: cover;
     background-position: 80%;
 
