@@ -204,7 +204,7 @@ ul a{
 
 @media (max-width: 567px) {
     .duetotext{
-    font-size: 10px;
+    font-size: 9px;
     padding-top: 10px;
 }
     .first-navbar{
@@ -212,8 +212,7 @@ ul a{
         align-items: center;
     }
     .text-for-navbar{
-    
-    font-size: 11px;
+    font-size: 10px;
 }
     .img{
         width: 100px;

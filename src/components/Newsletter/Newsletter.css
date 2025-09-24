@@ -107,6 +107,50 @@
   }
 }
 
+@media (max-width: 576px) {
+.newsletter {
+padding: 1.5rem 0.5rem;
+}
+.newsletter-content-discount {
+font-size: 1rem;
+}
+.newsletter-subtitle {
+font-size: 1.1rem;
+margin-left: 20px;
+}
+.newsletter-description {
+font-size: 0.8rem;
+}
+.ticket {
+width: 100%;
+padding: 0.8rem;
+}
+.ticket .percent {
+font-size: 1.8rem;
+}
+.bg-icons {
+grid-template-columns: repeat(2, 1fr);
+gap: 0.5rem;
+}
+.bg-icons .icon {
+font-size: 1rem;
+}
+}
+@media (max-width: 400px) {
+.newsletter {
+padding: 1rem 0.3rem;
+}
+.ticket {
+padding: 0.5rem;
+}
+.ticket .percent {
+font-size: 1.5rem;
+}
+.bg-icons {
+display: none;
+}
+}
+
 @media (max-width: 480px) {
   .bg-icons {
     gap: .5rem;
