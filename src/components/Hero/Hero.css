@@ -159,13 +159,29 @@ body {
 }
 .bg-img-blue-public{
     background-image: url(../../assets/images/bg1.jpeg);
-<<<<<<< HEAD
 }
-/* animation */
-
 
 /* responsive design */
+@media (max-width: 768px) {
+    
 
-=======
 }
->>>>>>> 72a3f05d18419729ad0f9291072d2852d5a65172
+@media (max-width: 576px){
+.cont-slid h2{
+        font-size: 20px;
+    }
+    .tag-line span{
+        font-size: 13px;
+        margin-right: 100px;
+    }
+    .tag-line .btn{
+        font-size: 9px;
+        margin-right:100px;
+    
+    }
+    .tag-line{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
