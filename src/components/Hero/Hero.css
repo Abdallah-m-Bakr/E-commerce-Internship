@@ -112,6 +112,9 @@ body {
     animation-timeline: view();  
     animation-range: entry 0 cover 20%;
 }
+.offer-cards{
+    overflow: hidden;
+}
 .offer-card{
     max-width: 270px;
 }

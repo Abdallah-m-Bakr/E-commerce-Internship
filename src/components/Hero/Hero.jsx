@@ -86,13 +86,13 @@ const { filteredProducts: products, loading, error } = useProducts();
       </div>
       <div className="row row-cols-12 my-4 d-flex gap-5">
         <div className="col-12 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public" style={{backgroundSize:"cover" ,backgroundPosition:"0 75%"}}>
-          <p className="viewer-blur fs-3">{t("cave products")}</p>
-          <p className="viewer-blur" style={{color:"var(--text-color)"}}>{t("text")}</p>
+          <p className="viewer-blur fs-3">{t("High-quality products")}</p>
+          <p className="viewer-blur" style={{color:"var(--text-color)"}}>{t("Meat, fish, eggs and all foods")}</p>
           <Link to="/shop" className="btn btn-info px-3 rounded-5 viewer-blur">{t("shop now")}</Link>
         </div>
         <div className="col-12 col-lg rounded p-5 viewer-to-left bg-img-blue-public" style={{backgroundSize:"cover" ,backgroundPosition:"0 75%"}}>
-          <p className="viewer-blur fs-3">{t("cave products")}</p>
-          <p className="viewer-blur" style={{color:"var(--text-color)"}}>{t("text")}</p>
+          <p className="viewer-blur fs-3">{t("High-quality products")}</p>
+          <p className="viewer-blur" style={{color:"var(--text-color)"}}>{t("Pharaonic style jewelry")}</p>
           <Link to="/shop" className="btn btn-danger px-3 rounded-5 viewer-blur">{t("shop now")}</Link>
         </div>
       </div>
