@@ -64,118 +64,215 @@ function Shop() {
       <div className="cont-shop row">
         {/* Sidebar */}
         <div className="check-inputs col-12 col-md-3 p-2">
-          {/* Categories */}
-          <div className="cont-input mb-4">
-            <h5 className="mb-3">{t("Product Categories")}</h5>
-            <div className="row">
-              {categories.map((cat) => (
-                <div key={cat} className="form-check col-6 mb-2">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    checked={selectedCategory.includes(cat)}
-                    onChange={(e) =>
-                      setSelectedCategory((prev) =>
-                        e.target.checked
-                          ? [...prev, cat]
-                          : prev.filter((c) => c !== cat)
-                      )
-                    }
-                  />
-                  <label className="form-check-label">{cat}</label>
+          <div className="accordion" id="filtersAccordion">
+            {/* Categories */}
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingCategories">
+                <button
+                  className="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseCategories"
+                  aria-expanded="true"
+                  aria-controls="collapseCategories"
+                >
+                  {t("Product Categories")}
+                </button>
+              </h2>
+              <div
+                id="collapseCategories"
+                className="accordion-collapse collapse show"
+                aria-labelledby="headingCategories"
+                data-bs-parent="#filtersAccordion"
+              >
+                <div className="accordion-body">
+                  <div className="row">
+                    {categories.map((cat) => (
+                      <div key={cat} className="form-check col-6 mb-2">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          checked={selectedCategory.includes(cat)}
+                          onChange={(e) =>
+                            setSelectedCategory((prev) =>
+                              e.target.checked
+                                ? [...prev, cat]
+                                : prev.filter((c) => c !== cat)
+                            )
+                          }
+                          id={`cat-${cat}`}
+                        />
+                        <label className="form-check-label" htmlFor={`cat-${cat}`}>
+                          {cat}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
 
-          {/* Brands */}
-          <div className="cont-input mb-4">
-            <h5 className="mb-3">{t("Brands")}</h5>
-            <div className="row">
-              {brands.map((brand) => (
-                <div key={brand} className="form-check col-6 mb-2">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    checked={selectedBrands.includes(brand)}
-                    onChange={(e) =>
-                      setSelectedBrands((prev) =>
-                        e.target.checked
-                          ? [...prev, brand]
-                          : prev.filter((b) => b !== brand)
-                      )
-                    }
-                  />
-                  <label className="form-check-label">{brand}</label>
+            {/* Brands */}
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingBrands">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseBrands"
+                  aria-expanded="false"
+                  aria-controls="collapseBrands"
+                >
+                  {t("Brands")}
+                </button>
+              </h2>
+              <div
+                id="collapseBrands"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingBrands"
+                data-bs-parent="#filtersAccordion"
+              >
+                <div className="accordion-body">
+                  <div className="row">
+                    {brands.map((brand) => (
+                      <div key={brand} className="form-check col-6 mb-2">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          checked={selectedBrands.includes(brand)}
+                          onChange={(e) =>
+                            setSelectedBrands((prev) =>
+                              e.target.checked
+                                ? [...prev, brand]
+                                : prev.filter((b) => b !== brand)
+                            )
+                          }
+                          id={`brand-${brand}`}
+                        />
+                        <label className="form-check-label" htmlFor={`brand-${brand}`}>
+                          {brand}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
 
-          {/* Price */}
-          <div className="cont-input mb-4">
-            <h5 className="mb-3">{t("Price Range")}</h5>
-            <input
-              type="range"
-              min="0"
-              max="1000"
-              value={priceRange[1]}
-              className="form-range"
-              onChange={(e) => setPriceRange([0, Number(e.target.value)])}
-            />
-            <div className="d-flex justify-content-between">
-              <span>${priceRange[0]}</span>
-              <span>${priceRange[1]}</span>
+            {/* Price Range */}
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingPrice">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapsePrice"
+                  aria-expanded="false"
+                  aria-controls="collapsePrice"
+                >
+                  {t("Price Range")}
+                </button>
+              </h2>
+              <div
+                id="collapsePrice"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingPrice"
+                data-bs-parent="#filtersAccordion"
+              >
+                <div className="accordion-body">
+                  <input
+                    type="range"
+                    min="0"
+                    max="1000"
+                    value={priceRange[1]}
+                    className="form-range"
+                    onChange={(e) => setPriceRange([0, Number(e.target.value)])}
+                  />
+                  <div className="d-flex justify-content-between">
+                    <span>${priceRange[0]}</span>
+                    <span>${priceRange[1]}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Stock Filter */}
-          <div className="cont-input mb-4">
-            <h5 className="mb-3">{t("Availability")}</h5>
-            <div className="form-check mb-2">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="stock"
-                checked={inStock === null}
-                onChange={() => setInStock(null)}
-              />
-              <label className="form-check-label">{t("All")}</label>
+            {/* Availability */}
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingAvailability">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseAvailability"
+                  aria-expanded="false"
+                  aria-controls="collapseAvailability"
+                >
+                  {t("Availability")}
+                </button>
+              </h2>
+              <div
+                id="collapseAvailability"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingAvailability"
+                data-bs-parent="#filtersAccordion"
+              >
+                <div className="accordion-body">
+                  <div className="form-check mb-2">
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      name="stock"
+                      checked={inStock === null}
+                      onChange={() => setInStock(null)}
+                      id="stock-all"
+                    />
+                    <label className="form-check-label" htmlFor="stock-all">
+                      {t("All")}
+                    </label>
+                  </div>
+                  <div className="form-check mb-2">
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      name="stock"
+                      checked={inStock === true}
+                      onChange={() => setInStock(true)}
+                      id="stock-in"
+                    />
+                    <label className="form-check-label" htmlFor="stock-in">
+                      {t("In Stock")}
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      type="radio"
+                      className="form-check-input"
+                      name="stock"
+                      checked={inStock === false}
+                      onChange={() => setInStock(false)}
+                      id="stock-out"
+                    />
+                    <label className="form-check-label" htmlFor="stock-out">
+                      {t("Out of Stock")}
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="form-check mb-2">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="stock"
-                checked={inStock === true}
-                onChange={() => setInStock(true)}
-              />
-              <label className="form-check-label">{t("In Stock")}</label>
-            </div>
-            <div className="form-check">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="stock"
-                checked={inStock === false}
-                onChange={() => setInStock(false)}
-              />
-              <label className="form-check-label">{t("Out of Stock")}</label>
-            </div>
-          </div>
 
-          {/* Ad image */}
-          <div className="photo-ad mt-4">
-            <img
-              src={shop1}
-              alt="photo"
-              className="card-img-top"
-              style={{
-                height: "300px",
-                objectFit: "cover",
-                borderRadius: "10px",
-              }}
-            />
+            {/* Ad image */}
+            <div className="photo-ad mt-4">
+              <img
+                src={shop1}
+                alt="photo"
+                className="card-img-top"
+                style={{
+                  height: "300px",
+                  objectFit: "cover",
+                  borderRadius: "10px",
+                }}
+              />
+            </div>
           </div>
         </div>
 
