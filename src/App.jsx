@@ -20,13 +20,8 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 // Layouts
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
-// import { useEffect } from "react";
 
 function App() {
-  //   const { t, i18n } = useTranslation();
-  //  useEffect(() => {
-  //     i18n.changeLanguage('ar'); // لتغيير اللغة إلى العربية
-  //  } )
   return (
     <Router>
       <Routes>

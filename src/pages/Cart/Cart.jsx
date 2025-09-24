@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useCart } from "../../context/CartContext"; // 🟢 استدعاء الكارت
+import { useCart } from "../../context/CartContext"; // استدعاء الكارت
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +34,7 @@ export default function Cart() {
     <div className="container my-5">
       <h3 className="mb-4 d-flex justify-content-between align-items-center">
         {t("Shopping Cart")}
-        {/* 🟢 زرار تفريغ الكارت */}
+        {/* زرار تفريغ الكارت */}
         {cart.length > 0 && (
           <button className="btn btn-sm btn-outline-danger" onClick={clearCart}>
             <i className="fas fa-trash me-1"></i> {t("Clear Cart")}

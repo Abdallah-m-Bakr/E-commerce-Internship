@@ -8,7 +8,6 @@ export default function Profile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // i18n.changeLanguage("ar");
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn !== "true") navigate("/login");
     window.scrollTo({ top: 0, behavior: "smooth" });
