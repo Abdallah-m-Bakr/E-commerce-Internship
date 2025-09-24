@@ -20,7 +20,6 @@ export default function Slider() {
   if (loading) return <Loader />;
   if (error) return <div className="text-danger">{error}</div>;
 
-  // نجيب عدد مناسب من المنتجات عشان ما يطلعش Warning بتاع loop
   const homeProducts = products.slice(0, 20);
 
   return (
