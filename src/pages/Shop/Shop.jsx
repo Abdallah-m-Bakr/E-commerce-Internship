@@ -256,7 +256,7 @@ function Shop() {
                     {/* 🟢 Add to Cart + Show Details */}
                     <div className="d-flex flex-column gap-2 mt-auto">
                       <button
-                        className="btn main-color"
+                        className="btn main-button"
                         onClick={() => addToCart(product)}
                       >
                         {t("Add to Cart")}

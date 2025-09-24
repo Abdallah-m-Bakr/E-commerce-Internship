@@ -71,7 +71,7 @@ export default function Slider() {
                   <button
                     type="button"
                     id="btn"
-                    className="btn btn-warning"
+                    className="btn main-button"
                     onClick={(e) => {
                       e.stopPropagation(); // عشان الزر ما ينقلش لصفحة التفاصيل
                       addToCart(cat);
