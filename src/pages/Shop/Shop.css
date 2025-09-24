@@ -49,3 +49,11 @@
   background-color: var(--main-color);
   border-color: var(--main-color);
 }
+
+.offer {
+  background-color: var(--main-color) !important; 
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
