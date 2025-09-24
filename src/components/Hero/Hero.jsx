@@ -119,7 +119,7 @@ function Hero() {
       </div>
       <div className="row row-cols-12 my-4 d-flex gap-5">
         <div
-          className="col-12 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public"
+          className="col-11 col-lg rounded p-5 viewer-to-left d-flex flex-column align-items-end bg-img-red-public"
           style={{ backgroundSize: "cover", backgroundPosition: "0 75%" }}
         >
           <p className="viewer-blur fs-3">{t("High-quality products")}</p>
@@ -131,7 +131,7 @@ function Hero() {
           </Link>
         </div>
         <div
-          className="col-12 col-lg rounded p-5 viewer-to-left bg-img-blue-public"
+          className="col-11 col-lg rounded p-5 viewer-to-left bg-img-blue-public"
           style={{ backgroundSize: "cover", backgroundPosition: "0 75%" }}
         >
           <p className="viewer-blur fs-3">{t("High-quality products")}</p>

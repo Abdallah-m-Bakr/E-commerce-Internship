@@ -326,20 +326,20 @@ function Shop() {
                   </div>
                   <div className="card-body d-flex flex-column align-content-between p-3">
                     <div className="d-flex flex-column">
-                      <h5 className="card-text">{product.title}</h5>
-                      <div className="rate d-flex gap-2">
-                        <div className="text-warning">
+                      <h5 className="card-text viewer-blur">{product.title}</h5>
+                      <div className="rate d-flex gap-2 viewer-blur">
+                        <div className="text-warning viewer-blur">
                           {product.rating}
                           <i className="fas fa-star"></i>
                         </div>
-                        <span>{t("1 review")}</span>
+                        <span className="viewer-blur">{t("1 review")}</span>
                       </div>
                       <div className="offer-price d-flex gap-2 align-items-center">
-                        <div className="after-offer text-danger fs-5 card-text">
+                        <div className="after-offer text-danger fs-5 card-text viewer-blur">
                           ${product.price}
                         </div>
                         {product.discountPercentage && (
-                          <div className="before-offer text-muted text-decoration-line-through">
+                          <div className="before-offer text-muted text-decoration-line-through viewer-blur">
                             $
                             {(
                               product.price /
